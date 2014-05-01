@@ -4,8 +4,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import nl.dennisvdwielen.dao.ClassRoom;
 import nl.dennisvdwielen.dto.Student;
+import nl.dennisvdwielen.factory.DaoFactory;
+import nl.dennisvdwielen.inferface.IDao;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -19,10 +20,8 @@ public class HelloResources {
     @Produces("Application/json")
     @Path("/get")
     public ArrayList<Student> sayHello() {
+        IDao dao = new DaoFactory().getDAO(Student.class);
 
-        ClassRoom room = new ClassRoom();
-
-
-        return room.getStudents();
+        return dao.get(-1);
     }
 }

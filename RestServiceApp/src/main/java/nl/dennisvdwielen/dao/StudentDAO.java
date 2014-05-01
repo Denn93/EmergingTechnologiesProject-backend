@@ -1,5 +1,6 @@
 package nl.dennisvdwielen.dao;
 
+import nl.dennisvdwielen.database.MysqlDatabase;
 import nl.dennisvdwielen.dto.Student;
 import nl.dennisvdwielen.inferface.IDao;
 
@@ -29,7 +30,12 @@ public class StudentDAO implements IDao<Student>{
 
     @Override
     public ArrayList<Student> get(int id) {
-        return null;
+        addStudents();
+
+        MysqlDatabase mysqlDatabase = new MysqlDatabase();
+        mysqlDatabase.readDb();
+
+        return students;
     }
 
     @Override
