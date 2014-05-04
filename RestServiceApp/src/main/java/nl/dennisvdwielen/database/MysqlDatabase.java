@@ -20,6 +20,15 @@ public class MysqlDatabase {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost/test?"
                     + "user=root&password=");
+
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM testing");
+
+            while(resultSet.next()){
+                String city = resultSet.getString("city");
+                String name = resultSet.getString("name");
+            }
+
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found");
         } catch (SQLException e) {
@@ -28,7 +37,7 @@ public class MysqlDatabase {
             close();
         }
 
-        return null;
+        return resultSet;
     }
 
     private void close() {

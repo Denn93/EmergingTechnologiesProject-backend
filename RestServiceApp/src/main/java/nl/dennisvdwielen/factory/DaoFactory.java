@@ -16,16 +16,14 @@ public class DaoFactory {
 
         String name = className.getSimpleName();
         try{
-
-
             Object dao = Class.forName("nl.dennisvdwielen.dao." + name + "DAO").newInstance();
             result = (IDao) dao;
 
         }catch (ClassNotFoundException e) {
 
-        }catch(IllegalAccessException e) {
+        }catch (IllegalAccessException e) {
 
-        }catch(InstantiationException e) {
+        }catch (InstantiationException e) {
 
         }
 
