@@ -1,8 +1,10 @@
 package nl.dennisvdwielen.dao;
 
-import nl.dennisvdwielen.database.MysqlDatabase;
 import nl.dennisvdwielen.dto.Student;
+import nl.dennisvdwielen.factory.DatabaseFactory;
+import nl.dennisvdwielen.factory.DatabaseFactory.DatabaseType;
 import nl.dennisvdwielen.inferface.IDao;
+import nl.dennisvdwielen.inferface.IDatabaseHandler;
 
 import java.util.ArrayList;
 
@@ -32,8 +34,8 @@ public class StudentDAO implements IDao<Student>{
     public ArrayList<Student> get(int id) {
         addStudents();
 
-        MysqlDatabase mysqlDatabase = new MysqlDatabase();
-        mysqlDatabase.readDb();
+        IDatabaseHandler handler =  new DatabaseFactory().getDatabaseHandler(DatabaseType.Mysql);
+        handler.select();
 
         return students;
     }

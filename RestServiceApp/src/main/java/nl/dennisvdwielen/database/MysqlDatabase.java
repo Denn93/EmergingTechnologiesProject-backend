@@ -1,5 +1,7 @@
 package nl.dennisvdwielen.database;
 
+import nl.dennisvdwielen.inferface.IDatabaseHandler;
+
 import java.sql.*;
 
 /**
@@ -8,12 +10,64 @@ import java.sql.*;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.database
  */
-public class MysqlDatabase {
+
+public class MysqlDatabase extends IDatabaseHandler{
 
     private Connection connect = null;
     private Statement statement = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
+
+    public MysqlDatabase() {
+
+        if (!createConnection())
+            System.out.println(DATABASEHANDLER_NOCONNECIION_ERROR);
+    }
+
+    @Override
+    public boolean createConnection() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            connect = DriverManager.getConnection("jdbc:mysql://localhost/test?"
+                    + "user=root&password=");
+        } catch (ClassNotFoundException e) {
+            System.out.println(DATABASEHANDLER_NODRIVER_ERROR);
+            return false;
+        } catch (SQLException e) {
+            System.out.println(DATABASEHANDLER_NOCONNECIION_ERROR);
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public ResultSet select(String table, String where, String options) {
+        ResultSet result = null;
+
+        statement = connect.createStatement();
+        resultSet = statement.executeQuery("SELECT * FROM testing");
+
+
+
+        return result;
+    }
+
+    @Override
+    public ResultSet rawSelect(String query) {
+        return null;
+    }
+
+    @Override
+    public Integer update() {
+        return -1;
+    }
+
+    @Override
+    public Integer delete() {
+        return -1;
+    }
 
     public ResultSet readDb() {
         try {
