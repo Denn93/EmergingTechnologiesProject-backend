@@ -68,11 +68,6 @@ public class MysqlDatabase extends IDatabaseHandler {
     public ResultSet select(String table, String where, String options) {
         ResultSet result = null;
 
-        //statement = connect.createStatement();
-        //resultSet = statement.executeQuery("SELECT * FROM testing");
-
-
-
         return result;
     }
 
@@ -100,7 +95,7 @@ public class MysqlDatabase extends IDatabaseHandler {
             statement = connect.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM testing");
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 String city = resultSet.getString("city");
                 String name = resultSet.getString("name");
             }
