@@ -13,13 +13,10 @@
           <element id="library" level="project" name="Maven: com.sun.jersey:jersey-core:1.18" />
           <element id="library" level="project" name="Maven: com.sun.jersey:jersey-servlet:1.18" />
           <element id="library" level="project" name="Maven: com.owlike:genson:0.93" />
-          <element id="library" level="project" name="Maven: log4j:log4j:1.2.15" />
-          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
-          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
-          <element id="library" level="project" name="Maven: javax.jms:jms:1.1" />
-          <element id="library" level="project" name="Maven: com.sun.jdmk:jmxtools:1.2.1" />
-          <element id="library" level="project" name="Maven: com.sun.jmx:jmxri:1.2.1" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.30" />
+          <element id="library" level="project" name="Maven: org.jooq:jooq:3.3.2" />
+          <element id="library" level="project" name="Maven: org.jooq:jooq-meta:3.3.2" />
+          <element id="library" level="project" name="Maven: org.jooq:jooq-codegen:3.3.2" />
         </element>
       </element>
     </root>

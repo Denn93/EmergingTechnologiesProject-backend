@@ -1,12 +1,11 @@
 package nl.dennisvdwielen.inferface;
 
-import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
  * Created by Dennis on 4-5-2014 at 16:45)
- *
+ * <p/>
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.inferface
  */
@@ -18,7 +17,7 @@ public abstract class IDatabaseHandler {
     protected String connectionString;
     protected Statement statement;
 
-    public final ResultSet select(String table){
+    public final ResultSet select(String table) {
         return select(table, "");
     }
 
@@ -31,6 +30,8 @@ public abstract class IDatabaseHandler {
     public abstract boolean createConnection();
 
     public abstract Integer update();
+
     public abstract Integer delete();
+
     public abstract ResultSet rawSelect(String query);
 }

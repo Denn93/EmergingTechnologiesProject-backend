@@ -1,20 +1,18 @@
 package nl.dennisvdwielen.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-
 import nl.dennisvdwielen.dto.Student;
 import nl.dennisvdwielen.factory.DaoFactory;
 import nl.dennisvdwielen.inferface.IDao;
-import org.apache.log4j.Logger;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import java.util.ArrayList;
 
 @Path("/hello")
 public class HelloResources {
 
-    private static final Logger log = Logger.getLogger(HelloResources.class);
+    //private static final Logger log = Logger.getLogger(HelloResources.class);
 
     @GET
     @Produces("Application/json")

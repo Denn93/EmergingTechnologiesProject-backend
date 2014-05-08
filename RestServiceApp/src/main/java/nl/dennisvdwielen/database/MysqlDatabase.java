@@ -1,8 +1,15 @@
 package nl.dennisvdwielen.database;
 
 import nl.dennisvdwielen.inferface.IDatabaseHandler;
+import org.jooq.DSLContext;
+import org.jooq.Record;
+import org.jooq.Result;
+import org.jooq.SQLDialect;
+import org.jooq.impl.DSL;
 
 import java.sql.*;
+
+import static jooq.generated.Tables.USER;
 
 /**
  * Created by Dennis on 1-5-2014 at 22:11)
@@ -11,7 +18,7 @@ import java.sql.*;
  * This class is within package nl.dennisvdwielen.database
  */
 
-public class MysqlDatabase extends IDatabaseHandler{
+public class MysqlDatabase extends IDatabaseHandler {
 
     private Connection connect = null;
     private Statement statement = null;
@@ -27,16 +34,31 @@ public class MysqlDatabase extends IDatabaseHandler{
     @Override
     public boolean createConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-            connect = DriverManager.getConnection("jdbc:mysql://localhost/test?"
-                    + "user=root&password=");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost/backend", "root", "");
+
+            DSLContext create = DSL.using(connect, SQLDialect.MYSQL);
+            Result<Record> result = create.select().from(USER).fetch();
+
+            for (Record r : result) {
+                Integer id = r.getValue(USER.ID);
+                String firstName = r.getValue(USER.NAME);
+                String lastName = r.getValue(USER.COUNTRY);
+
+                System.out.println("ID: " + id + " first name: " + firstName + " last name: " + lastName);
+            }
+
         } catch (ClassNotFoundException e) {
             System.out.println(DATABASEHANDLER_NODRIVER_ERROR);
             return false;
         } catch (SQLException e) {
             System.out.println(DATABASEHANDLER_NOCONNECIION_ERROR);
             return false;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
 
         return true;
@@ -46,8 +68,8 @@ public class MysqlDatabase extends IDatabaseHandler{
     public ResultSet select(String table, String where, String options) {
         ResultSet result = null;
 
-        statement = connect.createStatement();
-        resultSet = statement.executeQuery("SELECT * FROM testing");
+        //statement = connect.createStatement();
+        //resultSet = statement.executeQuery("SELECT * FROM testing");
 
 
 

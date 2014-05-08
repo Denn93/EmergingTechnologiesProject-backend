@@ -35,7 +35,7 @@ public class StudentDAO implements IDao<Student>{
         addStudents();
 
         IDatabaseHandler handler =  new DatabaseFactory().getDatabaseHandler(DatabaseType.Mysql);
-        handler.select();
+        //handler.select();
 
         return students;
     }
