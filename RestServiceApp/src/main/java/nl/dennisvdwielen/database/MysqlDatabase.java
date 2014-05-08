@@ -97,7 +97,6 @@ public class MysqlDatabase extends IDatabaseHandler {
 
             while (resultSet.next()) {
                 String city = resultSet.getString("city");
-                String name = resultSet.getString("name");
             }
 
         } catch (ClassNotFoundException e) {

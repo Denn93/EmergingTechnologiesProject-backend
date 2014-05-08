@@ -7,30 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="241ecec7-390b-4adc-beb4-4fc642f6f88e" name="Default" comment="Integrated the JOOQ framework. &#10;Added test query for testing. From here the system will be improved and streamlined with actual database">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/Backend.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/Keys.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jooq_jooq_3_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jooq_jooq_codegen_3_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jooq_jooq_meta_3_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/QueryBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/Tables.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/User.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/UserRecord.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\.idea\libraries\Maven__com_sun_jdmk_jmxtools_1_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\.idea\libraries\Maven__com_sun_jmx_jmxri_1_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\.idea\libraries\Maven__javax_activation_activation_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\.idea\libraries\Maven__javax_jms_jms_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\.idea\libraries\Maven__javax_mail_mail_1_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\.idea\libraries\Maven__log4j_log4j_1_2_15.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/inferface/IDatabaseHandler.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/inferface/IDatabaseHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RestServiceApp.iml" afterPath="$PROJECT_DIR$/RestServiceApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/RestServiceApp_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/RestServiceApp_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/StudentDAO.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/StudentDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RestServiceApp.iws" />
@@ -85,11 +62,11 @@
       <file leaf-file-name="MysqlDatabase.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.02425107" vertical-offset="17" max-vertical-offset="2397">
-              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.46647647" vertical-offset="1237" max-vertical-offset="2278">
+              <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
               <folding>
-                <marker date="1399507618163" expanded="true" signature="2205:2226" placeholder="SELECT * FRO..testing..." />
-                <marker date="1399507618163" expanded="true" signature="2817:2838" placeholder="SELECT * FRO..testing..." />
+                <element signature="imports" expanded="true" />
+                <marker date="1399507905023" expanded="true" signature="2694:2715" placeholder="SELECT * FRO..testing..." />
               </folding>
             </state>
           </provider>
@@ -930,7 +907,7 @@
       <workItem from="1399205237801" duration="3910000" />
       <workItem from="1399498767604" duration="5546000" />
       <workItem from="1399505380580" duration="33000" />
-      <workItem from="1399505502287" duration="2121000" />
+      <workItem from="1399505502287" duration="2368000" />
     </task>
     <task id="LOCAL-00001" summary="Added Mysql Database Connector with dbHandler setup&#10;&#10;DAO factory added">
       <created>1398988426112</created>
@@ -944,11 +921,19 @@
       <created>1399365944140</created>
       <updated>1399365944140</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Integrated the JOOQ framework. &#10;Added test query for testing. From here the system will be improved and streamlined with actual database">
+      <created>1399507672287</created>
+      <updated>1399507672287</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Delete comment">
+      <created>1399507790019</created>
+      <updated>1399507790019</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46012000" />
+    <option name="totallyTimeSpent" value="46259000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -972,10 +957,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21948609" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21948609" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32762313" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20149253" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1024,7 +1009,8 @@
     <MESSAGE value="Working database connection with read and output through the REST webservice" />
     <MESSAGE value="Abstract DBhandler added. Overloaded select method created. &#10;Databasefactory added.&#10;" />
     <MESSAGE value="Integrated the JOOQ framework. &#10;Added test query for testing. From here the system will be improved and streamlined with actual database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrated the JOOQ framework. &#10;Added test query for testing. From here the system will be improved and streamlined with actual database" />
+    <MESSAGE value="Delete comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete comment" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1405,11 +1391,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02425107" vertical-offset="17" max-vertical-offset="2397">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.46647647" vertical-offset="1237" max-vertical-offset="2278">
+          <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
           <folding>
-            <marker date="1399507618163" expanded="true" signature="2205:2226" placeholder="SELECT * FRO..testing..." />
-            <marker date="1399507618163" expanded="true" signature="2817:2838" placeholder="SELECT * FRO..testing..." />
+            <element signature="imports" expanded="true" />
+            <marker date="1399507905023" expanded="true" signature="2694:2715" placeholder="SELECT * FRO..testing..." />
           </folding>
         </state>
       </provider>
