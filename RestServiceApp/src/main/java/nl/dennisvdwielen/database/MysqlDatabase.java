@@ -1,15 +1,10 @@
 package nl.dennisvdwielen.database;
 
 import nl.dennisvdwielen.inferface.IDatabaseHandler;
-import org.jooq.DSLContext;
-import org.jooq.Record;
-import org.jooq.Result;
-import org.jooq.SQLDialect;
-import org.jooq.impl.DSL;
 
-import java.sql.*;
-
-import static jooq.generated.Tables.USER;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Created by Dennis on 1-5-2014 at 22:11)
@@ -20,34 +15,21 @@ import static jooq.generated.Tables.USER;
 
 public class MysqlDatabase extends IDatabaseHandler {
 
-    private Connection connect = null;
-    private Statement statement = null;
-    private PreparedStatement preparedStatement = null;
-    private ResultSet resultSet = null;
+    private Connection connect;
 
     public MysqlDatabase() {
+        connect = null;
 
         if (!createConnection())
             System.out.println(DATABASEHANDLER_NOCONNECIION_ERROR);
     }
 
     @Override
-    public boolean createConnection() {
+    protected final boolean createConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
             connect = DriverManager.getConnection("jdbc:mysql://localhost/backend", "root", "");
-
-            DSLContext create = DSL.using(connect, SQLDialect.MYSQL);
-            Result<Record> result = create.select().from(USER).fetch();
-
-            for (Record r : result) {
-                Integer id = r.getValue(USER.ID);
-                String firstName = r.getValue(USER.NAME);
-                String lastName = r.getValue(USER.COUNTRY);
-
-                System.out.println("ID: " + id + " first name: " + firstName + " last name: " + lastName);
-            }
 
         } catch (ClassNotFoundException e) {
             System.out.println(DATABASEHANDLER_NODRIVER_ERROR);
@@ -56,80 +38,26 @@ public class MysqlDatabase extends IDatabaseHandler {
             System.out.println(DATABASEHANDLER_NOCONNECIION_ERROR);
             return false;
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            System.out.println(DATABASEHANDLER_DEFAULT_ERROR);
+            return false;
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            System.out.println(DATABASEHANDLER_DEFAULT_ERROR);
+            return false;
         }
 
         return true;
     }
 
     @Override
-    public ResultSet select(String table, String where, String options) {
-        ResultSet result = null;
-
-        return result;
-    }
-
-    @Override
-    public ResultSet rawSelect(String query) {
-        return null;
-    }
-
-    @Override
-    public Integer update() {
-        return -1;
-    }
-
-    @Override
-    public Integer delete() {
-        return -1;
-    }
-
-    public ResultSet readDb() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost/test?"
-                    + "user=root&password=");
-
-            statement = connect.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM testing");
-
-            while (resultSet.next()) {
-                String city = resultSet.getString("city");
-            }
-
-        } catch (ClassNotFoundException e) {
-            System.out.println("Class not found");
-        } catch (SQLException e) {
-            System.out.println("Can't connect to database");
-        } finally {
-            close();
-        }
-
-        return resultSet;
-    }
-
-    private void close() {
-        if (resultSet != null)
-            try {
-                resultSet.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-        if (statement != null)
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+    protected final boolean close() {
         if (connect != null)
             try {
                 connect.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                //TODO Error Message
+                return false;
             }
+
+        return true;
     }
 }
