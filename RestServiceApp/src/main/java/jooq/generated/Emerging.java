@@ -15,7 +15,7 @@ public class Emerging extends org.jooq.impl.SchemaImpl {
      * The singleton instance of <code>emerging</code>
      */
     public static final Emerging EMERGING = new Emerging();
-    private static final long serialVersionUID = 30573712;
+    private static final long serialVersionUID = -1027423374;
 
     /**
      * No further instances allowed
@@ -40,7 +40,7 @@ public class Emerging extends org.jooq.impl.SchemaImpl {
                 jooq.generated.tables.Handling.HANDLING,
                 jooq.generated.tables.Packagekind.PACKAGEKIND,
                 jooq.generated.tables.Packaginggroup.PACKAGINGGROUP,
-                jooq.generated.tables.Schip.SCHIP,
-                jooq.generated.tables.Schippingname.SCHIPPINGNAME);
+                jooq.generated.tables.Ship.SHIP,
+                jooq.generated.tables.Shippingname.SHIPPINGNAME);
     }
 }

@@ -48,10 +48,10 @@ public class ContainerDao extends org.jooq.impl.DAOImpl<jooq.generated.tables.re
     }
 
     /**
-     * Fetch records that have <code>schipID IN (values)</code>
+     * Fetch records that have <code>shipID IN (values)</code>
      */
-    public java.util.List<jooq.generated.tables.pojos.Container> fetchBySchipid(java.lang.Integer... values) {
-        return fetch(jooq.generated.tables.Container.CONTAINER.SCHIPID, values);
+    public java.util.List<jooq.generated.tables.pojos.Container> fetchByShipid(java.lang.Integer... values) {
+        return fetch(jooq.generated.tables.Container.CONTAINER.SHIPID, values);
     }
 
     /**

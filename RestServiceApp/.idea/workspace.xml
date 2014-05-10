@@ -6,20 +6,63 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="241ecec7-390b-4adc-beb4-4fc642f6f88e" name="Default" comment="Delete unused code">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/ConfigFactory.java" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\dao\StudentDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\database\MysqlDatabase.java" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\database\QueryBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\dto\Student.java" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\factory\DaoFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\factory\DatabaseFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\inferface\IDao.java" afterPath="" />
-      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\inferface\IDatabaseHandler.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RestServiceApp.iml" afterPath="$PROJECT_DIR$/RestServiceApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+    <list default="true" id="241ecec7-390b-4adc-beb4-4fc642f6f88e" name="Default" comment="Added resources for most of the database tables. And readAll, byId implemented&#10;&#10;Only junction tables are not implemented yet">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerLocationResource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerShippingNamesResource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Dennis.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/HandlingResource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackageKindResource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackagingGroupResource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Ship.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Ship.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ShipDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ShipRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShipResource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Shippingname.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Shippingname.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ShippingnameDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ShippingnameRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShippingnameResource.java" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\Schip.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\Schippingname.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\daos\SchipDao.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\daos\SchippingnameDao.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\pojos\Schip.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\pojos\Schippingname.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\records\SchipRecord.java" afterPath="" />
+      <change type="DELETED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\jooq\generated\tables\records\SchippingnameRecord.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Container.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Container.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Container.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Container.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerDao.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainerRecord.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainerRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Containerkinds.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Containerkinds.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Containerkinds.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Containerkinds.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainerkindsRecord.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainerkindsRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Containerlocation.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Containerlocation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Containerlocation.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Containerlocation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerlocationDao.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerlocationDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainerlocationRecord.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainerlocationRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Containershippingnames.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Containershippingnames.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Containershippingnames.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Containershippingnames.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainershippingnamesRecord.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/ContainershippingnamesRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/Emerging.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/Emerging.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Handling.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Handling.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Handling.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Handling.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/HandlingDao.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/HandlingDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/HandlingRecord.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/HandlingRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/Keys.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/Keys.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Packagekind.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Packagekind.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Packagekind.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Packagekind.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/PackagekindDao.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/PackagekindDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/PackagekindRecord.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/PackagekindRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Packaginggroup.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/Packaginggroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Packaginggroup.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Packaginggroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/PackaginggroupDao.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/PackaginggroupDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/PackaginggroupRecord.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/tables/records/PackaginggroupRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/jooq/generated/Tables.java" afterPath="$PROJECT_DIR$/src/main/java/jooq/generated/Tables.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="G:\Dropbox\Home\IdeaProjects\EmergingTechnologiesProject-backend\RestServiceApp\src\main\java\nl\dennisvdwielen\rest\HelloResources.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java" />
     </list>
     <ignored path="RestServiceApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,41 +93,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HelloResources.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java">
+      <file leaf-file-name="ContainerResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19373219" vertical-offset="0" max-vertical-offset="702">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-              <folding>
-                <element signature="e#598#599#0" expanded="true" />
-                <element signature="e#688#689#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="34" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConfigFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/ConfigFactory.java">
+      <file leaf-file-name="ContainerKindsResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerKindsResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="1394">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContainerLocationResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerLocationResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="697">
+              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContainerShippingNamesResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerShippingNamesResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+              <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HandlingResource.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/HandlingResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7" vertical-offset="0" max-vertical-offset="680">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1481#1482#0" expanded="true" />
-                <element signature="e#1550#1551#0" expanded="true" />
-                <element signature="e#1993#1994#0" expanded="true" />
-                <element signature="e#2022#2023#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContainerDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerDao.java">
+      <file leaf-file-name="PackageKindResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackageKindResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2329">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="663">
+              <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PackagingGroupResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackagingGroupResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="697">
+              <caret line="32" column="99" selection-start-line="32" selection-start-column="99" selection-end-line="32" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShippingnameResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShippingnameResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="697">
+              <caret line="32" column="96" selection-start-line="32" selection-start-column="96" selection-end-line="32" selection-end-column="96" />
+              <folding>
+                <element signature="e#650#651#0" expanded="true" />
+                <element signature="e#743#744#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShipResource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShipResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="697">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="e#610#611#0" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/main/java/nl.dennisvdwielen.rest/HelloResources" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/Person.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/Person.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/inferface/IDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ClassRoom.java" />
@@ -129,8 +230,19 @@
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/inferface/IDatabaseHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/ConfigFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/ContainerResource.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerKindsResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerLocationResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerShippingNamesResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackageKindResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackagingGroupResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShippingnameResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShipResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/HandlingResource.java" />
       </list>
     </option>
   </component>
@@ -227,8 +339,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -286,6 +396,32 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -313,7 +449,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rest" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -403,8 +539,89 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="daos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nl.dennisvdwielen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RestServiceApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nl.dennisvdwielen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,6 +653,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="nl.dennisvdwielen.resources" />
       <recent name="nl.dennisvdwielen.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -731,19 +949,6 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -770,6 +975,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -808,15 +1026,10 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment />
-      <server-settings />
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
@@ -854,10 +1067,15 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="false" name="Web" type="JavascriptDebugType" factoryName="JavaScript Debug" uri="javaeeDummy://JavaeeElement:/76f4abd3/RestServiceApp/web/Web/Facet">
@@ -911,6 +1129,7 @@
       <workItem from="1399505502287" duration="2984000" />
       <workItem from="1399573939023" duration="5965000" />
       <workItem from="1399673290145" duration="1854000" />
+      <workItem from="1399675673859" duration="3978000" />
     </task>
     <task id="LOCAL-00001" summary="Added Mysql Database Connector with dbHandler setup&#10;&#10;DAO factory added">
       <created>1398988426112</created>
@@ -944,7 +1163,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54694000" />
+    <option name="totallyTimeSpent" value="58672000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -970,15 +1189,16 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21841542" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21734476" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254818" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32334048" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20095949" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3206459" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993576" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21841542" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21734476" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -989,7 +1209,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39978677" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20235546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17110874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1913646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29978585" sideWeight="0.7729211" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -997,7 +1217,6 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32334048" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1023,7 +1242,8 @@
     <MESSAGE value="Delete comment" />
     <MESSAGE value="Delete unused code" />
     <MESSAGE value="Further implemented the jooq framework. Also auto generated the DAO and POJO classes. &#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Further implemented the jooq framework. Also auto generated the DAO and POJO classes. &#10;&#10;" />
+    <MESSAGE value="Added resources for most of the database tables. And readAll, byId implemented&#10;&#10;Only junction tables are not implemented yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added resources for most of the database tables. And readAll, byId implemented&#10;&#10;Only junction tables are not implemented yet" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1049,6 +1269,30 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="306">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/ConfigFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1326">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="2363">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
@@ -1070,14 +1314,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="578">
           <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-          <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,14 +1343,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="578">
           <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-          <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,14 +1372,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="544">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1159,14 +1394,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,13 +1447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="187">
@@ -1267,18 +1492,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9872204" vertical-offset="1397" max-vertical-offset="2023">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jooq/jooq/3.3.2/jooq-3.3.2.jar!/org/jooq/impl/DAOImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.051987767" vertical-offset="0" max-vertical-offset="1275">
           <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1298,35 +1515,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/jooq/generated/tables/pojos/Container.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2329">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.028192371" vertical-offset="459" max-vertical-offset="2023">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/ConfigFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="1394">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.33830845" vertical-offset="459" max-vertical-offset="1156">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6766169" vertical-offset="0" max-vertical-offset="603">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/ContainerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7226754" vertical-offset="1682" max-vertical-offset="2295">
+          <caret line="129" column="80" selection-start-line="129" selection-start-column="65" selection-end-line="129" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/jooq/generated/tables/daos/PackaginggroupDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79322034" vertical-offset="161" max-vertical-offset="1020">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerShippingNamesResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerLocationResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="697">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerKindsResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackageKindResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="663">
+          <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/PackagingGroupResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="697">
+          <caret line="32" column="99" selection-start-line="32" selection-start-column="99" selection-end-line="32" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShippingnameResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="697">
+          <caret line="32" column="96" selection-start-line="32" selection-start-column="96" selection-end-line="32" selection-end-column="96" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1993#1994#0" expanded="true" />
-            <element signature="e#2022#2023#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/HelloResources.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ShipResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19373219" vertical-offset="0" max-vertical-offset="702">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="697">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/HandlingResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7" vertical-offset="0" max-vertical-offset="680">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

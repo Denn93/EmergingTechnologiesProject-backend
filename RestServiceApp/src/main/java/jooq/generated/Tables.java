@@ -49,12 +49,12 @@ public class Tables {
     public static final jooq.generated.tables.Packaginggroup PACKAGINGGROUP = jooq.generated.tables.Packaginggroup.PACKAGINGGROUP;
 
     /**
-     * The table emerging.schip
+     * The table emerging.ship
      */
-    public static final jooq.generated.tables.Schip SCHIP = jooq.generated.tables.Schip.SCHIP;
+    public static final jooq.generated.tables.Ship SHIP = jooq.generated.tables.Ship.SHIP;
 
     /**
-     * The table emerging.schippingname
+     * The table emerging.shippingname
      */
-    public static final jooq.generated.tables.Schippingname SCHIPPINGNAME = jooq.generated.tables.Schippingname.SCHIPPINGNAME;
+    public static final jooq.generated.tables.Shippingname SHIPPINGNAME = jooq.generated.tables.Shippingname.SHIPPINGNAME;
 }

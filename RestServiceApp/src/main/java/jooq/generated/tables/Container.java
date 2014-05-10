@@ -15,15 +15,15 @@ public class Container extends org.jooq.impl.TableImpl<jooq.generated.tables.rec
      * The singleton instance of <code>emerging.container</code>
      */
     public static final jooq.generated.tables.Container CONTAINER = new jooq.generated.tables.Container();
-    private static final long serialVersionUID = 1481596727;
+    private static final long serialVersionUID = 1523928774;
     /**
      * The column <code>emerging.container.equipmentNumber</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ContainerRecord, java.lang.String> EQUIPMENTNUMBER = createField("equipmentNumber", org.jooq.impl.SQLDataType.VARCHAR.length(100).nullable(false), this, "");
     /**
-     * The column <code>emerging.container.schipID</code>.
+     * The column <code>emerging.container.shipID</code>.
      */
-    public final org.jooq.TableField<jooq.generated.tables.records.ContainerRecord, java.lang.Integer> SCHIPID = createField("schipID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final org.jooq.TableField<jooq.generated.tables.records.ContainerRecord, java.lang.Integer> SHIPID = createField("shipID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
     /**
      * The column <code>emerging.container.handlingID</code>.
      */

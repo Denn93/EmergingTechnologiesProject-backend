@@ -11,10 +11,10 @@ package jooq.generated.tables.pojos;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Container implements java.io.Serializable {
 
-    private static final long serialVersionUID = 602059802;
+    private static final long serialVersionUID = 294172378;
 
     private java.lang.String equipmentnumber;
-    private java.lang.Integer schipid;
+    private java.lang.Integer shipid;
     private java.lang.Integer handlingid;
     private java.lang.Integer packagingid;
     private java.lang.Long consignmentnumber;
@@ -32,7 +32,7 @@ public class Container implements java.io.Serializable {
 
     public Container(
             java.lang.String equipmentnumber,
-            java.lang.Integer schipid,
+            java.lang.Integer shipid,
             java.lang.Integer handlingid,
             java.lang.Integer packagingid,
             java.lang.Long consignmentnumber,
@@ -46,7 +46,7 @@ public class Container implements java.io.Serializable {
             java.lang.String terminal
     ) {
         this.equipmentnumber = equipmentnumber;
-        this.schipid = schipid;
+        this.shipid = shipid;
         this.handlingid = handlingid;
         this.packagingid = packagingid;
         this.consignmentnumber = consignmentnumber;
@@ -68,12 +68,12 @@ public class Container implements java.io.Serializable {
         this.equipmentnumber = equipmentnumber;
     }
 
-    public java.lang.Integer getSchipid() {
-        return this.schipid;
+    public java.lang.Integer getShipid() {
+        return this.shipid;
     }
 
-    public void setSchipid(java.lang.Integer schipid) {
-        this.schipid = schipid;
+    public void setShipid(java.lang.Integer shipid) {
+        this.shipid = shipid;
     }
 
     public java.lang.Integer getHandlingid() {

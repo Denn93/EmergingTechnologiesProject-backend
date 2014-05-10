@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.ContainerRecord> implements org.jooq.Record13<java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Long, java.lang.Integer, java.math.BigDecimal, java.math.BigDecimal, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String> {
 
-    private static final long serialVersionUID = -2102981057;
+    private static final long serialVersionUID = -1588692650;
 
     /**
      * Create a detached ContainerRecord
@@ -23,11 +23,11 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
     /**
      * Create a detached, initialised ContainerRecord
      */
-    public ContainerRecord(java.lang.String equipmentnumber, java.lang.Integer schipid, java.lang.Integer handlingid, java.lang.Integer packagingid, java.lang.Long consignmentnumber, java.lang.Integer uno, java.math.BigDecimal ino, java.math.BigDecimal flashpoint, java.lang.Integer stowageposition, java.lang.Integer quantityincontainer, java.lang.Integer weight, java.lang.String portofdischarge, java.lang.String terminal) {
+    public ContainerRecord(java.lang.String equipmentnumber, java.lang.Integer shipid, java.lang.Integer handlingid, java.lang.Integer packagingid, java.lang.Long consignmentnumber, java.lang.Integer uno, java.math.BigDecimal ino, java.math.BigDecimal flashpoint, java.lang.Integer stowageposition, java.lang.Integer quantityincontainer, java.lang.Integer weight, java.lang.String portofdischarge, java.lang.String terminal) {
         super(jooq.generated.tables.Container.CONTAINER);
 
         setValue(0, equipmentnumber);
-        setValue(1, schipid);
+        setValue(1, shipid);
         setValue(2, handlingid);
         setValue(3, packagingid);
         setValue(4, consignmentnumber);
@@ -56,16 +56,16 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
     }
 
     /**
-     * Getter for <code>emerging.container.schipID</code>.
+     * Getter for <code>emerging.container.shipID</code>.
      */
-    public java.lang.Integer getSchipid() {
+    public java.lang.Integer getShipid() {
         return (java.lang.Integer) getValue(1);
     }
 
     /**
-     * Setter for <code>emerging.container.schipID</code>.
+     * Setter for <code>emerging.container.shipID</code>.
      */
-    public void setSchipid(java.lang.Integer value) {
+    public void setShipid(java.lang.Integer value) {
         setValue(1, value);
     }
 
@@ -268,7 +268,7 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
      */
     @Override
     public org.jooq.Field<java.lang.Integer> field2() {
-        return jooq.generated.tables.Container.CONTAINER.SCHIPID;
+        return jooq.generated.tables.Container.CONTAINER.SHIPID;
     }
 
     /**
@@ -372,7 +372,7 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
      */
     @Override
     public java.lang.Integer value2() {
-        return getSchipid();
+        return getShipid();
     }
 
     /**
@@ -477,7 +477,7 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
      */
     @Override
     public ContainerRecord value2(java.lang.Integer value) {
-        setSchipid(value);
+        setShipid(value);
         return this;
     }
 
