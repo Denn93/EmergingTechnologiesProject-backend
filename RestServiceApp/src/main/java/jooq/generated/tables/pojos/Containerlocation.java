@@ -11,12 +11,12 @@ package jooq.generated.tables.pojos;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class Containerlocation implements java.io.Serializable {
 
-    private static final long serialVersionUID = 595494747;
+    private static final long serialVersionUID = 1722096453;
 
     private java.lang.Integer locationid;
     private java.lang.String equipmentnumber;
-    private java.lang.Long longtitude;
-    private java.lang.Long latitude;
+    private java.math.BigDecimal longtitude;
+    private java.math.BigDecimal latitude;
     private java.sql.Timestamp date;
 
     public Containerlocation() {
@@ -25,8 +25,8 @@ public class Containerlocation implements java.io.Serializable {
     public Containerlocation(
             java.lang.Integer locationid,
             java.lang.String equipmentnumber,
-            java.lang.Long longtitude,
-            java.lang.Long latitude,
+            java.math.BigDecimal longtitude,
+            java.math.BigDecimal latitude,
             java.sql.Timestamp date
     ) {
         this.locationid = locationid;
@@ -52,19 +52,19 @@ public class Containerlocation implements java.io.Serializable {
         this.equipmentnumber = equipmentnumber;
     }
 
-    public java.lang.Long getLongtitude() {
+    public java.math.BigDecimal getLongtitude() {
         return this.longtitude;
     }
 
-    public void setLongtitude(java.lang.Long longtitude) {
+    public void setLongtitude(java.math.BigDecimal longtitude) {
         this.longtitude = longtitude;
     }
 
-    public java.lang.Long getLatitude() {
+    public java.math.BigDecimal getLatitude() {
         return this.latitude;
     }
 
-    public void setLatitude(java.lang.Long latitude) {
+    public void setLatitude(java.math.BigDecimal latitude) {
         this.latitude = latitude;
     }
 

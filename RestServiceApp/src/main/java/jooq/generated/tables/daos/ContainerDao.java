@@ -130,14 +130,4 @@ public class ContainerDao extends org.jooq.impl.DAOImpl<jooq.generated.tables.re
     public java.util.List<jooq.generated.tables.pojos.Container> fetchByTerminal(java.lang.String... values) {
         return fetch(jooq.generated.tables.Container.CONTAINER.TERMINAL, values);
     }
-
-//
-//    public java.util.List<jooq.generated.tables.Containershippingnames> getWithShippingnames( org.jooq.Configuration config, java.lang.Integer... values,) {
-//        DSLContext create = DSL.using(config);
-//
-//        create.select().from(jooq.generated.tables.Container.CONTAINER).naturalJoin(jooq.generated.tables.Containershippingnames.CONTAINERSHIPPINGNAMES)
-//                .fetch().into
-//        return DSL.using(config
-//    }
-
 }

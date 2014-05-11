@@ -57,14 +57,14 @@ public class ContainerlocationDao extends org.jooq.impl.DAOImpl<jooq.generated.t
     /**
      * Fetch records that have <code>longtitude IN (values)</code>
      */
-    public java.util.List<jooq.generated.tables.pojos.Containerlocation> fetchByLongtitude(java.lang.Long... values) {
+    public java.util.List<jooq.generated.tables.pojos.Containerlocation> fetchByLongtitude(java.math.BigDecimal... values) {
         return fetch(jooq.generated.tables.Containerlocation.CONTAINERLOCATION.LONGTITUDE, values);
     }
 
     /**
      * Fetch records that have <code>latitude IN (values)</code>
      */
-    public java.util.List<jooq.generated.tables.pojos.Containerlocation> fetchByLatitude(java.lang.Long... values) {
+    public java.util.List<jooq.generated.tables.pojos.Containerlocation> fetchByLatitude(java.math.BigDecimal... values) {
         return fetch(jooq.generated.tables.Containerlocation.CONTAINERLOCATION.LATITUDE, values);
     }
 

@@ -4,10 +4,7 @@ import jooq.generated.tables.daos.ContainerDao;
 import jooq.generated.tables.pojos.Container;
 import nl.dennisvdwielen.factory.ConfigFactory;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.List;
 
 /**
@@ -30,7 +27,17 @@ public class ContainerResource {
     @GET
     @Produces("Application/json")
     @Path("/get/{id}")
-    public List<Container> fetchById(@PathParam("id") String id) {
-        return new ContainerDao(ConfigFactory.getInstance().getConfig()).fetchByEquipmentnumber(id);
+    public Container fetchById(@PathParam("id") String id) {
+        return new ContainerDao(ConfigFactory.getInstance().getConfig()).fetchByEquipmentnumber(id).get(0);
+    }
+
+    @PUT
+    @Consumes("Application/json")
+    @Path("/handling")
+    public Container updateHandling(Container obj) {
+        new ContainerDao(ConfigFactory.getInstance().getConfig()).update(obj);
+        return new ContainerDao(ConfigFactory.getInstance().getConfig()).fetchByEquipmentnumber(obj.getEquipmentnumber()).get(0);
+
+        //TODO change longtitude to longitude in database and generate files
     }
 }

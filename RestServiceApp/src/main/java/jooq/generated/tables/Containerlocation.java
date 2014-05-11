@@ -15,7 +15,7 @@ public class Containerlocation extends org.jooq.impl.TableImpl<jooq.generated.ta
      * The singleton instance of <code>emerging.containerlocation</code>
      */
     public static final jooq.generated.tables.Containerlocation CONTAINERLOCATION = new jooq.generated.tables.Containerlocation();
-    private static final long serialVersionUID = 1597516731;
+    private static final long serialVersionUID = -1567618182;
     /**
      * The column <code>emerging.containerlocation.locationID</code>.
      */
@@ -27,11 +27,11 @@ public class Containerlocation extends org.jooq.impl.TableImpl<jooq.generated.ta
     /**
      * The column <code>emerging.containerlocation.longtitude</code>.
      */
-    public final org.jooq.TableField<jooq.generated.tables.records.ContainerlocationRecord, java.lang.Long> LONGTITUDE = createField("longtitude", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final org.jooq.TableField<jooq.generated.tables.records.ContainerlocationRecord, java.math.BigDecimal> LONGTITUDE = createField("longtitude", org.jooq.impl.SQLDataType.DECIMAL.precision(11, 8).nullable(false), this, "");
     /**
      * The column <code>emerging.containerlocation.latitude</code>.
      */
-    public final org.jooq.TableField<jooq.generated.tables.records.ContainerlocationRecord, java.lang.Long> LATITUDE = createField("latitude", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final org.jooq.TableField<jooq.generated.tables.records.ContainerlocationRecord, java.math.BigDecimal> LATITUDE = createField("latitude", org.jooq.impl.SQLDataType.DECIMAL.precision(10, 8).nullable(false), this, "");
     /**
      * The column <code>emerging.containerlocation.date</code>.
      */
