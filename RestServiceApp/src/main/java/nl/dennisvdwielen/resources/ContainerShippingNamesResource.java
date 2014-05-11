@@ -8,5 +8,19 @@ package nl.dennisvdwielen.resources;
  */
 public class ContainerShippingNamesResource {
 
-    //TODO implement the use of Junction Tables
+    //TODO Fix joined Tables
+//
+//    @GET
+//    @Produces("Application/json")
+//    @Path("/get")
+//    public List<Containershippingnames> fetch() {
+//        return new ContainerDao(ConfigFactory.getInstance().getConfig()).findAll();
+//    }
+//
+//    @GET
+//    @Produces("Application/json")
+//    @Path("/get/{id}")
+//    public List<Containershippingnames> fetchById(@PathParam("id") String id) {
+//        return new ContainerDao(ConfigFactory.getInstance().getConfig()).fetchByEquipmentnumber(id);
+//    }
 }

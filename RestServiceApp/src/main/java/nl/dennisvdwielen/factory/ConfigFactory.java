@@ -17,6 +17,7 @@ import java.sql.SQLException;
 public class ConfigFactory {
 
     private static ConfigFactory instance;
+    private static long creationTime;
     private final String MysqlConnectionString = "jdbc:mysql://localhost/";
     private String connectionString = MysqlConnectionString;
     private Configuration config = null;
@@ -33,6 +34,7 @@ public class ConfigFactory {
             Connection connect = DriverManager.getConnection(getConnectionString(), databaseUser, databasePass);
             config = DSL.using(connect, defaultDatabase).configuration();
 
+            creationTime = System.currentTimeMillis();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -45,7 +47,8 @@ public class ConfigFactory {
     }
 
     public static ConfigFactory getInstance() {
-        if (instance == null)
+
+        if (instance == null || (System.currentTimeMillis() - creationTime) > (1000 * 60))
             instance = new ConfigFactory();
 
         return instance;
