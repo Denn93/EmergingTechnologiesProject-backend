@@ -22,7 +22,7 @@ public class ConfigFactory {
     private String connectionString = MysqlConnectionString;
     private Configuration config = null;
     private SQLDialect defaultDatabase = SQLDialect.MYSQL;
-    private String databaseName = "emerging";
+    private String databaseName = "sinlimites";
     private String databaseUser = "root";
     private String databasePass = "";
 
