@@ -12,28 +12,28 @@ package jooq.generated.tables;
 public class Packagekind extends org.jooq.impl.TableImpl<jooq.generated.tables.records.PackagekindRecord> {
 
     /**
-     * The singleton instance of <code>emerging.packagekind</code>
+     * The singleton instance of <code>sinlimites.packagekind</code>
      */
     public static final jooq.generated.tables.Packagekind PACKAGEKIND = new jooq.generated.tables.Packagekind();
-    private static final long serialVersionUID = 27853451;
+    private static final long serialVersionUID = -1749174998;
     /**
-     * The column <code>emerging.packagekind.kindID</code>.
+     * The column <code>sinlimites.packagekind.kindID</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.PackagekindRecord, java.lang.Integer> KINDID = createField("kindID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
     /**
-     * The column <code>emerging.packagekind.kindName</code>.
+     * The column <code>sinlimites.packagekind.kindName</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.PackagekindRecord, java.lang.String> KINDNAME = createField("kindName", org.jooq.impl.SQLDataType.VARCHAR.length(45).nullable(false), this, "");
 
     /**
-     * Create a <code>emerging.packagekind</code> table reference
+     * Create a <code>sinlimites.packagekind</code> table reference
      */
     public Packagekind() {
         this("packagekind", null);
     }
 
     /**
-     * Create an aliased <code>emerging.packagekind</code> table reference
+     * Create an aliased <code>sinlimites.packagekind</code> table reference
      */
     public Packagekind(java.lang.String alias) {
         this(alias, jooq.generated.tables.Packagekind.PACKAGEKIND);
@@ -44,7 +44,7 @@ public class Packagekind extends org.jooq.impl.TableImpl<jooq.generated.tables.r
     }
 
     private Packagekind(java.lang.String alias, org.jooq.Table<jooq.generated.tables.records.PackagekindRecord> aliased, org.jooq.Field<?>[] parameters) {
-        super(alias, jooq.generated.Emerging.EMERGING, aliased, parameters, "");
+        super(alias, jooq.generated.Sinlimites.SINLIMITES, aliased, parameters, "");
     }
 
     /**

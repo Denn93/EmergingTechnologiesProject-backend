@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class PackaginggroupRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.PackaginggroupRecord> implements org.jooq.Record2<java.lang.Integer, java.lang.String> {
 
-    private static final long serialVersionUID = -1592209026;
+    private static final long serialVersionUID = 1057479260;
 
     /**
      * Create a detached PackaginggroupRecord
@@ -31,14 +31,14 @@ public class PackaginggroupRecord extends org.jooq.impl.UpdatableRecordImpl<jooq
     }
 
     /**
-     * Getter for <code>emerging.packaginggroup.packagingID</code>.
+     * Getter for <code>sinlimites.packaginggroup.packagingID</code>.
      */
     public java.lang.Integer getPackagingid() {
         return (java.lang.Integer) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.packaginggroup.packagingID</code>.
+     * Setter for <code>sinlimites.packaginggroup.packagingID</code>.
      */
     public void setPackagingid(java.lang.Integer value) {
         setValue(0, value);
@@ -49,7 +49,7 @@ public class PackaginggroupRecord extends org.jooq.impl.UpdatableRecordImpl<jooq
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.packaginggroup.packagingName</code>.
+     * Getter for <code>sinlimites.packaginggroup.packagingName</code>.
      */
     public java.lang.String getPackagingname() {
         return (java.lang.String) getValue(1);
@@ -60,7 +60,7 @@ public class PackaginggroupRecord extends org.jooq.impl.UpdatableRecordImpl<jooq
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.packaginggroup.packagingName</code>.
+     * Setter for <code>sinlimites.packaginggroup.packagingName</code>.
      */
     public void setPackagingname(java.lang.String value) {
         setValue(1, value);

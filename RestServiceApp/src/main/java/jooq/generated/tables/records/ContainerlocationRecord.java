@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class ContainerlocationRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.ContainerlocationRecord> implements org.jooq.Record5<java.lang.Integer, java.lang.String, java.math.BigDecimal, java.math.BigDecimal, java.sql.Timestamp> {
 
-    private static final long serialVersionUID = 558126064;
+    private static final long serialVersionUID = -521530160;
 
     /**
      * Create a detached ContainerlocationRecord
@@ -34,56 +34,56 @@ public class ContainerlocationRecord extends org.jooq.impl.UpdatableRecordImpl<j
     }
 
     /**
-     * Getter for <code>emerging.containerlocation.locationID</code>.
+     * Getter for <code>sinlimites.containerlocation.locationID</code>.
      */
     public java.lang.Integer getLocationid() {
         return (java.lang.Integer) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.containerlocation.locationID</code>.
+     * Setter for <code>sinlimites.containerlocation.locationID</code>.
      */
     public void setLocationid(java.lang.Integer value) {
         setValue(0, value);
     }
 
     /**
-     * Getter for <code>emerging.containerlocation.equipmentNumber</code>.
+     * Getter for <code>sinlimites.containerlocation.equipmentNumber</code>.
      */
     public java.lang.String getEquipmentnumber() {
         return (java.lang.String) getValue(1);
     }
 
     /**
-     * Setter for <code>emerging.containerlocation.equipmentNumber</code>.
+     * Setter for <code>sinlimites.containerlocation.equipmentNumber</code>.
      */
     public void setEquipmentnumber(java.lang.String value) {
         setValue(1, value);
     }
 
     /**
-     * Getter for <code>emerging.containerlocation.longitude</code>.
+     * Getter for <code>sinlimites.containerlocation.longitude</code>.
      */
     public java.math.BigDecimal getLongitude() {
         return (java.math.BigDecimal) getValue(2);
     }
 
     /**
-     * Setter for <code>emerging.containerlocation.longitude</code>.
+     * Setter for <code>sinlimites.containerlocation.longitude</code>.
      */
     public void setLongitude(java.math.BigDecimal value) {
         setValue(2, value);
     }
 
     /**
-     * Getter for <code>emerging.containerlocation.latitude</code>.
+     * Getter for <code>sinlimites.containerlocation.latitude</code>.
      */
     public java.math.BigDecimal getLatitude() {
         return (java.math.BigDecimal) getValue(3);
     }
 
     /**
-     * Setter for <code>emerging.containerlocation.latitude</code>.
+     * Setter for <code>sinlimites.containerlocation.latitude</code>.
      */
     public void setLatitude(java.math.BigDecimal value) {
         setValue(3, value);
@@ -94,7 +94,7 @@ public class ContainerlocationRecord extends org.jooq.impl.UpdatableRecordImpl<j
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.containerlocation.date</code>.
+     * Getter for <code>sinlimites.containerlocation.date</code>.
      */
     public java.sql.Timestamp getDate() {
         return (java.sql.Timestamp) getValue(4);
@@ -105,7 +105,7 @@ public class ContainerlocationRecord extends org.jooq.impl.UpdatableRecordImpl<j
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.containerlocation.date</code>.
+     * Setter for <code>sinlimites.containerlocation.date</code>.
      */
     public void setDate(java.sql.Timestamp value) {
         setValue(4, value);

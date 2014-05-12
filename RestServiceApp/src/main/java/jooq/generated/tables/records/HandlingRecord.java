@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class HandlingRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.HandlingRecord> implements org.jooq.Record2<java.lang.Integer, java.lang.String> {
 
-    private static final long serialVersionUID = -131253965;
+    private static final long serialVersionUID = -1182043247;
 
     /**
      * Create a detached HandlingRecord
@@ -31,14 +31,14 @@ public class HandlingRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gener
     }
 
     /**
-     * Getter for <code>emerging.handling.handlingID</code>.
+     * Getter for <code>sinlimites.handling.handlingID</code>.
      */
     public java.lang.Integer getHandlingid() {
         return (java.lang.Integer) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.handling.handlingID</code>.
+     * Setter for <code>sinlimites.handling.handlingID</code>.
      */
     public void setHandlingid(java.lang.Integer value) {
         setValue(0, value);
@@ -49,7 +49,7 @@ public class HandlingRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gener
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.handling.handlingName</code>.
+     * Getter for <code>sinlimites.handling.handlingName</code>.
      */
     public java.lang.String getHandlingname() {
         return (java.lang.String) getValue(1);
@@ -60,7 +60,7 @@ public class HandlingRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gener
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.handling.handlingName</code>.
+     * Setter for <code>sinlimites.handling.handlingName</code>.
      */
     public void setHandlingname(java.lang.String value) {
         setValue(1, value);

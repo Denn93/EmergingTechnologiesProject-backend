@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.ContainerRecord> implements org.jooq.Record13<java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Long, java.lang.Integer, java.math.BigDecimal, java.math.BigDecimal, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String> {
 
-    private static final long serialVersionUID = -1588692650;
+    private static final long serialVersionUID = 1412680468;
 
     /**
      * Create a detached ContainerRecord
@@ -42,168 +42,168 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
     }
 
     /**
-     * Getter for <code>emerging.container.equipmentNumber</code>.
+     * Getter for <code>sinlimites.container.equipmentNumber</code>.
      */
     public java.lang.String getEquipmentnumber() {
         return (java.lang.String) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.container.equipmentNumber</code>.
+     * Setter for <code>sinlimites.container.equipmentNumber</code>.
      */
     public void setEquipmentnumber(java.lang.String value) {
         setValue(0, value);
     }
 
     /**
-     * Getter for <code>emerging.container.shipID</code>.
+     * Getter for <code>sinlimites.container.shipID</code>.
      */
     public java.lang.Integer getShipid() {
         return (java.lang.Integer) getValue(1);
     }
 
     /**
-     * Setter for <code>emerging.container.shipID</code>.
+     * Setter for <code>sinlimites.container.shipID</code>.
      */
     public void setShipid(java.lang.Integer value) {
         setValue(1, value);
     }
 
     /**
-     * Getter for <code>emerging.container.handlingID</code>.
+     * Getter for <code>sinlimites.container.handlingID</code>.
      */
     public java.lang.Integer getHandlingid() {
         return (java.lang.Integer) getValue(2);
     }
 
     /**
-     * Setter for <code>emerging.container.handlingID</code>.
+     * Setter for <code>sinlimites.container.handlingID</code>.
      */
     public void setHandlingid(java.lang.Integer value) {
         setValue(2, value);
     }
 
     /**
-     * Getter for <code>emerging.container.packagingID</code>.
+     * Getter for <code>sinlimites.container.packagingID</code>.
      */
     public java.lang.Integer getPackagingid() {
         return (java.lang.Integer) getValue(3);
     }
 
     /**
-     * Setter for <code>emerging.container.packagingID</code>.
+     * Setter for <code>sinlimites.container.packagingID</code>.
      */
     public void setPackagingid(java.lang.Integer value) {
         setValue(3, value);
     }
 
     /**
-     * Getter for <code>emerging.container.consignmentNumber</code>.
+     * Getter for <code>sinlimites.container.consignmentNumber</code>.
      */
     public java.lang.Long getConsignmentnumber() {
         return (java.lang.Long) getValue(4);
     }
 
     /**
-     * Setter for <code>emerging.container.consignmentNumber</code>.
+     * Setter for <code>sinlimites.container.consignmentNumber</code>.
      */
     public void setConsignmentnumber(java.lang.Long value) {
         setValue(4, value);
     }
 
     /**
-     * Getter for <code>emerging.container.UNO</code>.
+     * Getter for <code>sinlimites.container.UNO</code>.
      */
     public java.lang.Integer getUno() {
         return (java.lang.Integer) getValue(5);
     }
 
     /**
-     * Setter for <code>emerging.container.UNO</code>.
+     * Setter for <code>sinlimites.container.UNO</code>.
      */
     public void setUno(java.lang.Integer value) {
         setValue(5, value);
     }
 
     /**
-     * Getter for <code>emerging.container.INO</code>.
+     * Getter for <code>sinlimites.container.INO</code>.
      */
     public java.math.BigDecimal getIno() {
         return (java.math.BigDecimal) getValue(6);
     }
 
     /**
-     * Setter for <code>emerging.container.INO</code>.
+     * Setter for <code>sinlimites.container.INO</code>.
      */
     public void setIno(java.math.BigDecimal value) {
         setValue(6, value);
     }
 
     /**
-     * Getter for <code>emerging.container.flashpoint</code>.
+     * Getter for <code>sinlimites.container.flashpoint</code>.
      */
     public java.math.BigDecimal getFlashpoint() {
         return (java.math.BigDecimal) getValue(7);
     }
 
     /**
-     * Setter for <code>emerging.container.flashpoint</code>.
+     * Setter for <code>sinlimites.container.flashpoint</code>.
      */
     public void setFlashpoint(java.math.BigDecimal value) {
         setValue(7, value);
     }
 
     /**
-     * Getter for <code>emerging.container.stowagePosition</code>.
+     * Getter for <code>sinlimites.container.stowagePosition</code>.
      */
     public java.lang.Integer getStowageposition() {
         return (java.lang.Integer) getValue(8);
     }
 
     /**
-     * Setter for <code>emerging.container.stowagePosition</code>.
+     * Setter for <code>sinlimites.container.stowagePosition</code>.
      */
     public void setStowageposition(java.lang.Integer value) {
         setValue(8, value);
     }
 
     /**
-     * Getter for <code>emerging.container.quantityInContainer</code>.
+     * Getter for <code>sinlimites.container.quantityInContainer</code>.
      */
     public java.lang.Integer getQuantityincontainer() {
         return (java.lang.Integer) getValue(9);
     }
 
     /**
-     * Setter for <code>emerging.container.quantityInContainer</code>.
+     * Setter for <code>sinlimites.container.quantityInContainer</code>.
      */
     public void setQuantityincontainer(java.lang.Integer value) {
         setValue(9, value);
     }
 
     /**
-     * Getter for <code>emerging.container.weight</code>.
+     * Getter for <code>sinlimites.container.weight</code>.
      */
     public java.lang.Integer getWeight() {
         return (java.lang.Integer) getValue(10);
     }
 
     /**
-     * Setter for <code>emerging.container.weight</code>.
+     * Setter for <code>sinlimites.container.weight</code>.
      */
     public void setWeight(java.lang.Integer value) {
         setValue(10, value);
     }
 
     /**
-     * Getter for <code>emerging.container.portOfDischarge</code>.
+     * Getter for <code>sinlimites.container.portOfDischarge</code>.
      */
     public java.lang.String getPortofdischarge() {
         return (java.lang.String) getValue(11);
     }
 
     /**
-     * Setter for <code>emerging.container.portOfDischarge</code>.
+     * Setter for <code>sinlimites.container.portOfDischarge</code>.
      */
     public void setPortofdischarge(java.lang.String value) {
         setValue(11, value);
@@ -214,7 +214,7 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.container.terminal</code>.
+     * Getter for <code>sinlimites.container.terminal</code>.
      */
     public java.lang.String getTerminal() {
         return (java.lang.String) getValue(12);
@@ -225,7 +225,7 @@ public class ContainerRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.gene
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.container.terminal</code>.
+     * Setter for <code>sinlimites.container.terminal</code>.
      */
     public void setTerminal(java.lang.String value) {
         setValue(12, value);

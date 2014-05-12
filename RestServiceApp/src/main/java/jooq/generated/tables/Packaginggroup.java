@@ -12,28 +12,28 @@ package jooq.generated.tables;
 public class Packaginggroup extends org.jooq.impl.TableImpl<jooq.generated.tables.records.PackaginggroupRecord> {
 
     /**
-     * The singleton instance of <code>emerging.packaginggroup</code>
+     * The singleton instance of <code>sinlimites.packaginggroup</code>
      */
     public static final jooq.generated.tables.Packaginggroup PACKAGINGGROUP = new jooq.generated.tables.Packaginggroup();
-    private static final long serialVersionUID = -1511778049;
+    private static final long serialVersionUID = -1908740966;
     /**
-     * The column <code>emerging.packaginggroup.packagingID</code>.
+     * The column <code>sinlimites.packaginggroup.packagingID</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.PackaginggroupRecord, java.lang.Integer> PACKAGINGID = createField("packagingID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
     /**
-     * The column <code>emerging.packaginggroup.packagingName</code>.
+     * The column <code>sinlimites.packaginggroup.packagingName</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.PackaginggroupRecord, java.lang.String> PACKAGINGNAME = createField("packagingName", org.jooq.impl.SQLDataType.VARCHAR.length(45).nullable(false), this, "");
 
     /**
-     * Create a <code>emerging.packaginggroup</code> table reference
+     * Create a <code>sinlimites.packaginggroup</code> table reference
      */
     public Packaginggroup() {
         this("packaginggroup", null);
     }
 
     /**
-     * Create an aliased <code>emerging.packaginggroup</code> table reference
+     * Create an aliased <code>sinlimites.packaginggroup</code> table reference
      */
     public Packaginggroup(java.lang.String alias) {
         this(alias, jooq.generated.tables.Packaginggroup.PACKAGINGGROUP);
@@ -44,7 +44,7 @@ public class Packaginggroup extends org.jooq.impl.TableImpl<jooq.generated.table
     }
 
     private Packaginggroup(java.lang.String alias, org.jooq.Table<jooq.generated.tables.records.PackaginggroupRecord> aliased, org.jooq.Field<?>[] parameters) {
-        super(alias, jooq.generated.Emerging.EMERGING, aliased, parameters, "");
+        super(alias, jooq.generated.Sinlimites.SINLIMITES, aliased, parameters, "");
     }
 
     /**

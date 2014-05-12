@@ -12,28 +12,28 @@ package jooq.generated.tables;
 public class Containerkinds extends org.jooq.impl.TableImpl<jooq.generated.tables.records.ContainerkindsRecord> {
 
     /**
-     * The singleton instance of <code>emerging.containerkinds</code>
+     * The singleton instance of <code>sinlimites.containerkinds</code>
      */
     public static final jooq.generated.tables.Containerkinds CONTAINERKINDS = new jooq.generated.tables.Containerkinds();
-    private static final long serialVersionUID = -666928047;
+    private static final long serialVersionUID = 1820630772;
     /**
-     * The column <code>emerging.containerkinds.equipmentNumber</code>.
+     * The column <code>sinlimites.containerkinds.equipmentNumber</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ContainerkindsRecord, java.lang.String> EQUIPMENTNUMBER = createField("equipmentNumber", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
     /**
-     * The column <code>emerging.containerkinds.kindID</code>.
+     * The column <code>sinlimites.containerkinds.kindID</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ContainerkindsRecord, java.lang.Integer> KINDID = createField("kindID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * Create a <code>emerging.containerkinds</code> table reference
+     * Create a <code>sinlimites.containerkinds</code> table reference
      */
     public Containerkinds() {
         this("containerkinds", null);
     }
 
     /**
-     * Create an aliased <code>emerging.containerkinds</code> table reference
+     * Create an aliased <code>sinlimites.containerkinds</code> table reference
      */
     public Containerkinds(java.lang.String alias) {
         this(alias, jooq.generated.tables.Containerkinds.CONTAINERKINDS);
@@ -44,7 +44,7 @@ public class Containerkinds extends org.jooq.impl.TableImpl<jooq.generated.table
     }
 
     private Containerkinds(java.lang.String alias, org.jooq.Table<jooq.generated.tables.records.ContainerkindsRecord> aliased, org.jooq.Field<?>[] parameters) {
-        super(alias, jooq.generated.Emerging.EMERGING, aliased, parameters, "");
+        super(alias, jooq.generated.Sinlimites.SINLIMITES, aliased, parameters, "");
     }
 
     /**

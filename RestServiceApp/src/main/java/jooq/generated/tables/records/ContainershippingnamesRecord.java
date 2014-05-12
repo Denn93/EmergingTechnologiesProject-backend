@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class ContainershippingnamesRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.ContainershippingnamesRecord> implements org.jooq.Record2<java.lang.String, java.lang.Integer> {
 
-    private static final long serialVersionUID = 2143539834;
+    private static final long serialVersionUID = -1538045096;
 
     /**
      * Create a detached ContainershippingnamesRecord
@@ -31,14 +31,14 @@ public class ContainershippingnamesRecord extends org.jooq.impl.UpdatableRecordI
     }
 
     /**
-     * Getter for <code>emerging.containershippingnames.equipmentNumber</code>.
+     * Getter for <code>sinlimites.containershippingnames.equipmentNumber</code>.
      */
     public java.lang.String getEquipmentnumber() {
         return (java.lang.String) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.containershippingnames.equipmentNumber</code>.
+     * Setter for <code>sinlimites.containershippingnames.equipmentNumber</code>.
      */
     public void setEquipmentnumber(java.lang.String value) {
         setValue(0, value);
@@ -49,7 +49,7 @@ public class ContainershippingnamesRecord extends org.jooq.impl.UpdatableRecordI
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.containershippingnames.shippingID</code>.
+     * Getter for <code>sinlimites.containershippingnames.shippingID</code>.
      */
     public java.lang.Integer getShippingid() {
         return (java.lang.Integer) getValue(1);
@@ -60,7 +60,7 @@ public class ContainershippingnamesRecord extends org.jooq.impl.UpdatableRecordI
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.containershippingnames.shippingID</code>.
+     * Setter for <code>sinlimites.containershippingnames.shippingID</code>.
      */
     public void setShippingid(java.lang.Integer value) {
         setValue(1, value);

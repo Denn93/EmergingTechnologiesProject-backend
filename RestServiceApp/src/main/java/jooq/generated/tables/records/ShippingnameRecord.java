@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class ShippingnameRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.ShippingnameRecord> implements org.jooq.Record2<java.lang.Integer, java.lang.String> {
 
-    private static final long serialVersionUID = -1545905550;
+    private static final long serialVersionUID = -1870621484;
 
     /**
      * Create a detached ShippingnameRecord
@@ -31,14 +31,14 @@ public class ShippingnameRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.g
     }
 
     /**
-     * Getter for <code>emerging.shippingname.shippingID</code>.
+     * Getter for <code>sinlimites.shippingname.shippingID</code>.
      */
     public java.lang.Integer getShippingid() {
         return (java.lang.Integer) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.shippingname.shippingID</code>.
+     * Setter for <code>sinlimites.shippingname.shippingID</code>.
      */
     public void setShippingid(java.lang.Integer value) {
         setValue(0, value);
@@ -49,7 +49,7 @@ public class ShippingnameRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.g
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.shippingname.shippingName</code>.
+     * Getter for <code>sinlimites.shippingname.shippingName</code>.
      */
     public java.lang.String getShippingname() {
         return (java.lang.String) getValue(1);
@@ -60,7 +60,7 @@ public class ShippingnameRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.g
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.shippingname.shippingName</code>.
+     * Setter for <code>sinlimites.shippingname.shippingName</code>.
      */
     public void setShippingname(java.lang.String value) {
         setValue(1, value);

@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class ShipRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.ShipRecord> implements org.jooq.Record2<java.lang.Integer, java.lang.String> {
 
-    private static final long serialVersionUID = 553503182;
+    private static final long serialVersionUID = 1767723692;
 
     /**
      * Create a detached ShipRecord
@@ -31,14 +31,14 @@ public class ShipRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated
     }
 
     /**
-     * Getter for <code>emerging.ship.shipID</code>.
+     * Getter for <code>sinlimites.ship.shipID</code>.
      */
     public java.lang.Integer getShipid() {
         return (java.lang.Integer) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.ship.shipID</code>.
+     * Setter for <code>sinlimites.ship.shipID</code>.
      */
     public void setShipid(java.lang.Integer value) {
         setValue(0, value);
@@ -49,7 +49,7 @@ public class ShipRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.ship.shipName</code>.
+     * Getter for <code>sinlimites.ship.shipName</code>.
      */
     public java.lang.String getShipname() {
         return (java.lang.String) getValue(1);
@@ -60,7 +60,7 @@ public class ShipRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.ship.shipName</code>.
+     * Setter for <code>sinlimites.ship.shipName</code>.
      */
     public void setShipname(java.lang.String value) {
         setValue(1, value);

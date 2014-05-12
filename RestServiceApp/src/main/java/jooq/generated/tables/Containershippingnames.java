@@ -12,28 +12,28 @@ package jooq.generated.tables;
 public class Containershippingnames extends org.jooq.impl.TableImpl<jooq.generated.tables.records.ContainershippingnamesRecord> {
 
     /**
-     * The singleton instance of <code>emerging.containershippingnames</code>
+     * The singleton instance of <code>sinlimites.containershippingnames</code>
      */
     public static final jooq.generated.tables.Containershippingnames CONTAINERSHIPPINGNAMES = new jooq.generated.tables.Containershippingnames();
-    private static final long serialVersionUID = 1612031355;
+    private static final long serialVersionUID = 2000650462;
     /**
-     * The column <code>emerging.containershippingnames.equipmentNumber</code>.
+     * The column <code>sinlimites.containershippingnames.equipmentNumber</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ContainershippingnamesRecord, java.lang.String> EQUIPMENTNUMBER = createField("equipmentNumber", org.jooq.impl.SQLDataType.VARCHAR.length(255).nullable(false), this, "");
     /**
-     * The column <code>emerging.containershippingnames.shippingID</code>.
+     * The column <code>sinlimites.containershippingnames.shippingID</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ContainershippingnamesRecord, java.lang.Integer> SHIPPINGID = createField("shippingID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * Create a <code>emerging.containershippingnames</code> table reference
+     * Create a <code>sinlimites.containershippingnames</code> table reference
      */
     public Containershippingnames() {
         this("containershippingnames", null);
     }
 
     /**
-     * Create an aliased <code>emerging.containershippingnames</code> table reference
+     * Create an aliased <code>sinlimites.containershippingnames</code> table reference
      */
     public Containershippingnames(java.lang.String alias) {
         this(alias, jooq.generated.tables.Containershippingnames.CONTAINERSHIPPINGNAMES);
@@ -44,7 +44,7 @@ public class Containershippingnames extends org.jooq.impl.TableImpl<jooq.generat
     }
 
     private Containershippingnames(java.lang.String alias, org.jooq.Table<jooq.generated.tables.records.ContainershippingnamesRecord> aliased, org.jooq.Field<?>[] parameters) {
-        super(alias, jooq.generated.Emerging.EMERGING, aliased, parameters, "");
+        super(alias, jooq.generated.Sinlimites.SINLIMITES, aliased, parameters, "");
     }
 
     /**

@@ -12,28 +12,28 @@ package jooq.generated.tables;
 public class Ship extends org.jooq.impl.TableImpl<jooq.generated.tables.records.ShipRecord> {
 
     /**
-     * The singleton instance of <code>emerging.ship</code>
+     * The singleton instance of <code>sinlimites.ship</code>
      */
     public static final jooq.generated.tables.Ship SHIP = new jooq.generated.tables.Ship();
-    private static final long serialVersionUID = -893614995;
+    private static final long serialVersionUID = 2069482986;
     /**
-     * The column <code>emerging.ship.shipID</code>.
+     * The column <code>sinlimites.ship.shipID</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ShipRecord, java.lang.Integer> SHIPID = createField("shipID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
     /**
-     * The column <code>emerging.ship.shipName</code>.
+     * The column <code>sinlimites.ship.shipName</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ShipRecord, java.lang.String> SHIPNAME = createField("shipName", org.jooq.impl.SQLDataType.VARCHAR.length(45).nullable(false), this, "");
 
     /**
-     * Create a <code>emerging.ship</code> table reference
+     * Create a <code>sinlimites.ship</code> table reference
      */
     public Ship() {
         this("ship", null);
     }
 
     /**
-     * Create an aliased <code>emerging.ship</code> table reference
+     * Create an aliased <code>sinlimites.ship</code> table reference
      */
     public Ship(java.lang.String alias) {
         this(alias, jooq.generated.tables.Ship.SHIP);
@@ -44,7 +44,7 @@ public class Ship extends org.jooq.impl.TableImpl<jooq.generated.tables.records.
     }
 
     private Ship(java.lang.String alias, org.jooq.Table<jooq.generated.tables.records.ShipRecord> aliased, org.jooq.Field<?>[] parameters) {
-        super(alias, jooq.generated.Emerging.EMERGING, aliased, parameters, "");
+        super(alias, jooq.generated.Sinlimites.SINLIMITES, aliased, parameters, "");
     }
 
     /**

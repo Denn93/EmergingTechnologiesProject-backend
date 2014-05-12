@@ -11,7 +11,7 @@ package jooq.generated.tables.records;
 @java.lang.SuppressWarnings({"all", "unchecked", "rawtypes"})
 public class PackagekindRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.generated.tables.records.PackagekindRecord> implements org.jooq.Record2<java.lang.Integer, java.lang.String> {
 
-    private static final long serialVersionUID = -484037170;
+    private static final long serialVersionUID = 1929451888;
 
     /**
      * Create a detached PackagekindRecord
@@ -31,14 +31,14 @@ public class PackagekindRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.ge
     }
 
     /**
-     * Getter for <code>emerging.packagekind.kindID</code>.
+     * Getter for <code>sinlimites.packagekind.kindID</code>.
      */
     public java.lang.Integer getKindid() {
         return (java.lang.Integer) getValue(0);
     }
 
     /**
-     * Setter for <code>emerging.packagekind.kindID</code>.
+     * Setter for <code>sinlimites.packagekind.kindID</code>.
      */
     public void setKindid(java.lang.Integer value) {
         setValue(0, value);
@@ -49,7 +49,7 @@ public class PackagekindRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.ge
     // -------------------------------------------------------------------------
 
     /**
-     * Getter for <code>emerging.packagekind.kindName</code>.
+     * Getter for <code>sinlimites.packagekind.kindName</code>.
      */
     public java.lang.String getKindname() {
         return (java.lang.String) getValue(1);
@@ -60,7 +60,7 @@ public class PackagekindRecord extends org.jooq.impl.UpdatableRecordImpl<jooq.ge
     // -------------------------------------------------------------------------
 
     /**
-     * Setter for <code>emerging.packagekind.kindName</code>.
+     * Setter for <code>sinlimites.packagekind.kindName</code>.
      */
     public void setKindname(java.lang.String value) {
         setValue(1, value);

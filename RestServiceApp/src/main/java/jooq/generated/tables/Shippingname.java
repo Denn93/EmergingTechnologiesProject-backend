@@ -12,28 +12,28 @@ package jooq.generated.tables;
 public class Shippingname extends org.jooq.impl.TableImpl<jooq.generated.tables.records.ShippingnameRecord> {
 
     /**
-     * The singleton instance of <code>emerging.shippingname</code>
+     * The singleton instance of <code>sinlimites.shippingname</code>
      */
     public static final jooq.generated.tables.Shippingname SHIPPINGNAME = new jooq.generated.tables.Shippingname();
-    private static final long serialVersionUID = -986234855;
+    private static final long serialVersionUID = 1406834710;
     /**
-     * The column <code>emerging.shippingname.shippingID</code>.
+     * The column <code>sinlimites.shippingname.shippingID</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ShippingnameRecord, java.lang.Integer> SHIPPINGID = createField("shippingID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
     /**
-     * The column <code>emerging.shippingname.shippingName</code>.
+     * The column <code>sinlimites.shippingname.shippingName</code>.
      */
     public final org.jooq.TableField<jooq.generated.tables.records.ShippingnameRecord, java.lang.String> SHIPPINGNAME_ = createField("shippingName", org.jooq.impl.SQLDataType.VARCHAR.length(100), this, "");
 
     /**
-     * Create a <code>emerging.shippingname</code> table reference
+     * Create a <code>sinlimites.shippingname</code> table reference
      */
     public Shippingname() {
         this("shippingname", null);
     }
 
     /**
-     * Create an aliased <code>emerging.shippingname</code> table reference
+     * Create an aliased <code>sinlimites.shippingname</code> table reference
      */
     public Shippingname(java.lang.String alias) {
         this(alias, jooq.generated.tables.Shippingname.SHIPPINGNAME);
@@ -44,7 +44,7 @@ public class Shippingname extends org.jooq.impl.TableImpl<jooq.generated.tables.
     }
 
     private Shippingname(java.lang.String alias, org.jooq.Table<jooq.generated.tables.records.ShippingnameRecord> aliased, org.jooq.Field<?>[] parameters) {
-        super(alias, jooq.generated.Emerging.EMERGING, aliased, parameters, "");
+        super(alias, jooq.generated.Sinlimites.SINLIMITES, aliased, parameters, "");
     }
 
     /**
