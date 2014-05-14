@@ -6,6 +6,8 @@ import nl.dennisvdwielen.factory.DatabaseFactory.DatabaseType;
 import nl.dennisvdwielen.inferface.IDao;
 import nl.dennisvdwielen.inferface.IDatabaseHandler;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -32,10 +34,19 @@ public class StudentDAO implements IDao<Student>{
 
     @Override
     public ArrayList<Student> get(int id) {
-        addStudents();
+        //addStudents();
 
         IDatabaseHandler handler =  new DatabaseFactory().getDatabaseHandler(DatabaseType.Mysql);
-        handler.select();
+        ResultSet result = handler.select("");
+
+        try {
+            while(result.next()){
+                students.add(new Student(3, result.getString("name"), "", Integer.parseInt(result.getString("age")), result.getString("city")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
         return students;
     }

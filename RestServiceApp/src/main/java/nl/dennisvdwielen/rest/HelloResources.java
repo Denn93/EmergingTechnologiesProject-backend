@@ -7,14 +7,13 @@ import javax.ws.rs.Produces;
 import nl.dennisvdwielen.dto.Student;
 import nl.dennisvdwielen.factory.DaoFactory;
 import nl.dennisvdwielen.inferface.IDao;
-import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 
 @Path("/hello")
 public class HelloResources {
 
-    private static final Logger log = Logger.getLogger(HelloResources.class);
+   // private static final Logger log = Logger.getLogger(HelloResources.class);
 
     @GET
     @Produces("Application/json")

@@ -46,10 +46,13 @@ public class MysqlDatabase extends IDatabaseHandler{
     public ResultSet select(String table, String where, String options) {
         ResultSet result = null;
 
-        statement = connect.createStatement();
-        resultSet = statement.executeQuery("SELECT * FROM testing");
-
-
+        try{
+            statement = connect.createStatement();
+            result = statement.executeQuery("SELECT * FROM testing");
+        }catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
 
         return result;
     }
@@ -75,8 +78,14 @@ public class MysqlDatabase extends IDatabaseHandler{
             connect = DriverManager.getConnection("jdbc:mysql://localhost/test?"
                     + "user=root&password=");
 
-            statement = connect.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM testing");
+            try{
+                statement = connect.createStatement();
+                resultSet = statement.executeQuery("SELECT * FROM testing");
+            }catch(SQLException e)
+            {
+                e.printStackTrace();
+            }
+
 
             while(resultSet.next()){
                 String city = resultSet.getString("city");
