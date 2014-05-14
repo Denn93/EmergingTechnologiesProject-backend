@@ -4,7 +4,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import nl.dennisvdwielen.dto.Student;
+import nl.dennisvdwielen.pojo.Student;
 import nl.dennisvdwielen.factory.DaoFactory;
 import nl.dennisvdwielen.inferface.IDao;
 

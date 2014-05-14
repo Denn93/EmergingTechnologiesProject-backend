@@ -1,4 +1,4 @@
-package nl.dennisvdwielen.dto;
+package nl.dennisvdwielen.pojo;
 
 /**
  * Created by Dennis on 17-4-2014 at 16:32)

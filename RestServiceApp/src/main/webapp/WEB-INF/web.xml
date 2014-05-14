@@ -4,6 +4,7 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
+
     <servlet>
         <servlet-name>Jersey REST Service</servlet-name>
         <servlet-class>
@@ -19,6 +20,8 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+
 
     <servlet-mapping>
         <servlet-name>Jersey REST Service</servlet-name>

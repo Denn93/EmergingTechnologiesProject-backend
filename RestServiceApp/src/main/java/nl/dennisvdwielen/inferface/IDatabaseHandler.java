@@ -1,6 +1,7 @@
 package nl.dennisvdwielen.inferface;
 
-import javax.xml.transform.Result;
+import nl.dennisvdwielen.factory.Config;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -12,11 +13,18 @@ import java.sql.Statement;
  */
 public abstract class IDatabaseHandler {
 
+    //Default error messages that can be implemented by database implementation
     protected final String DATABASEHANDLER_NOCONNECIION_ERROR = "Can't connect to the database. A connection has occurred";
     protected final String DATABASEHANDLER_NODRIVER_ERROR = "No database connection driver has been found";
 
-    protected String connectionString;
-    protected Statement statement;
+    protected Config config;
+
+    protected IDatabaseHandler(){
+        config = Config.getInstance();
+
+        createConnection();
+    }
+
 
     public final ResultSet select(String table){
         return select(table, "");
@@ -28,9 +36,10 @@ public abstract class IDatabaseHandler {
 
     public abstract ResultSet select(String table, String where, String options);
 
-    public abstract boolean createConnection();
+    protected abstract boolean createConnection();
 
     public abstract Integer update();
     public abstract Integer delete();
     public abstract ResultSet rawSelect(String query);
+    protected abstract void close();
 }

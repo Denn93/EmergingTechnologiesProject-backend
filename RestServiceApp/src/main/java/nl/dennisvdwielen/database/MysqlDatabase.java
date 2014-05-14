@@ -13,24 +13,17 @@ import java.sql.*;
 
 public class MysqlDatabase extends IDatabaseHandler{
 
-    private Connection connect = null;
+    private static Connection connect = null;
     private Statement statement = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
 
-    public MysqlDatabase() {
-
-        if (!createConnection())
-            System.out.println(DATABASEHANDLER_NOCONNECIION_ERROR);
-    }
-
     @Override
-    public boolean createConnection() {
+    protected boolean createConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(config.getDbDriver());
+            connect = DriverManager.getConnection(config.getConnectionString());
 
-            connect = DriverManager.getConnection("jdbc:mysql://localhost/test?"
-                    + "user=root&password=");
         } catch (ClassNotFoundException e) {
             System.out.println(DATABASEHANDLER_NODRIVER_ERROR);
             return false;
@@ -44,17 +37,18 @@ public class MysqlDatabase extends IDatabaseHandler{
 
     @Override
     public ResultSet select(String table, String where, String options) {
-        ResultSet result = null;
-
         try{
             statement = connect.createStatement();
-            result = statement.executeQuery("SELECT * FROM testing");
+            resultSet = statement.executeQuery("SELECT * FROM testing");
         }catch(SQLException e)
         {
             e.printStackTrace();
         }
+        finally{
+            // close();
+        }
 
-        return result;
+        return resultSet;
     }
 
     @Override
@@ -72,38 +66,8 @@ public class MysqlDatabase extends IDatabaseHandler{
         return -1;
     }
 
-    public ResultSet readDb() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost/test?"
-                    + "user=root&password=");
-
-            try{
-                statement = connect.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM testing");
-            }catch(SQLException e)
-            {
-                e.printStackTrace();
-            }
-
-
-            while(resultSet.next()){
-                String city = resultSet.getString("city");
-                String name = resultSet.getString("name");
-            }
-
-        } catch (ClassNotFoundException e) {
-            System.out.println("Class not found");
-        } catch (SQLException e) {
-            System.out.println("Can't connect to database");
-        } finally {
-            close();
-        }
-
-        return resultSet;
-    }
-
-    private void close() {
+    @Override
+    protected void close() {
         if (resultSet != null)
             try {
                 resultSet.close();

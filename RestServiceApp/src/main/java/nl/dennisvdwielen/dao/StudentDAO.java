@@ -1,6 +1,6 @@
 package nl.dennisvdwielen.dao;
 
-import nl.dennisvdwielen.dto.Student;
+import nl.dennisvdwielen.pojo.Student;
 import nl.dennisvdwielen.factory.DatabaseFactory;
 import nl.dennisvdwielen.factory.DatabaseFactory.DatabaseType;
 import nl.dennisvdwielen.inferface.IDao;
