@@ -6,7 +6,7 @@ import javax.ws.rs.Produces;
 
 import nl.dennisvdwielen.pojo.Student;
 import nl.dennisvdwielen.factory.DaoFactory;
-import nl.dennisvdwielen.inferface.IDao;
+import nl.dennisvdwielen.interfaces.IDao;
 
 import java.util.ArrayList;
 

@@ -1,13 +1,12 @@
 package nl.dennisvdwielen.dao;
 
+import nl.dennisvdwielen.interfaces.ADatabaseHandler;
+import nl.dennisvdwielen.pojo.Container;
 import nl.dennisvdwielen.pojo.Student;
 import nl.dennisvdwielen.factory.DatabaseFactory;
 import nl.dennisvdwielen.factory.DatabaseFactory.DatabaseType;
-import nl.dennisvdwielen.inferface.IDao;
-import nl.dennisvdwielen.inferface.IDatabaseHandler;
+import nl.dennisvdwielen.interfaces.IDao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +15,7 @@ import java.util.ArrayList;
  * This code is part of the ${PROJECT_NAME} project.
  * This class is within package ${PACKAGE_NAME}
  */
-public class StudentDAO implements IDao<Student>{
+public class StudentDAO implements IDao<Container>{
 
     private ArrayList<Student> students = new ArrayList<Student>();
 
@@ -33,31 +32,25 @@ public class StudentDAO implements IDao<Student>{
 
 
     @Override
-    public ArrayList<Student> get(int id) {
+    public ArrayList<Container> get(int id) {
         //addStudents();
 
-        IDatabaseHandler handler =  new DatabaseFactory().getDatabaseHandler(DatabaseType.Mysql);
-        ResultSet result = handler.select("");
+        ADatabaseHandler handler =  new DatabaseFactory().getDatabaseHandler(DatabaseType.Mysql);
+        Container container = handler.select(Container.class);
 
-        try {
-            while(result.next()){
-                students.add(new Student(3, result.getString("name"), "", Integer.parseInt(result.getString("age")), result.getString("city")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        ArrayList<Container> result = new ArrayList<Container>();
+        result.add(container);
 
-
-        return students;
+        return result;
     }
 
     @Override
-    public boolean add(Student student) {
+    public boolean add(Container student) {
         return false;
     }
 
     @Override
-    public boolean update(Student student) {
+    public boolean update(Container student) {
         return false;
     }
 

@@ -1,6 +1,8 @@
 package nl.dennisvdwielen.database;
 
-import nl.dennisvdwielen.inferface.IDatabaseHandler;
+import nl.dennisvdwielen.interfaces.ADatabaseHandler;
+import nl.dennisvdwielen.mapping.RecordMapper;
+import nl.dennisvdwielen.pojo.Container;
 
 import java.sql.*;
 
@@ -11,7 +13,7 @@ import java.sql.*;
  * This class is within package nl.dennisvdwielen.database
  */
 
-public class MysqlDatabase extends IDatabaseHandler{
+public class MysqlDatabase extends ADatabaseHandler {
 
     private static Connection connect = null;
     private Statement statement = null;
@@ -36,19 +38,28 @@ public class MysqlDatabase extends IDatabaseHandler{
     }
 
     @Override
-    public ResultSet select(String table, String where, String options) {
+    public <T> T select(Class<T> pojo, String where, String options) {
+        T result = null;
+
         try{
             statement = connect.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM testing");
+            resultSet = statement.executeQuery("SELECT * FROM container c INNER JOiN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID");
+
+            result = pojo.cast(new RecordMapper(pojo.newInstance(), resultSet).getResult());
+
+            return result;
         }catch(SQLException e)
         {
             e.printStackTrace();
-        }
-        finally{
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } finally{
             // close();
         }
 
-        return resultSet;
+        return result;
     }
 
     @Override

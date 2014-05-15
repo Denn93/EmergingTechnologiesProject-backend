@@ -1,4 +1,4 @@
-package nl.dennisvdwielen.inferface;
+package nl.dennisvdwielen.interfaces;
 
 import java.util.ArrayList;
 

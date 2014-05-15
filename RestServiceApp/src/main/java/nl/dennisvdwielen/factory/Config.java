@@ -15,13 +15,11 @@ public class Config {
     private static String dbDriver;
     private static String dbConnection;
 
-    private static String connectionString;
-
     private Config() {
         dbUser = "root";
         dbPass = "";
         dbDriver = "com.mysql.jdbc.Driver";
-        dbConnection = "jdbc:mysql://localhost/test";
+        dbConnection = "jdbc:mysql://localhost/sinlimites";
     }
 
     public static Config getInstance() {

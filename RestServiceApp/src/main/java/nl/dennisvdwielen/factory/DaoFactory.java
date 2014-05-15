@@ -1,9 +1,6 @@
 package nl.dennisvdwielen.factory;
 
-import nl.dennisvdwielen.dao.StudentDAO;
-import nl.dennisvdwielen.inferface.IDao;
-
-import java.util.IdentityHashMap;
+import nl.dennisvdwielen.interfaces.IDao;
 
 /**
  * Created by Dennis on 26-4-2014 at 16:33

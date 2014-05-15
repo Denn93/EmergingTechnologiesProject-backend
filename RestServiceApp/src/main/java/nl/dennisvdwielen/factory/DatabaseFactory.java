@@ -1,7 +1,7 @@
 package nl.dennisvdwielen.factory;
 
 import nl.dennisvdwielen.database.MysqlDatabase;
-import nl.dennisvdwielen.inferface.IDatabaseHandler;
+import nl.dennisvdwielen.interfaces.ADatabaseHandler;
 
 /**
  * Created by Dennis on 4-5-2014 at 16:43)
@@ -13,7 +13,7 @@ public class DatabaseFactory {
 
     public enum DatabaseType {Mysql};
 
-    public IDatabaseHandler getDatabaseHandler(DatabaseType type) {
+    public ADatabaseHandler getDatabaseHandler(DatabaseType type) {
 
         switch (type) {
             case Mysql:
