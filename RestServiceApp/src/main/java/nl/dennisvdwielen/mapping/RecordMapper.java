@@ -18,11 +18,15 @@ import java.util.HashMap;
  */
 public class RecordMapper implements IRecordMapper {
 
+    private ArrayList<Object> mappedResults;
+
     private Object pojo;
     private ArrayList<String> queryFields;
     private ArrayList<HashMap<String, String>> queryResult;
 
     public RecordMapper(Object pojo, ResultSet result) {
+        mappedResults = new ArrayList<Object>();
+
         this.pojo = pojo;
         this.queryResult = ResultSetToArrayList(result);
         this.queryFields = RetrieveQueryFields(result);
@@ -31,6 +35,8 @@ public class RecordMapper implements IRecordMapper {
     }
 
     public RecordMapper(Object pojo, HashMap<String, String> record) {
+        mappedResults = new ArrayList<Object>();
+
         this.pojo = pojo;
         this.queryResult = new ArrayList<HashMap<String, String>>();
         this.queryResult.add(record);
@@ -81,6 +87,16 @@ public class RecordMapper implements IRecordMapper {
                         InvokeMethod(method, record, field);
                 }
             }
+
+            mappedResults.add(pojo);
+
+            try {
+                pojo = (Object) pojo.getClass().newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -99,7 +115,7 @@ public class RecordMapper implements IRecordMapper {
             else
             {
                 Class cls = Class.forName(fieldType.getName());
-                Object temp = new RecordMapper(cls.newInstance(), record).getResult();
+                Object temp = new RecordMapper(cls.newInstance(), record).getRecord();
 
                 method.invoke(pojo, cls.cast(temp));
             }
@@ -136,7 +152,11 @@ public class RecordMapper implements IRecordMapper {
     }
 
 
-    public Object getResult() {
-        return pojo;
+    public Object getRecord() {
+        return mappedResults.get(0);
+    }
+
+    public ArrayList<Object> getMappedResults() {
+        return mappedResults;
     }
 }

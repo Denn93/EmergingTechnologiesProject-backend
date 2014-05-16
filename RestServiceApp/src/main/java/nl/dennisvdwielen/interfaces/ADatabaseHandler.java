@@ -3,8 +3,10 @@ package nl.dennisvdwielen.interfaces;
 import nl.dennisvdwielen.factory.Config;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-import static nl.dennisvdwielen.factory.Config.*;
+import static nl.dennisvdwielen.factory.Config.getInstance;
 
 /**
  * Created by Dennis on 4-5-2014 at 16:45)
@@ -27,15 +29,15 @@ public abstract class ADatabaseHandler {
     }
 
 
-    public final <T> T select(Class<T> pojo){
+    public final <T> ArrayList<T> select(Class<T> pojo) {
         return select(pojo, "");
     }
 
-    public final <T> T select(Class<T> pojo, String where) {
-        return select(pojo, where, "");
+    public final <T> ArrayList<T> select(Class<T> pojo, String options) {
+        return select(pojo, options, null);
     }
 
-    public abstract <T> T select(Class<T> pojo, String where, String options);
+    public abstract <T> ArrayList<T> select(Class<T> pojo, String options, HashMap<String, String> where);
 
     protected abstract boolean createConnection();
 

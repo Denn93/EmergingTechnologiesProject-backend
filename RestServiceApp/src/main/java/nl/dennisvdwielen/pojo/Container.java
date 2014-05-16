@@ -18,7 +18,7 @@ public class Container {
     private Double imo;
     private Double flashpoint;
     private Integer stowagePosition;
-    private Integer quantity;
+    private Integer quantityInContainer;
     private Integer weight;
     private String portOfDischarge;
     private String terminal;
@@ -96,12 +96,12 @@ public class Container {
         this.stowagePosition = stowagePosition;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getQuantityInContainer() {
+        return quantityInContainer;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setQuantityInContainer(Integer quantityInContainer) {
+        this.quantityInContainer = quantityInContainer;
     }
 
     public Integer getWeight() {

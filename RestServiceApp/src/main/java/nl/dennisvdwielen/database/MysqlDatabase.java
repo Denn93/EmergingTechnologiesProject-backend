@@ -2,9 +2,10 @@ package nl.dennisvdwielen.database;
 
 import nl.dennisvdwielen.interfaces.ADatabaseHandler;
 import nl.dennisvdwielen.mapping.RecordMapper;
-import nl.dennisvdwielen.pojo.Container;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Dennis on 1-5-2014 at 22:11)
@@ -38,14 +39,17 @@ public class MysqlDatabase extends ADatabaseHandler {
     }
 
     @Override
-    public <T> T select(Class<T> pojo, String where, String options) {
-        T result = null;
+    public <T> ArrayList<T> select(Class<T> pojo, String options, HashMap<String, String> where) {
+        ArrayList<T> result = new ArrayList<T>();
 
         try{
             statement = connect.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM container c INNER JOiN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID");
 
-            result = pojo.cast(new RecordMapper(pojo.newInstance(), resultSet).getResult());
+            ArrayList<Object> rawResults = new RecordMapper(pojo.newInstance(), resultSet).getMappedResults();
+
+            for (Object obj : rawResults)
+                result.add(pojo.cast(obj));
 
             return result;
         }catch(SQLException e)
