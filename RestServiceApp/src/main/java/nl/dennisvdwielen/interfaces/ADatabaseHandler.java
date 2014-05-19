@@ -1,5 +1,6 @@
 package nl.dennisvdwielen.interfaces;
 
+import nl.dennisvdwielen.enums.Operators;
 import nl.dennisvdwielen.factory.Config;
 
 import java.sql.ResultSet;
@@ -53,12 +54,12 @@ public abstract class ADatabaseHandler {
             String operator = "";
             if (values.size() > 1) {
                 operator = values.get(1);
-                if (operator.equalsIgnoreCase("gt"))
-                    operator = ">";
-                else if (operator.equalsIgnoreCase("lt"))
-                    operator = "<";
+                if (operator.equalsIgnoreCase(Operators.GreaterThan.getShort()))
+                    operator = Operators.GreaterThan.getOperator();
+                else if (operator.equalsIgnoreCase(Operators.LessThan.getShort()))
+                    operator = Operators.LessThan.getOperator();
                 else
-                    operator = "=";
+                    operator = Operators.Equals.getOperator();
             }
 
             if (where.size() == i)
