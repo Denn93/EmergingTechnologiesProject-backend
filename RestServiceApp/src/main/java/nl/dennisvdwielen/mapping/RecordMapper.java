@@ -42,7 +42,7 @@ public class RecordMapper implements IRecordMapper {
         this.queryResult.add(record);
 
         this.queryFields = new ArrayList<String>();
-        for(String key : record.keySet())
+        for (String key : record.keySet())
             this.queryFields.add(key);
 
         MapToPojo();
@@ -52,6 +52,7 @@ public class RecordMapper implements IRecordMapper {
 
     /**
      * This method returns  all field that are in the executed query
+     *
      * @return ArrayList of fields
      */
     private ArrayList<String> RetrieveQueryFields(ResultSet resultSet) {
@@ -61,10 +62,11 @@ public class RecordMapper implements IRecordMapper {
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
 
-            for(int i = 1; i <= columnCount; i++)
+            for (int i = 1; i <= columnCount; i++)
                 result.add(metaData.getColumnName(i));
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         }
 
@@ -72,14 +74,11 @@ public class RecordMapper implements IRecordMapper {
     }
 
     private void MapToPojo() {
-        for(HashMap<String, String> record : queryResult)
-        {
-            for(String field : queryFields)
-            {
+        for (HashMap<String, String> record : queryResult) {
+            for (String field : queryFields) {
                 Method[] methods = pojo.getClass().getMethods();
 
-                for(Method method : methods)
-                {
+                for (Method method : methods) {
                     if (!method.getName().startsWith("set"))
                         continue;
 
@@ -93,8 +92,10 @@ public class RecordMapper implements IRecordMapper {
             try {
                 pojo = (Object) pojo.getClass().newInstance();
             } catch (InstantiationException e) {
+                //TODO Add Usefull Error Message
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
+                //TODO Add Usefull Error Message
                 e.printStackTrace();
             }
         }
@@ -105,27 +106,30 @@ public class RecordMapper implements IRecordMapper {
 
         String value = record.get(field);
 
-        try{
+        try {
             if (fieldType.equals(Integer.class) || fieldType.equals(int.class))
                 method.invoke(pojo, Integer.parseInt(value));
             else if (fieldType.equals(String.class))
                 method.invoke(pojo, value);
             else if (fieldType.equals(Double.class) || fieldType.equals(double.class))
                 method.invoke(pojo, Double.parseDouble(value));
-            else
-            {
+            else {
                 Class cls = Class.forName(fieldType.getName());
                 Object temp = new RecordMapper(cls.newInstance(), record).getRecord();
 
                 method.invoke(pojo, cls.cast(temp));
             }
-        }catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         } catch (InvocationTargetException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         } catch (InstantiationException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         }
     }
@@ -135,16 +139,16 @@ public class RecordMapper implements IRecordMapper {
         ArrayList<String> fields = RetrieveQueryFields(resultSet);
 
         try {
-            while(resultSet.next())
-            {
+            while (resultSet.next()) {
                 HashMap<String, String> map = new HashMap<String, String>();
 
-                for(String field : fields)
+                for (String field : fields)
                     map.put(field, resultSet.getString(field));
 
                 result.add(map);
             }
         } catch (SQLException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         }
 

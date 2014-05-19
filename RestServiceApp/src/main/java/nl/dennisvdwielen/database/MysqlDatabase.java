@@ -5,7 +5,8 @@ import nl.dennisvdwielen.mapping.RecordMapper;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Created by Dennis on 1-5-2014 at 22:11)
@@ -39,12 +40,18 @@ public class MysqlDatabase extends ADatabaseHandler {
     }
 
     @Override
-    public <T> ArrayList<T> select(Class<T> pojo, String options, HashMap<String, String> where) {
+    public <T> ArrayList<T> select(Class<T> pojo, String options, LinkedHashMap<String, List<String>> filter) {
         ArrayList<T> result = new ArrayList<T>();
+
+        String tableName = pojo.getSimpleName().toLowerCase();
+        String where = (filter == null) ? "" : createWhereString(filter);
+
+        System.out.println(where);
 
         try{
             statement = connect.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM container c INNER JOiN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID");
+            resultSet = statement.executeQuery("SELECT * FROM container c   INNER JOIN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID " +
+                    "                                                       INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID " + where);
 
             ArrayList<Object> rawResults = new RecordMapper(pojo.newInstance(), resultSet).getMappedResults();
 
@@ -54,13 +61,16 @@ public class MysqlDatabase extends ADatabaseHandler {
             return result;
         }catch(SQLException e)
         {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         } catch (InstantiationException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         } catch (IllegalAccessException e) {
+            //TODO Add Usefull Error Message
             e.printStackTrace();
         } finally{
-            // close();
+            close();
         }
 
         return result;
@@ -87,6 +97,7 @@ public class MysqlDatabase extends ADatabaseHandler {
             try {
                 resultSet.close();
             } catch (SQLException e) {
+                //TODO Add Usefull Error Message
                 e.printStackTrace();
             }
 
@@ -94,6 +105,7 @@ public class MysqlDatabase extends ADatabaseHandler {
             try {
                 statement.close();
             } catch (SQLException e) {
+                //TODO Add Usefull Error Message
                 e.printStackTrace();
             }
 
@@ -101,6 +113,7 @@ public class MysqlDatabase extends ADatabaseHandler {
             try {
                 connect.close();
             } catch (SQLException e) {
+                //TODO Add Usefull Error Message
                 e.printStackTrace();
             }
     }

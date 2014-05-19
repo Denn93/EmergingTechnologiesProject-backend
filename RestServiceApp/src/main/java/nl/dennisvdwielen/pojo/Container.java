@@ -6,7 +6,15 @@ package nl.dennisvdwielen.pojo;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.pojo
  */
+
+/**
+ * Methods are dynamically called. There for they are not used directly. That's why there is a waring supresser in place.
+ */
+
 public class Container {
+
+    private final String TableName = "container";
+    private final String TableShort = "c";
 
     private String equipmentNumber;
     private Ship shipID;

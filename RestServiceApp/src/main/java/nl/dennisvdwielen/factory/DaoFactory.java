@@ -17,11 +17,11 @@ public class DaoFactory {
             result = (ADao) dao;
 
         }catch (ClassNotFoundException e) {
-
+            //TODO Add Usefull Error Message
         }catch (IllegalAccessException e) {
-
+            //TODO Add Usefull Error Message
         }catch (InstantiationException e) {
-
+            //TODO Add Usefull Error Message
         }
 
         return result;

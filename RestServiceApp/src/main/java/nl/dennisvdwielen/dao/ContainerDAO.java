@@ -4,7 +4,8 @@ import nl.dennisvdwielen.interfaces.ADao;
 import nl.dennisvdwielen.pojo.Container;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Created by Dennis on 25-4-2014 at 16:37)
@@ -15,7 +16,7 @@ import java.util.HashMap;
 public class ContainerDAO extends ADao<Container> {
 
     @Override
-    public ArrayList<Container> get(int id, Option option, HashMap<String, String> data) {
+    public ArrayList<Container> get(int id, Option option, LinkedHashMap<String, List<String>> data) {
 
         ArrayList<Container> result = new ArrayList<Container>();
 

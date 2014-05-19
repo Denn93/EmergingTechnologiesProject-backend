@@ -4,7 +4,9 @@ import nl.dennisvdwielen.factory.Config;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import static nl.dennisvdwielen.factory.Config.getInstance;
 
@@ -37,9 +39,38 @@ public abstract class ADatabaseHandler {
         return select(pojo, options, null);
     }
 
-    public abstract <T> ArrayList<T> select(Class<T> pojo, String options, HashMap<String, String> where);
+    public abstract <T> ArrayList<T> select(Class<T> pojo, String options, LinkedHashMap<String, List<String>> where);
 
     protected abstract boolean createConnection();
+
+    protected String createWhereString(LinkedHashMap<String, List<String>> where) {
+        String result = "Where ";
+
+        int i = 1;
+
+        for (Map.Entry<String, List<String>> entry : where.entrySet()) {
+            List<String> values = entry.getValue();
+            String operator = "";
+            if (values.size() > 1) {
+                operator = values.get(1);
+                if (operator.equalsIgnoreCase("gt"))
+                    operator = ">";
+                else if (operator.equalsIgnoreCase("lt"))
+                    operator = "<";
+                else
+                    operator = "=";
+            }
+
+            if (where.size() == i)
+                result += String.format("%s %s '%s'", entry.getKey(), operator, entry.getValue());
+            else
+                result += String.format("%s %s '%s' AND ", entry.getKey(), operator, entry.getValue());
+
+            i++;
+        }
+
+        return result;
+    }
 
     public abstract Integer update();
     public abstract Integer delete();
