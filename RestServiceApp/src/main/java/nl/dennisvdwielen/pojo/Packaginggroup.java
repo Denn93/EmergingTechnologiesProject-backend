@@ -6,7 +6,8 @@ package nl.dennisvdwielen.pojo;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.pojo
  */
-public class Packaging {
+@SuppressWarnings("unused")
+public class Packaginggroup {
 
     private Integer packagingID;
     private String packagingName;

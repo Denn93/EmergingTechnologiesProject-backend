@@ -10,7 +10,7 @@ package nl.dennisvdwielen.pojo;
 /**
  * Methods are dynamically called. There for they are not used directly. That's why there is a waring supresser in place.
  */
-
+@SuppressWarnings("unused")
 public class Container {
 
     private final String TableName = "container";
@@ -19,7 +19,7 @@ public class Container {
     private String equipmentNumber;
     private Ship shipID;
     private Handling handlingID;
-    private Packaging packagingID;
+    private Packaginggroup packagingID;
 
     private Integer consignmentNumber;
     private Integer uno;
@@ -56,11 +56,11 @@ public class Container {
         this.handlingID = handlingID;
     }
 
-    public Packaging getPackaging() {
+    public Packaginggroup getPackaging() {
         return packagingID;
     }
 
-    public void setPackagingID(Packaging packagingID) {
+    public void setPackagingID(Packaginggroup packagingID) {
         this.packagingID = packagingID;
     }
 

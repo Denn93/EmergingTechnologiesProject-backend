@@ -8,11 +8,14 @@ import java.util.List;
 
 /**
  * Created by Dennis on 26-4-2014.
+ * <p/>
+ * This code is part of the RestServiceApp project.
+ * This class is within package nl.dennisvdwielen.interfaces
  */
 public abstract class ADao<Dto> {
 
     protected ADatabaseHandler handler;
-    ;
+
 
     protected ADao() {
         handler = new DatabaseFactory().getDatabaseHandler(DatabaseFactory.DatabaseType.Mysql);

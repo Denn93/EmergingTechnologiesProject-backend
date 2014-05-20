@@ -6,6 +6,7 @@ package nl.dennisvdwielen.pojo;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.pojo
  */
+@SuppressWarnings("unused")
 public class Handling {
 
     private Integer handlingID;

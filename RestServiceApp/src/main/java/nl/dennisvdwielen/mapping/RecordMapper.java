@@ -48,8 +48,6 @@ public class RecordMapper implements IRecordMapper {
         MapToPojo();
     }
 
-    //public RecordMapper(Object pojo, String )
-
     /**
      * This method returns  all field that are in the executed query
      *

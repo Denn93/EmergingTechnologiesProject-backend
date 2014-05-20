@@ -13,7 +13,7 @@ import static nl.dennisvdwielen.factory.Config.getInstance;
 
 /**
  * Created by Dennis on 4-5-2014 at 16:45)
- *
+ * <p/>
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.interfaces
  */
@@ -51,7 +51,7 @@ public abstract class ADatabaseHandler {
 
         for (Map.Entry<String, List<String>> entry : where.entrySet()) {
             List<String> values = entry.getValue();
-            String operator = "";
+            String operator = Operators.Equals.getOperator();
             if (values.size() > 1) {
                 operator = values.get(1);
                 if (operator.equalsIgnoreCase(Operators.GreaterThan.getShort()))
@@ -63,9 +63,9 @@ public abstract class ADatabaseHandler {
             }
 
             if (where.size() == i)
-                result += String.format("%s %s '%s'", entry.getKey(), operator, entry.getValue());
+                result += String.format("%s %s '%s'", entry.getKey(), operator, entry.getValue().get(0));
             else
-                result += String.format("%s %s '%s' AND ", entry.getKey(), operator, entry.getValue());
+                result += String.format("%s %s '%s' AND ", entry.getKey(), operator, entry.getValue().get(0));
 
             i++;
         }
