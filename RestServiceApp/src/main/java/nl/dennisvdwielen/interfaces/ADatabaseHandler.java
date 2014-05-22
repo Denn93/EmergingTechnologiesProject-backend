@@ -1,6 +1,7 @@
 package nl.dennisvdwielen.interfaces;
 
 import nl.dennisvdwielen.enums.Operators;
+import nl.dennisvdwielen.enums.Orders;
 import nl.dennisvdwielen.factory.Config;
 
 import java.sql.ResultSet;
@@ -44,7 +45,7 @@ public abstract class ADatabaseHandler {
 
     protected abstract boolean createConnection();
 
-    protected String createWhereString(LinkedHashMap<String, List<String>> where) {
+    protected final String createWhereString(LinkedHashMap<String, List<String>> where) {
         String result = "Where ";
 
         int i = 1;
@@ -71,6 +72,24 @@ public abstract class ADatabaseHandler {
         }
 
         return result;
+    }
+
+    protected final String createOrder(List<String> data) {
+
+        String result = "";
+        String order = "";
+        List<String> columns = new ArrayList<String>();
+
+        for (String option : data) {
+            if (option.equalsIgnoreCase(Orders.ASCENDING.getValue()))
+                order = option;
+            else if (option.equalsIgnoreCase(Orders.DESCENDING.getValue()))
+                order = option;
+
+            result = "Order By " + order;
+        }
+
+        return "Order By " + data.get(0);
     }
 
     public abstract Integer update();

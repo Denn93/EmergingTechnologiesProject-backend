@@ -45,6 +45,7 @@ public class MysqlDatabase extends ADatabaseHandler {
 
         String tableName = pojo.getSimpleName().toLowerCase();
         String where = (filter == null) ? "" : createWhereString(filter);
+        String order = (filter == null || filter.get("order") == null) ? "" : createOrder(filter.get("order"));
 
         System.out.println(where);
 
@@ -61,13 +62,13 @@ public class MysqlDatabase extends ADatabaseHandler {
             return result;
         }catch(SQLException e)
         {
-            //TODO Add Usefull Error Message
+            //TODO Add Useful Error Message
             e.printStackTrace();
         } catch (InstantiationException e) {
-            //TODO Add Usefull Error Message
+            //TODO Add Useful Error Message
             e.printStackTrace();
         } catch (IllegalAccessException e) {
-            //TODO Add Usefull Error Message
+            //TODO Add Useful Error Message
             e.printStackTrace();
         } finally{
             close();
@@ -97,7 +98,7 @@ public class MysqlDatabase extends ADatabaseHandler {
             try {
                 resultSet.close();
             } catch (SQLException e) {
-                //TODO Add Usefull Error Message
+                //TODO Add Useful Error Message
                 e.printStackTrace();
             }
 
@@ -105,7 +106,7 @@ public class MysqlDatabase extends ADatabaseHandler {
             try {
                 statement.close();
             } catch (SQLException e) {
-                //TODO Add Usefull Error Message
+                //TODO Add Useful Error Message
                 e.printStackTrace();
             }
 
@@ -113,7 +114,7 @@ public class MysqlDatabase extends ADatabaseHandler {
             try {
                 connect.close();
             } catch (SQLException e) {
-                //TODO Add Usefull Error Message
+                //TODO Add Useful Error Message
                 e.printStackTrace();
             }
     }
