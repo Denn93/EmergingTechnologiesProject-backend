@@ -16,17 +16,10 @@ import java.util.List;
 public class ContainerDAO extends ADao<Container> {
 
     @Override
-    public ArrayList<Container> get(int id, Option option, LinkedHashMap<String, List<String>> data) {
-
+    public ArrayList<Container> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
         ArrayList<Container> result = new ArrayList<Container>();
 
-        switch (option) {
-            case Filter:
-                result = handler.select(Container.class, "", data);
-                break;
-            case None:
-                result = handler.select(Container.class);
-        }
+        result = handler.select(Container.class, where, order);
 
         return result;
     }

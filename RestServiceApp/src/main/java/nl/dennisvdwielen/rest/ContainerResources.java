@@ -27,21 +27,32 @@ public class ContainerResources {
 
         String result = "";
 
-        LinkedHashMap<String, List<String>> filter = new LinkedHashMap<String, List<String>>();
-        for (Map.Entry<String, List<String>> entry : queryParameters.entrySet()) {
-            String key = entry.getKey();
-            List<String> value = entry.getValue();
+        LinkedHashMap<String, List<String>> where = new LinkedHashMap<String, List<String>>();
+        List<String> order = new ArrayList<String>();
 
-            filter.put(key, value);
+        for (Map.Entry<String, List<String>> entry : queryParameters.entrySet()) {
+
+            if (entry.getKey().equalsIgnoreCase("order"))
+                for (String value : entry.getValue())
+                    order.add(value);
+            else
+                where.put(entry.getKey(), entry.getValue());
+
             //result += key + " - " + value.toString() + "\n";
         }
         //return result;
 
         ADao dao = new DaoFactory().getDAO(Container.class);
 
-        if (filter.isEmpty())
-            return dao.get(-1, ADao.Option.None, filter);
+        if (!where.isEmpty() && !order.isEmpty())
+            return dao.get(-1, where, order);
 
-        return dao.get(-1, ADao.Option.Filter, filter);
+        if (!where.isEmpty())
+            return dao.get(-1, where);
+
+        if (!order.isEmpty())
+            return dao.get(-1, order);
+
+        return dao.get();
     }
 }

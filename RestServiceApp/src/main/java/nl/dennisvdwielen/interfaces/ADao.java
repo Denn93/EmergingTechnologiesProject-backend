@@ -16,27 +16,39 @@ public abstract class ADao<Dto> {
 
     protected ADatabaseHandler handler;
 
-
     protected ADao() {
         handler = new DatabaseFactory().getDatabaseHandler(DatabaseFactory.DatabaseType.Mysql);
     }
 
-    public ArrayList<Dto> get(int id) {
-        return get(id, Option.None);
+    public final ArrayList<Dto> get() {
+        return get(-1, null, null);
     }
 
-    public ArrayList<Dto> get(int id, Option option) {
-        return get(id, option, null);
+    ;
+
+    public final ArrayList<Dto> get(int id) {
+        return get(id, null, null);
     }
 
-    public abstract ArrayList<Dto> get(int id, Option option, LinkedHashMap<String, List<String>> data);
+    ;
 
+    public final ArrayList<Dto> get(int id, List<String> order) {
+        return get(id, null, order);
+    }
+
+    ;
+
+    public final ArrayList<Dto> get(int id, LinkedHashMap<String, List<String>> where) {
+        return get(id, where, null);
+    }
+
+    ;
+
+    public abstract ArrayList<Dto> get(int id, LinkedHashMap<String, List<String>> where, List<String> order);
     public abstract boolean add(Dto dto);
-
     public abstract boolean update(Dto dto);
-
     public abstract boolean delete();
 
-    public static enum Option {Filter, None}
+    public static enum Option {Where, Order, Both, None}
 
 }

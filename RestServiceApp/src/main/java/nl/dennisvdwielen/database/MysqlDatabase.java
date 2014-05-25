@@ -40,19 +40,19 @@ public class MysqlDatabase extends ADatabaseHandler {
     }
 
     @Override
-    public <T> ArrayList<T> select(Class<T> pojo, String options, LinkedHashMap<String, List<String>> filter) {
+    public <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
         ArrayList<T> result = new ArrayList<T>();
 
         String tableName = pojo.getSimpleName().toLowerCase();
-        String where = (filter == null) ? "" : createWhereString(filter);
-        String order = (filter == null || filter.get("order") == null) ? "" : createOrder(filter.get("order"));
+        String where = (whereData == null) ? "" : createWhereString(whereData);
+        String order = (orderData == null) ? "" : createOrder(orderData);
 
         System.out.println(where);
 
         try{
             statement = connect.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM container c   INNER JOIN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID " +
-                    "                                                       INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID " + where);
+                    "                                                       INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID " + where + " " + order);
 
             ArrayList<Object> rawResults = new RecordMapper(pojo.newInstance(), resultSet).getMappedResults();
 

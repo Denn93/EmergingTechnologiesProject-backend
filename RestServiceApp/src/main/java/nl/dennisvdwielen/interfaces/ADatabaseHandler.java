@@ -32,25 +32,26 @@ public abstract class ADatabaseHandler {
         createConnection();
     }
 
-
     public final <T> ArrayList<T> select(Class<T> pojo) {
-        return select(pojo, "");
+        return select(pojo, null);
     }
 
-    public final <T> ArrayList<T> select(Class<T> pojo, String options) {
-        return select(pojo, options, null);
+    public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where) {
+        return select(pojo, where, null);
     }
 
-    public abstract <T> ArrayList<T> select(Class<T> pojo, String options, LinkedHashMap<String, List<String>> where);
+    ;
+
+    public abstract <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order);
 
     protected abstract boolean createConnection();
 
     protected final String createWhereString(LinkedHashMap<String, List<String>> where) {
         String result = "Where ";
-
         int i = 1;
 
         for (Map.Entry<String, List<String>> entry : where.entrySet()) {
+
             List<String> values = entry.getValue();
             String operator = Operators.Equals.getOperator();
             if (values.size() > 1) {
@@ -78,18 +79,21 @@ public abstract class ADatabaseHandler {
 
         String result = "";
         String order = "";
-        List<String> columns = new ArrayList<String>();
+        String columns = "";
 
         for (String option : data) {
             if (option.equalsIgnoreCase(Orders.ASCENDING.getValue()))
-                order = option;
+                order = Orders.ASCENDING.getValue();
             else if (option.equalsIgnoreCase(Orders.DESCENDING.getValue()))
-                order = option;
-
-            result = "Order By " + order;
+                order = Orders.DESCENDING.getValue();
+            else if (!option.equalsIgnoreCase(""))
+                columns += (!columns.equals("") ? ", " + option : option);
         }
 
-        return "Order By " + data.get(0);
+        result = "Order by " + columns + " " + order;
+        System.out.println(result);
+
+        return result;
     }
 
     public abstract Integer update();
