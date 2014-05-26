@@ -1,5 +1,8 @@
 package nl.dennisvdwielen.pojo;
 
+import nl.dennisvdwielen.annotations.PrimaryKey;
+import nl.dennisvdwielen.annotations.Table;
+
 /**
  * Created by Dennis on 14-5-2014 at 21:41)
  * <p/>
@@ -7,9 +10,12 @@ package nl.dennisvdwielen.pojo;
  * This class is within package nl.dennisvdwielen.pojo
  */
 @SuppressWarnings("unused")
+@Table(tableName = "Ship", alias = "s")
 public class Ship {
 
+    @PrimaryKey(fieldName = "shipID")
     private Integer shipID;
+
     private String shipName;
 
     public Integer getShipID() {

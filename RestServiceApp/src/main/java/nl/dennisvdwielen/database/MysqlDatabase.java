@@ -1,6 +1,7 @@
 package nl.dennisvdwielen.database;
 
 import nl.dennisvdwielen.interfaces.ADatabaseHandler;
+import nl.dennisvdwielen.mapping.JoinBuilder;
 import nl.dennisvdwielen.mapping.RecordMapper;
 
 import java.sql.*;
@@ -43,16 +44,25 @@ public class MysqlDatabase extends ADatabaseHandler {
     public <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
         ArrayList<T> result = new ArrayList<T>();
 
-        String tableName = pojo.getSimpleName().toLowerCase();
+        JoinBuilder builder = new JoinBuilder(pojo);
+        String innerJoin = builder.getInnerJoin();
+        String tableName = builder.getHeadTable().getTableName();
+        String alias = builder.getHeadTable().getAlias();
+
+        System.out.println(builder.getInnerJoin());
+
         String where = (whereData == null) ? "" : createWhereString(whereData);
         String order = (orderData == null) ? "" : createOrder(orderData);
 
         System.out.println(where);
 
+        String query = String.format("SELECT * FROM %s %s %s %s %s", tableName, alias, innerJoin, where, order);
         try{
             statement = connect.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM container c   INNER JOIN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID " +
-                    "                                                       INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID " + where + " " + order);
+            resultSet = statement.executeQuery(query);
+
+//            resultSet = statement.executeQuery("SELECT * FROM container c   INNER JOIN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID " +
+//                    "                                                       INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID " + where + " " + order);
 
             ArrayList<Object> rawResults = new RecordMapper(pojo.newInstance(), resultSet).getMappedResults();
 

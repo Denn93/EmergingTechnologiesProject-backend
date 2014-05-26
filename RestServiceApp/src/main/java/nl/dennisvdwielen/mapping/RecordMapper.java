@@ -1,7 +1,5 @@
 package nl.dennisvdwielen.mapping;
 
-import nl.dennisvdwielen.interfaces.IRecordMapper;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
@@ -16,7 +14,7 @@ import java.util.HashMap;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.mapping
  */
-public class RecordMapper implements IRecordMapper {
+public class RecordMapper {
 
     private ArrayList<Object> mappedResults;
 
@@ -34,7 +32,7 @@ public class RecordMapper implements IRecordMapper {
         MapToPojo();
     }
 
-    public RecordMapper(Object pojo, HashMap<String, String> record) {
+    private RecordMapper(Object pojo, HashMap<String, String> record) {
         mappedResults = new ArrayList<Object>();
 
         this.pojo = pojo;
@@ -94,7 +92,7 @@ public class RecordMapper implements IRecordMapper {
             mappedResults.add(pojo);
 
             try {
-                pojo = (Object) pojo.getClass().newInstance();
+                pojo = pojo.getClass().newInstance();
             } catch (InstantiationException e) {
                 //TODO Add Useful Error Message
                 e.printStackTrace();
@@ -175,7 +173,6 @@ public class RecordMapper implements IRecordMapper {
     public Object getRecord() {
         return mappedResults.get(0);
     }
-
     public ArrayList<Object> getMappedResults() {
         return mappedResults;
     }

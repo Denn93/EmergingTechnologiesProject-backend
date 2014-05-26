@@ -17,11 +17,7 @@ public class ContainerDAO extends ADao<Container> {
 
     @Override
     public ArrayList<Container> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
-        ArrayList<Container> result = new ArrayList<Container>();
-
-        result = handler.select(Container.class, where, order);
-
-        return result;
+        return handler.select(Container.class, where, order);
     }
 
     @Override

@@ -24,11 +24,10 @@ public abstract class ADatabaseHandler {
     protected final String DATABASEHANDLER_NOCONNECIION_ERROR = "Can't connect to the database. A connection has occurred";
     protected final String DATABASEHANDLER_NODRIVER_ERROR = "No database connection driver has been found";
 
-    protected Config config;
+    protected final Config config;
 
     protected ADatabaseHandler(){
         config = getInstance();
-
         createConnection();
     }
 
@@ -37,11 +36,8 @@ public abstract class ADatabaseHandler {
     }
 
     public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where) {
-        return select(pojo, where, null);
+        return select(pojo, null, null);
     }
-
-    ;
-
     public abstract <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order);
 
     protected abstract boolean createConnection();
@@ -77,7 +73,6 @@ public abstract class ADatabaseHandler {
 
     protected final String createOrder(List<String> data) {
 
-        String result = "";
         String order = "";
         String columns = "";
 
@@ -90,7 +85,7 @@ public abstract class ADatabaseHandler {
                 columns += (!columns.equals("") ? ", " + option : option);
         }
 
-        result = "Order by " + columns + " " + order;
+        String result = "Order by " + columns + " " + order;
         System.out.println(result);
 
         return result;

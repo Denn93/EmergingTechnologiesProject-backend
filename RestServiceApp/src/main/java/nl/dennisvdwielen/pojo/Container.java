@@ -7,18 +7,27 @@ package nl.dennisvdwielen.pojo;
  * This class is within package nl.dennisvdwielen.pojo
  */
 
+import nl.dennisvdwielen.annotations.ForeignKey;
+import nl.dennisvdwielen.annotations.PrimaryKey;
+import nl.dennisvdwielen.annotations.Table;
+
 /**
  * Methods are dynamically called. There for they are not used directly. That's why there is a waring supresser in place.
  */
 @SuppressWarnings("unused")
+@Table(tableName = "Container", alias = "c")
 public class Container {
 
-    private final String TableName = "container";
-    private final String TableShort = "c";
-
+    @PrimaryKey(fieldName = "equipmentNumber")
     private String equipmentNumber;
+
+    @ForeignKey(tableName = "Ship", fieldName = "shipID")
     private Ship shipID;
+
+    @ForeignKey(tableName = "Handling", fieldName = "handlingID")
     private Handling handlingID;
+
+    @ForeignKey(tableName = "Packaginggroup", fieldName = "packagingID")
     private Packaginggroup packagingID;
 
     private Integer consignmentNumber;

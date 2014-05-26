@@ -11,8 +11,6 @@ import nl.dennisvdwielen.interfaces.ADatabaseHandler;
  */
 public class DatabaseFactory {
 
-    public enum DatabaseType {Mysql};
-
     public ADatabaseHandler getDatabaseHandler(DatabaseType type) {
 
         switch (type) {
@@ -23,5 +21,7 @@ public class DatabaseFactory {
         }
 
     }
+
+    public enum DatabaseType {Mysql}
 
 }

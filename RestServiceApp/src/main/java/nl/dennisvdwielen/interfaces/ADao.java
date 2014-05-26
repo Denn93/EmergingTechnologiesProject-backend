@@ -12,43 +12,37 @@ import java.util.List;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.interfaces
  */
-public abstract class ADao<Dto> {
+public abstract class ADao<Pojo> {
 
-    protected ADatabaseHandler handler;
+    protected final ADatabaseHandler handler;
 
     protected ADao() {
         handler = new DatabaseFactory().getDatabaseHandler(DatabaseFactory.DatabaseType.Mysql);
     }
 
-    public final ArrayList<Dto> get() {
+    public final ArrayList<Pojo> get() {
         return get(-1, null, null);
     }
 
-    ;
 
-    public final ArrayList<Dto> get(int id) {
+    public final ArrayList<Pojo> get(int id) {
         return get(id, null, null);
     }
 
-    ;
-
-    public final ArrayList<Dto> get(int id, List<String> order) {
+    public final ArrayList<Pojo> get(int id, List<String> order) {
         return get(id, null, order);
     }
 
-    ;
 
-    public final ArrayList<Dto> get(int id, LinkedHashMap<String, List<String>> where) {
+    public final ArrayList<Pojo> get(int id, LinkedHashMap<String, List<String>> where) {
         return get(id, where, null);
     }
 
-    ;
+    public abstract ArrayList<Pojo> get(int id, LinkedHashMap<String, List<String>> where, List<String> order);
 
-    public abstract ArrayList<Dto> get(int id, LinkedHashMap<String, List<String>> where, List<String> order);
-    public abstract boolean add(Dto dto);
-    public abstract boolean update(Dto dto);
+    public abstract boolean add(Pojo dto);
+
+    public abstract boolean update(Pojo dto);
+
     public abstract boolean delete();
-
-    public static enum Option {Where, Order, Both, None}
-
 }
