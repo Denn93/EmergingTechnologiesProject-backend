@@ -21,11 +21,9 @@ public class ContainerResources {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/getfilter")
+    @Path("/get")
     public ArrayList<Container> getContainerByFiler(@Context UriInfo uriInfo) {
         MultivaluedMap<String, String> queryParameters = uriInfo.getQueryParameters();
-
-        String result = "";
 
         LinkedHashMap<String, List<String>> where = new LinkedHashMap<String, List<String>>();
         List<String> order = new ArrayList<String>();
@@ -37,10 +35,7 @@ public class ContainerResources {
                     order.add(value);
             else
                 where.put(entry.getKey(), entry.getValue());
-
-            //result += key + " - " + value.toString() + "\n";
         }
-        //return result;
 
         ADao dao = new DaoFactory().getDAO(Container.class);
 

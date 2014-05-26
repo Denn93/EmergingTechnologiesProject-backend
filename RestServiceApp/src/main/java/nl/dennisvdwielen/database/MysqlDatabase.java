@@ -57,12 +57,9 @@ public class MysqlDatabase extends ADatabaseHandler {
         System.out.println(where);
 
         String query = String.format("SELECT * FROM %s %s %s %s %s", tableName, alias, innerJoin, where, order);
-        try{
+        try {
             statement = connect.createStatement();
             resultSet = statement.executeQuery(query);
-
-//            resultSet = statement.executeQuery("SELECT * FROM container c   INNER JOIN Ship s ON c.shipID = s.shipID INNER JOIN Handling h ON h.handlingID = c.handlingID " +
-//                    "                                                       INNER JOIN Packaginggroup pg ON pg.packagingID = c.packagingID " + where + " " + order);
 
             ArrayList<Object> rawResults = new RecordMapper(pojo.newInstance(), resultSet).getMappedResults();
 
@@ -70,8 +67,7 @@ public class MysqlDatabase extends ADatabaseHandler {
                 result.add(pojo.cast(obj));
 
             return result;
-        }catch(SQLException e)
-        {
+        } catch (SQLException e) {
             //TODO Add Useful Error Message
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -80,7 +76,7 @@ public class MysqlDatabase extends ADatabaseHandler {
         } catch (IllegalAccessException e) {
             //TODO Add Useful Error Message
             e.printStackTrace();
-        } finally{
+        } finally {
             close();
         }
 
