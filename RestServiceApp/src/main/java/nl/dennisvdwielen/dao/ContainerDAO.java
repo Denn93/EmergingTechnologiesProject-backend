@@ -2,6 +2,7 @@ package nl.dennisvdwielen.dao;
 
 import nl.dennisvdwielen.interfaces.ADao;
 import nl.dennisvdwielen.pojo.Container;
+import nl.dennisvdwielen.pojo.ContainerKinds;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -17,6 +18,8 @@ public class ContainerDAO extends ADao<Container> {
 
     @Override
     public ArrayList<Container> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
+        ArrayList<ContainerKinds> cc = handler.select(ContainerKinds.class, where, order);
+
         return handler.select(Container.class, where, order);
     }
 

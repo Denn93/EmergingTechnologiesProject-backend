@@ -10,13 +10,21 @@ import nl.dennisvdwielen.annotations.Table;
  * This class is within package nl.dennisvdwielen.pojo
  */
 @SuppressWarnings("unused")
-@Table(tableName = "containerkinds", alias = "contkinds")
+@Table(tableName = "ContainerKinds", alias = "contkinds")
 public class ContainerKinds {
 
-    @ForeignKey(tableName = "container", fieldName = "equipmentnumber")
-    private Container equipmentnumber;
+    @ForeignKey(tableName = "Container", fieldName = "equipmentNumber")
+    private Container equipmentNumber;
 
-    @ForeignKey(tableName = "packagekind", fieldName = "kindID")
+    @ForeignKey(tableName = "Packagekind", fieldName = "kindID")
     private Packagekind kindID;
+
+    public void setEquipmentNumber(Container equipmentNumber) {
+        this.equipmentNumber = equipmentNumber;
+    }
+
+    public void setKindID(Packagekind kindID) {
+        this.kindID = kindID;
+    }
 
 }

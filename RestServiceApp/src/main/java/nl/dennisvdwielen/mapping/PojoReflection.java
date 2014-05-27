@@ -50,6 +50,10 @@ public class PojoReflection {
         }
     }
 
+    public Class getPojo() {
+        return pojo;
+    }
+
     public String getTableName() {
         return tableName;
     }

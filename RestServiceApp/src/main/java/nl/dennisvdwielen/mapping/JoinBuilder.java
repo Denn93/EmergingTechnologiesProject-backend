@@ -2,6 +2,7 @@ package nl.dennisvdwielen.mapping;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Stack;
 
 /**
  * Created by Dennis on 26-5-2014 at 00:39)
@@ -16,14 +17,27 @@ public class JoinBuilder {
     private Class pojo;
     private PojoReflection headTable;
     private ArrayList<PojoReflection> foreignTables;
-    private String innerJoins;
+    private Stack<String> innerJoinCollection;
+
+    private String innerJoin;
 
     public JoinBuilder(Class pojo) {
         this.pojo = pojo;
         headTable = new PojoReflection(pojo);
+        innerJoinCollection = new Stack<String>();
 
         getForeignTables();
-        innerJoins = createInnerJoin();
+
+        innerJoinCollection.push(createInnerJoin());
+        innerJoin = combineInnerJoin();
+    }
+
+    private JoinBuilder(PojoReflection pojo) {
+        this.pojo = pojo.getPojo();
+        headTable = pojo;
+
+        getForeignTables();
+        innerJoin = createInnerJoin();
     }
 
     private void getForeignTables() {
@@ -31,6 +45,10 @@ public class JoinBuilder {
 
         for (Map.Entry<String, String> fk : headTable.getForeignKeys().entrySet()) {
             try {
+                PojoReflection foreignTable = new PojoReflection(Class.forName("nl.dennisvdwielen.pojo." + fk.getKey()));
+                if (foreignTable.getForeignKeys().size() > 0)
+                    innerJoinCollection.push(new JoinBuilder(foreignTable).getInnerJoin());
+
                 foreignTables.add(new PojoReflection(Class.forName("nl.dennisvdwielen.pojo." + fk.getKey())));
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -47,11 +65,26 @@ public class JoinBuilder {
         return result;
     }
 
+    private String combineInnerJoin() {
+        String result = "";
+
+        while (innerJoinCollection.iterator().hasNext())
+            result += innerJoinCollection.pop();
+
+//        for (String joinSet : innerJoinCollection) {
+//            result += joinSet + " ";
+//        }
+
+        return result;
+    }
+
     public PojoReflection getHeadTable() {
         return headTable;
     }
 
     public String getInnerJoin() {
-        return innerJoins;
+        return innerJoin;
     }
+
+
 }

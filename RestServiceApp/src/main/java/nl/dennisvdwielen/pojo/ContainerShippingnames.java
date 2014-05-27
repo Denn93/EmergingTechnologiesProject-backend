@@ -10,11 +10,11 @@ import nl.dennisvdwielen.annotations.Table;
  * This class is within package nl.dennisvdwielen.pojo
  */
 @SuppressWarnings("unused")
-@Table(tableName = "containershippingnames", alias = "conshipping")
+@Table(tableName = "ContainerShippingnames", alias = "conshipping")
 public class ContainerShippingnames {
 
-    @ForeignKey(tableName = "Container", fieldName = "equipmentnumber")
-    private Container equipmentnumber;
+    @ForeignKey(tableName = "Container", fieldName = "equipmentNumber")
+    private Container equipmentNumber;
 
     @ForeignKey(tableName = "Shippingname", fieldName = "shippingID")
     private Shippingname shippingID;

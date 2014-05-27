@@ -10,7 +10,7 @@ import nl.dennisvdwielen.annotations.Table;
  * This class is within package nl.dennisvdwielen.pojo
  */
 @SuppressWarnings("unused")
-@Table(tableName = "packagekind", alias = "kind")
+@Table(tableName = "Packagekind", alias = "kind")
 public class Packagekind {
 
     @PrimaryKey(fieldName = "kindID")

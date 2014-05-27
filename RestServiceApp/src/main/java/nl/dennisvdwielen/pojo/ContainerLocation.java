@@ -13,14 +13,14 @@ import java.sql.Timestamp;
  * This class is within package nl.dennisvdwielen.pojo
  */
 @SuppressWarnings("unused")
-@Table(tableName = "containerlocation", alias = "location")
+@Table(tableName = "ContainerLocation", alias = "location")
 public class ContainerLocation {
 
     @PrimaryKey(fieldName = "locationID")
     private int locationID;
 
-    @ForeignKey(tableName = "container", fieldName = "equipmentnumber")
-    private Container equipmentnumber;
+    @ForeignKey(tableName = "Container", fieldName = "equipmentNumber")
+    private Container equipmentNumber;
 
     private Double longitude;
     private Double latitude;

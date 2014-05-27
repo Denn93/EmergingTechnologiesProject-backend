@@ -10,7 +10,7 @@ import nl.dennisvdwielen.annotations.Table;
  * This class is within package nl.dennisvdwielen.pojo
  */
 @SuppressWarnings("unused")
-@Table(tableName = "shippingname", alias = "shname")
+@Table(tableName = "Shippingname", alias = "shname")
 public class Shippingname {
 
     @PrimaryKey(fieldName = "shippingID")
