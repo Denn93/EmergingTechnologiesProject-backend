@@ -65,4 +65,8 @@ public class PojoReflection {
     public HashMap<String, String> getForeignKeys() {
         return foreignKeys;
     }
+
+    public Field[] getFields() {
+        return fields;
+    }
 }

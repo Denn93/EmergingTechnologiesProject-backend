@@ -51,7 +51,7 @@ public class MysqlDatabase extends ADatabaseHandler {
 
         System.out.println(builder.getInnerJoin());
 
-        String where = (whereData == null) ? "" : createWhereString(whereData);
+        String where = (whereData == null) ? "" : createWhereString(whereData, pojo);
         String order = (orderData == null) ? "" : createOrder(orderData);
 
         System.out.println(where);
