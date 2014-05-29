@@ -26,7 +26,7 @@ public class JoinBuilder {
         headTable = new PojoReflection(pojo);
         innerJoinCollection = new Stack<String>();
 
-        getForeignTables();
+        findForeignTables();
 
         innerJoinCollection.push(createInnerJoin());
         innerJoin = combineInnerJoin();
@@ -36,11 +36,11 @@ public class JoinBuilder {
         this.pojo = pojo.getPojo();
         headTable = pojo;
 
-        getForeignTables();
+        findForeignTables();
         innerJoin = createInnerJoin();
     }
 
-    private void getForeignTables() {
+    private void findForeignTables() {
         foreignTables = new ArrayList<PojoReflection>();
 
         for (Map.Entry<String, String> fk : headTable.getForeignKeys().entrySet()) {
@@ -49,7 +49,7 @@ public class JoinBuilder {
                 if (foreignTable.getForeignKeys().size() > 0)
                     innerJoinCollection.push(new JoinBuilder(foreignTable).getInnerJoin());
 
-                foreignTables.add(new PojoReflection(Class.forName("nl.dennisvdwielen.pojo." + fk.getKey())));
+                foreignTables.add(foreignTable);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
@@ -71,10 +71,6 @@ public class JoinBuilder {
         while (innerJoinCollection.iterator().hasNext())
             result += innerJoinCollection.pop();
 
-//        for (String joinSet : innerJoinCollection) {
-//            result += joinSet + " ";
-//        }
-
         return result;
     }
 
@@ -86,5 +82,7 @@ public class JoinBuilder {
         return innerJoin;
     }
 
-
+    public ArrayList<PojoReflection> getForeignTables() {
+        return foreignTables;
+    }
 }

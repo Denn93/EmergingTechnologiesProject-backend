@@ -12,7 +12,7 @@ import nl.dennisvdwielen.annotations.PrimaryKey;
 import nl.dennisvdwielen.annotations.Table;
 
 /**
- * Methods are dynamically called. There for they are not used directly. That's why there is a waring supresser in place.
+ * Methods are dynamically called. There for they are not used directly. That's why there is a warning suppressor in place.
  */
 @SuppressWarnings("unused")
 @Table(tableName = "Container", alias = "c")

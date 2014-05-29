@@ -3,6 +3,7 @@ package nl.dennisvdwielen.interfaces;
 import nl.dennisvdwielen.enums.Operators;
 import nl.dennisvdwielen.enums.Orders;
 import nl.dennisvdwielen.factory.Config;
+import nl.dennisvdwielen.mapping.JoinBuilder;
 import nl.dennisvdwielen.mapping.PojoReflection;
 
 import java.lang.reflect.Field;
@@ -48,7 +49,7 @@ public abstract class ADatabaseHandler {
         return createWhereString(where, null);
     }
 
-    protected final String createWhereString(LinkedHashMap<String, List<String>> where, Class pojo) {
+    protected final String createWhereString(LinkedHashMap<String, List<String>> where, JoinBuilder builder) {
         String result = "Where ";
         int i = 1;
 
@@ -67,10 +68,12 @@ public abstract class ADatabaseHandler {
             }
 
             String key = entry.getKey();
-            PojoReflection reflection = new PojoReflection(pojo);
-            for (Field field : reflection.getFields())
-                if (entry.getKey().equalsIgnoreCase(field.getName()))
-                    key = String.format("%s.%s", reflection.getAlias(), entry.getKey());
+            ArrayList<PojoReflection> tables = builder.getForeignTables();
+
+            for (PojoReflection reflection : tables)
+                for (Field field : reflection.getFields())
+                    if (entry.getKey().equalsIgnoreCase(field.getName()))
+                        key = String.format("%s.%s", reflection.getAlias(), entry.getKey());
 
             if (where.size() == i)
                 result += String.format("%s %s '%s'", key, operator, entry.getValue().get(0));

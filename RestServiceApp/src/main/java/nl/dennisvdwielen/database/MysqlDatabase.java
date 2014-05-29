@@ -51,12 +51,13 @@ public class MysqlDatabase extends ADatabaseHandler {
 
         System.out.println(builder.getInnerJoin());
 
-        String where = (whereData == null) ? "" : createWhereString(whereData, pojo);
+        String where = (whereData == null) ? "" : createWhereString(whereData, builder);
         String order = (orderData == null) ? "" : createOrder(orderData);
 
         System.out.println(where);
 
-        String query = String.format("SELECT * FROM %s %s %s %s %s", tableName, alias, innerJoin, where, order);
+        String query = String.format("SELECT *, GROUP_CONCAT(kindName, '') kindName FROM %s %s %s %s %s GROUP BY c.equipmentNumber", tableName, alias, innerJoin, where, order);
+        System.out.println(query);
         try {
             statement = connect.createStatement();
             resultSet = statement.executeQuery(query);

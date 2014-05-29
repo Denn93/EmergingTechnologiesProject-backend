@@ -14,10 +14,10 @@ import java.util.List;
  */
 public abstract class ADao<Pojo> {
 
-    protected final ADatabaseHandler handler;
+    protected final ADatabaseHandler dbHandler;
 
     protected ADao() {
-        handler = new DatabaseFactory().getDatabaseHandler(DatabaseFactory.DatabaseType.Mysql);
+        dbHandler = new DatabaseFactory().getDatabaseHandler(DatabaseFactory.DatabaseType.Mysql);
     }
 
     public final ArrayList<Pojo> get() {

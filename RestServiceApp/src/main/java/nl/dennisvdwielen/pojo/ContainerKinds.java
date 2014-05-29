@@ -19,12 +19,19 @@ public class ContainerKinds {
     @ForeignKey(tableName = "Packagekind", fieldName = "kindID")
     private Packagekind kindID;
 
+    public Container getEquipmentNumber() {
+        return equipmentNumber;
+    }
+
     public void setEquipmentNumber(Container equipmentNumber) {
         this.equipmentNumber = equipmentNumber;
+    }
+
+    public Packagekind getKindID() {
+        return kindID;
     }
 
     public void setKindID(Packagekind kindID) {
         this.kindID = kindID;
     }
-
 }
