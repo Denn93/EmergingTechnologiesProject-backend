@@ -1,7 +1,6 @@
 package nl.dennisvdwielen.mapping;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -43,16 +42,11 @@ public class JoinBuilder {
     private void findForeignTables() {
         foreignTables = new ArrayList<PojoReflection>();
 
-        for (Map.Entry<String, String> fk : headTable.getForeignKeys().entrySet()) {
-            try {
-                PojoReflection foreignTable = new PojoReflection(Class.forName("nl.dennisvdwielen.pojo." + fk.getKey()));
-                if (foreignTable.getForeignKeys().size() > 0)
-                    innerJoinCollection.push(new JoinBuilder(foreignTable).getInnerJoin());
+        for (PojoReflection foreignTable : headTable.getForeignTables()) {
+            if (foreignTable.getForeignKeys().size() > 0)
+                innerJoinCollection.push(new JoinBuilder(foreignTable).getInnerJoin());
 
-                foreignTables.add(foreignTable);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+            foreignTables.add(foreignTable);
         }
     }
 

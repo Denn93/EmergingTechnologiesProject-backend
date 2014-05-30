@@ -5,6 +5,7 @@ import nl.dennisvdwielen.annotations.PrimaryKey;
 import nl.dennisvdwielen.annotations.Table;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -23,11 +24,13 @@ public class PojoReflection {
     private String primaryKey;
 
     private HashMap<String, String> foreignKeys;
+    private ArrayList<PojoReflection> foreignTables;
 
     public PojoReflection(Class pojo) {
         this.pojo = pojo;
         this.fields = pojo.getDeclaredFields();
         this.foreignKeys = new HashMap<String, String>();
+        this.foreignTables = new ArrayList<PojoReflection>();
 
         findTableInformation();
     }
@@ -45,8 +48,19 @@ public class PojoReflection {
 
             ForeignKey fk = field.getAnnotation(ForeignKey.class);
 
-            if (fk != null)
+            if (fk != null) {
                 foreignKeys.put(fk.tableName(), fk.fieldName());
+                addForeignTable(fk.tableName());
+            }
+
+        }
+    }
+
+    private void addForeignTable(String tableName) {
+        try {
+            foreignTables.add(new PojoReflection(Class.forName("nl.dennisvdwielen.pojo." + tableName)));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -72,5 +86,9 @@ public class PojoReflection {
 
     public Field[] getFields() {
         return fields;
+    }
+
+    public ArrayList<PojoReflection> getForeignTables() {
+        return foreignTables;
     }
 }

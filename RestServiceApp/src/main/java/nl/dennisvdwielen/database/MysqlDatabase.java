@@ -3,6 +3,7 @@ package nl.dennisvdwielen.database;
 import nl.dennisvdwielen.interfaces.ADatabaseHandler;
 import nl.dennisvdwielen.mapping.JoinBuilder;
 import nl.dennisvdwielen.mapping.RecordMapper;
+import nl.dennisvdwielen.mapping.SelectBuilder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -45,18 +46,19 @@ public class MysqlDatabase extends ADatabaseHandler {
         ArrayList<T> result = new ArrayList<T>();
 
         JoinBuilder builder = new JoinBuilder(pojo);
+        String select = new SelectBuilder(builder.getForeignTables(), builder.getForeignTables().get(1).getFields()[1]).getStatement(); //TODO Get groupbyField Dynamic
         String innerJoin = builder.getInnerJoin();
         String tableName = builder.getHeadTable().getTableName();
         String alias = builder.getHeadTable().getAlias();
 
-        System.out.println(builder.getInnerJoin());
+        System.out.println(select);
 
-        String where = (whereData == null) ? "" : createWhereString(whereData, builder);
+        String where = (whereData == null) ? "" : createWhereString(whereData, builder.getForeignTables());
         String order = (orderData == null) ? "" : createOrder(orderData);
 
         System.out.println(where);
 
-        String query = String.format("SELECT *, GROUP_CONCAT(kindName, '') kindName FROM %s %s %s %s %s GROUP BY c.equipmentNumber", tableName, alias, innerJoin, where, order);
+        String query = String.format("SELECT %s FROM %s %s %s %s %s GROUP BY c.equipmentNumber", select, tableName, alias, innerJoin, where, order); // TODO Add parameter for groupby section
         System.out.println(query);
         try {
             statement = connect.createStatement();
