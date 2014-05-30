@@ -42,11 +42,11 @@ public class MysqlDatabase extends ADatabaseHandler {
     }
 
     @Override
-    public <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
+    public <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, String groupConcat) {
         ArrayList<T> result = new ArrayList<T>();
 
         JoinBuilder builder = new JoinBuilder(pojo);
-        String select = new SelectBuilder(builder.getForeignTables(), builder.getForeignTables().get(1).getFields()[1]).getStatement(); //TODO Get groupbyField Dynamic
+        String select = new SelectBuilder(builder.getForeignTables(), builder.findField(groupConcat)).getStatement();
         String innerJoin = builder.getInnerJoin();
         String tableName = builder.getHeadTable().getTableName();
         String alias = builder.getHeadTable().getAlias();
@@ -55,10 +55,11 @@ public class MysqlDatabase extends ADatabaseHandler {
 
         String where = (whereData == null) ? "" : createWhereString(whereData, builder.getForeignTables());
         String order = (orderData == null) ? "" : createOrder(orderData);
+        groupBy = (groupBy == null) ? "" : String.format("GROUP BY %s", builder.FieldToString(builder.findField(groupBy)));
 
         System.out.println(where);
 
-        String query = String.format("SELECT %s FROM %s %s %s %s %s GROUP BY c.equipmentNumber", select, tableName, alias, innerJoin, where, order); // TODO Add parameter for groupby section
+        String query = String.format("SELECT %s FROM %s %s %s %s %s %s", select, tableName, alias, innerJoin, where, groupBy, order);
         System.out.println(query);
         try {
             statement = connect.createStatement();

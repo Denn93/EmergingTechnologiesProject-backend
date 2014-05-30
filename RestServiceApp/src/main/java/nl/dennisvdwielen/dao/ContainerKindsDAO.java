@@ -17,7 +17,7 @@ public class ContainerKindsDAO extends ADao<ContainerKinds> {
 
     @Override
     public ArrayList<ContainerKinds> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
-        return dbHandler.select(ContainerKinds.class, where, order);
+        return dbHandler.select(ContainerKinds.class, where, order, "equipmentNumber", "kindName");
     }
 
     @Override

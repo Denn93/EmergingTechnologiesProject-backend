@@ -38,9 +38,18 @@ public abstract class ADatabaseHandler {
     }
 
     public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where) {
-        return select(pojo, null, null);
+        return select(pojo, where, null, null);
     }
-    public abstract <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order);
+
+    public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order) {
+        return select(pojo, where, order, null, null);
+    }
+
+    public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, String groupBy, String groupConcat) {
+        return select(pojo, where, null, groupBy, groupConcat);
+    }
+
+    public abstract <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order, String groupBy, String groupConcat);
 
     protected abstract boolean createConnection();
 

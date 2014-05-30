@@ -1,5 +1,6 @@
 package nl.dennisvdwielen.mapping;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -78,5 +79,36 @@ public class JoinBuilder {
 
     public ArrayList<PojoReflection> getForeignTables() {
         return foreignTables;
+    }
+
+    public Field findField(String name) {
+
+        for (PojoReflection foreignTable : foreignTables) {
+            for (Field field : foreignTable.getFields())
+                if (name.equalsIgnoreCase(field.getName()))
+                    return field;
+
+            for (PojoReflection innerForeign : foreignTable.getForeignTables())
+                for (Field field : innerForeign.getFields())
+                    if (name.equalsIgnoreCase(field.getName()))
+                        return field;
+        }
+
+        return null;
+    }
+
+    public String FieldToString(Field value) {
+        for (PojoReflection foreignTable : foreignTables) {
+            for (Field field : foreignTable.getFields())
+                if (value.getName().equalsIgnoreCase(field.getName()))
+                    return String.format("%s.%s", foreignTable.getAlias(), field.getName());
+
+            for (PojoReflection innerForeign : foreignTable.getForeignTables())
+                for (Field field : innerForeign.getFields())
+                    if (value.getName().equalsIgnoreCase(field.getName()))
+                        return String.format("%s.%s", innerForeign.getAlias(), field.getName());
+        }
+
+        return "";
     }
 }
