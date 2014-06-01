@@ -21,6 +21,10 @@ public class JoinBuilder {
 
     private String innerJoin;
 
+    //----------------------------
+    private Class[] pojos;
+    private ArrayList<PojoReflection> mainTables;
+
     public JoinBuilder(Class pojo) {
         this.pojo = pojo;
         headTable = new PojoReflection(pojo);
@@ -32,12 +36,37 @@ public class JoinBuilder {
         innerJoin = combineInnerJoin();
     }
 
+    public JoinBuilder(Class mainTable, ArrayList<Class> intercectionTables, ArrayList<Class> extraTables, String primaryKey) {
+        this.pojos = pojos;
+        this.mainTables = new ArrayList<PojoReflection>();
+        innerJoinCollection = new Stack<String>();
+
+        for (Class pojo : pojos)
+            this.mainTables.add(new PojoReflection(pojo));
+
+        findForeignTablesNew();
+        innerJoin = combineInnerJoin();
+
+    }
+
     private JoinBuilder(PojoReflection pojo) {
         this.pojo = pojo.getPojo();
         headTable = pojo;
 
         findForeignTables();
         innerJoin = createInnerJoin();
+    }
+
+    private void findForeignTablesNew() {
+        foreignTables = new ArrayList<PojoReflection>();
+
+        for (PojoReflection mainTable : mainTables)
+            for (PojoReflection foreignTable : mainTable.getForeignTables()) {
+                if (foreignTable.getForeignKeys().size() > 0)
+                    innerJoinCollection.push(new JoinBuilder(foreignTable).getInnerJoin());
+
+                foreignTables.add(foreignTable);
+            }
     }
 
     private void findForeignTables() {
@@ -65,6 +94,8 @@ public class JoinBuilder {
 
         while (innerJoinCollection.iterator().hasNext())
             result += innerJoinCollection.pop();
+
+        System.out.println(result);
 
         return result;
     }

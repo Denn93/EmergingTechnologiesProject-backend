@@ -1,8 +1,8 @@
-package nl.dennisvdwielen.rest;
+package nl.dennisvdwielen.resources;
 
 import nl.dennisvdwielen.factory.DaoFactory;
 import nl.dennisvdwielen.interfaces.ADao;
-import nl.dennisvdwielen.pojo.ContainerKinds;
+import nl.dennisvdwielen.pojo.Container;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,7 +22,7 @@ public class ContainerResources {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get")
-    public ArrayList<ContainerKinds> getContainerByFiler(@Context UriInfo uriInfo) {
+    public ArrayList<Container> getContainerByFiler(@Context UriInfo uriInfo) {
         MultivaluedMap<String, String> queryParameters = uriInfo.getQueryParameters();
 
         LinkedHashMap<String, List<String>> where = new LinkedHashMap<String, List<String>>();
@@ -37,7 +37,7 @@ public class ContainerResources {
                 where.put(entry.getKey(), entry.getValue());
         }
 
-        ADao dao = new DaoFactory().getDAO(ContainerKinds.class);
+        ADao dao = new DaoFactory().getDAO(Container.class);
 
         if (!where.isEmpty() && !order.isEmpty())
             return dao.get(-1, where, order);

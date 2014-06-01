@@ -1,5 +1,6 @@
 package nl.dennisvdwielen.interfaces;
 
+import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.enums.Operators;
 import nl.dennisvdwielen.enums.Orders;
 import nl.dennisvdwielen.factory.Config;
@@ -28,7 +29,7 @@ public abstract class ADatabaseHandler {
 
     protected final Config config;
 
-    protected ADatabaseHandler(){
+    protected ADatabaseHandler() {
         config = getInstance();
         createConnection();
     }
@@ -50,6 +51,8 @@ public abstract class ADatabaseHandler {
     }
 
     public abstract <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order, String groupBy, String groupConcat);
+
+    public abstract ContainerDTO multipleSelect(LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, String groupConcat, Class... pojos);
 
     protected abstract boolean createConnection();
 
@@ -114,7 +117,10 @@ public abstract class ADatabaseHandler {
     }
 
     public abstract Integer update();
+
     public abstract Integer delete();
+
     public abstract ResultSet rawSelect(String query);
+
     protected abstract void close();
 }

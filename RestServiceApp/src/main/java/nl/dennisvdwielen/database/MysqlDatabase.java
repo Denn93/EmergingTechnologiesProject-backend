@@ -1,9 +1,15 @@
 package nl.dennisvdwielen.database;
 
+import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.interfaces.ADatabaseHandler;
 import nl.dennisvdwielen.mapping.JoinBuilder;
+import nl.dennisvdwielen.mapping.JoinBuilderNew;
 import nl.dennisvdwielen.mapping.RecordMapper;
 import nl.dennisvdwielen.mapping.SelectBuilder;
+import nl.dennisvdwielen.pojo.Container;
+import nl.dennisvdwielen.pojo.ContainerKinds;
+import nl.dennisvdwielen.pojo.ContainerLocation;
+import nl.dennisvdwielen.pojo.ContainerShippingnames;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -41,12 +47,26 @@ public class MysqlDatabase extends ADatabaseHandler {
         return true;
     }
 
+    public ContainerDTO multipleSelect(LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, String groupConcat, Class... pojos) {
+        ArrayList<Class> intersection = new ArrayList<Class>();
+        ArrayList<Class> extra = new ArrayList<Class>();
+        intersection.add(ContainerKinds.class);
+        intersection.add(ContainerShippingnames.class);
+        extra.add(ContainerLocation.class);
+
+        JoinBuilderNew builder = new JoinBuilderNew(Container.class, intersection, extra);
+
+        return null;
+    }
+
     @Override
     public <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, String groupConcat) {
         ArrayList<T> result = new ArrayList<T>();
 
         JoinBuilder builder = new JoinBuilder(pojo);
-        String select = new SelectBuilder(builder.getForeignTables(), builder.findField(groupConcat)).getStatement();
+        String select = (groupConcat != null) ? new SelectBuilder(builder.getForeignTables(), builder.findField(groupConcat)).getStatement()
+                : new SelectBuilder(builder.getForeignTables()).getStatement();
+
         String innerJoin = builder.getInnerJoin();
         String tableName = builder.getHeadTable().getTableName();
         String alias = builder.getHeadTable().getAlias();

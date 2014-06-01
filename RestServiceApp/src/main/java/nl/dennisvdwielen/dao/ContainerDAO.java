@@ -1,8 +1,11 @@
 package nl.dennisvdwielen.dao;
 
+import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.interfaces.ADao;
 import nl.dennisvdwielen.pojo.Container;
 import nl.dennisvdwielen.pojo.ContainerKinds;
+import nl.dennisvdwielen.pojo.ContainerLocation;
+import nl.dennisvdwielen.pojo.ContainerShippingnames;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,13 +17,16 @@ import java.util.List;
  * This code is part of the ${PROJECT_NAME} project.
  * This class is within package ${PACKAGE_NAME}
  */
+@SuppressWarnings("unused")
 public class ContainerDAO extends ADao<Container> {
 
     @Override
     public ArrayList<Container> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
-        ArrayList<ContainerKinds> cc = dbHandler.select(ContainerKinds.class, where, order);
+        //dbHandler.select(Container.class, where, order);
 
-        return dbHandler.select(Container.class, where, order);
+        ContainerDTO dto = dbHandler.multipleSelect(where, order, "groupby", "concat", Container.class, ContainerKinds.class, ContainerShippingnames.class, ContainerLocation.class);
+
+        return null;
     }
 
     @Override
