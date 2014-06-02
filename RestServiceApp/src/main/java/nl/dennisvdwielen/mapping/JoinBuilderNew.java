@@ -36,8 +36,8 @@ public class JoinBuilderNew {
                 this.extraTables.add(new PojoReflection(table));
 
         findForeignHeadTable(this.headTable);
-        intersectionTableCombiner();
-        extraTableCombiner();
+        intersectionTableCreater();
+        extraTableCreater();
 
         System.out.println(innerJoin);
     }
@@ -47,41 +47,45 @@ public class JoinBuilderNew {
         foreignTables = new ArrayList<PojoReflection>();
 
         for (PojoReflection foreignTable : table.getForeignTables()) {
-            innerJoin += String.format(BaseInnerJoinStructure, foreignTable.getTableName(), foreignTable.getAlias(),
-                    foreignTable.getAlias() + "." + foreignTable.getPrimaryKey(),
-                    headTable.getAlias() + "." + foreignTable.getPrimaryKey());
+            innerJoin += makeInnerJoin(foreignTable, formatField(foreignTable.getAlias(), foreignTable.getPrimaryKey()),
+                    formatField(headTable.getAlias(), foreignTable.getPrimaryKey()));
             foreignTables.add(foreignTable);
         }
 
     }
 
-    private void intersectionTableCombiner() {
+    private void intersectionTableCreater() {
         for (PojoReflection table : intersectionTables) {
             for (PojoReflection foreignTable : table.getForeignTables()) {
                 if (foreignTable.getTableName().equals(headTable.getTableName()))
-                    innerJoin += String.format(BaseInnerJoinStructure, table.getTableName(), table.getAlias(), table.getAlias()
-                                    + "." + table.getForeignKeys().get(headTable.getTableName()),
-                            headTable.getAlias() + "." + headTable.getPrimaryKey()
-                    );
+                    innerJoin += makeInnerJoin(table, formatField(table.getAlias(), table.getForeignKeys().get(headTable.getTableName())),
+                            formatField(headTable.getAlias(), headTable.getPrimaryKey()));
+
                 else
-                    innerJoin += String.format(BaseInnerJoinStructure, foreignTable.getTableName(), foreignTable.getAlias(),
-                            table.getAlias() + "." + table.getForeignKeys().get(foreignTable.getTableName()),
-                            foreignTable.getAlias() + "." + foreignTable.getPrimaryKey());
+                    innerJoin += makeInnerJoin(foreignTable, formatField(table.getAlias(), table.getForeignKeys().get(foreignTable.getTableName())),
+                            formatField(foreignTable.getAlias(), foreignTable.getPrimaryKey()));
             }
         }
     }
 
-    private void extraTableCombiner() {
+    private void extraTableCreater() {
         for (PojoReflection table : extraTables) {
             if (table.getForeignKeys().get(headTable.getTableName()) == null)
                 break; // TODO Give Exception Message
 
-            innerJoin += String.format(BaseInnerJoinStructure, table.getTableName(), table.getAlias(), table.getAlias() + "." +
-                            table.getForeignKeys().get(headTable.getTableName()),
-                    headTable.getAlias() + "." + headTable.getPrimaryKey()
-            );
+            innerJoin += makeInnerJoin(table, formatField(table.getAlias(), table.getForeignKeys().get(headTable.getTableName())),
+                    formatField(headTable.getAlias(), headTable.getPrimaryKey()));
         }
     }
+
+    private String makeInnerJoin(PojoReflection from, String fromField, String toField) {
+        return String.format(BaseInnerJoinStructure, from.getTableName(), from.getAlias(), fromField, toField);
+    }
+
+    private String formatField(String alias, String fieldName) {
+        return alias + "." + fieldName;
+    }
+
 
     public PojoReflection getHeadTable() {
         return headTable;
