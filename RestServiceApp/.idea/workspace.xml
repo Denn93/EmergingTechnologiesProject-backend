@@ -6,8 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="241ecec7-390b-4adc-beb4-4fc642f6f88e" name="Default" comment="New Innerjoin builder. Works with multiple tables. Pre work done for work with DTO classes.">
+    <list default="true" id="241ecec7-390b-4adc-beb4-4fc642f6f88e" name="Default" comment="Small Code cleanup. makeinnerjoin and formatfield added for formatting fields with aliases">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilderNew.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilderNew.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/SelectBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/SelectBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Shippingname.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Shippingname.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RestServiceApp.iws" />
@@ -34,107 +39,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ContainerDAO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="884">
-              <caret line="26" column="51" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MysqlDatabase.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MysqlDatabase.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="2669">
-              <caret line="56" column="88" selection-start-line="56" selection-start-column="88" selection-end-line="56" selection-end-column="88" />
+            <state vertical-scroll-proportion="0.2724551" vertical-offset="634" max-vertical-offset="2397">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/DatabaseFactory.java">
+      <file leaf-file-name="Shippingname.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Shippingname.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="561">
-              <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="561">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/Config.java">
+      <file leaf-file-name="SelectBuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/SelectBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="782">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1479">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContainerResources.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResources.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1003">
-              <caret line="39" column="52" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JoinBuilder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="2567">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PojoReflection.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/PojoReflection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1700">
-              <caret line="51" column="60" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JoinBuilderNew.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JoinBuilderNew.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilderNew.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35320416" vertical-offset="902" max-vertical-offset="1785">
-              <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1593" max-vertical-offset="2839">
+              <caret line="129" column="88" selection-start-line="129" selection-start-column="88" selection-end-line="129" selection-end-column="88" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3498#3499#0" expanded="true" />
-                <element signature="e#3544#3545#0" expanded="true" />
-                <element signature="method#findField#0;class#JoinBuilderNew#0" expanded="false" />
-                <element signature="method#FieldToString#0;class#JoinBuilderNew#0" expanded="false" />
+                <element signature="e#4646#4647#0" expanded="true" />
+                <element signature="e#4678#4679#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContainerDTO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dto/ContainerDTO.java">
+      <file leaf-file-name="ContainerDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1105">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="20" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="782">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+              <folding>
+                <element signature="e#1082#1090#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Container.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Container.java">
+      <file leaf-file-name="ADatabaseHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2601">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2176">
+              <caret line="65" column="231" selection-start-line="65" selection-start-column="231" selection-end-line="65" selection-end-column="231" />
               <folding />
             </state>
           </provider>
@@ -185,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/annotations/PrimaryKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Packagakind.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Packaginggroup.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Shippingname.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/ContainerLocation.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/ContainerShippingnames.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Packagekind.java" />
@@ -194,16 +157,17 @@
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/PojoReflection.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerKindsDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/SelectBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Container.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/rest/ContainerResources.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dto/ContainerDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dto/DtoMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilderNew.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Shippingname.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/SelectBuilder.java" />
       </list>
     </option>
   </component>
@@ -286,8 +250,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -640,6 +602,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -665,7 +629,7 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="false" />
     <property name="LayoutCode.rearrangeEntriesJava" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../HRO Dropbox/Jaar 2/Kwartaal 4/INFANL08 Adv Databases/Brian Dennis/Dennis - Brian/Opdracht 2/Java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../HRO Dropbox/Jaar 2/Kwartaal 4/INFANL08 Adv Databases/Brian Dennis/Dennis - Brian/Opdracht 3/Analyse3" />
     <property name="SearchEverywhereHistoryKey" value="{&#9;FILE&#9;file://G:/Dropbox/Home/IdeaProjects/EmergingTechnologiesProject-backend/RestServiceApp/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java&#10;&#9;FILE&#9;file://G:/Dropbox/Home/IdeaProjects/EmergingTechnologiesProject-backend/RestServiceApp/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java" />
   </component>
   <component name="RecentsManager">
@@ -827,34 +791,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -998,7 +934,8 @@
       <workItem from="1401389820378" duration="10257000" />
       <workItem from="1401475793144" duration="13763000" />
       <workItem from="1401618161002" duration="16346000" />
-      <workItem from="1401705793281" duration="2266000" />
+      <workItem from="1401705793281" duration="6503000" />
+      <workItem from="1401804652923" duration="2631000" />
     </task>
     <task id="LOCAL-00001" summary="Added Mysql Database Connector with dbHandler setup&#10;&#10;DAO factory added">
       <created>1398988426112</created>
@@ -1072,11 +1009,15 @@
       <created>1401666313548</created>
       <updated>1401666313548</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Small Code cleanup. makeinnerjoin and formatfield added for formatting fields with aliases">
+      <created>1401709833936</created>
+      <updated>1401709833936</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195047000" />
+    <option name="totallyTimeSpent" value="201915000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1102,26 +1043,26 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22698073" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24089935" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32762313" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31993568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37152034" sideWeight="0.60287845" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31905782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3704497" sideWeight="0.60287845" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5907591" sideWeight="0.22894333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3340471" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33297643" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20096463" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22761194" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18976545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21520342" sideWeight="0.770291" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1165,7 +1106,8 @@
     <MESSAGE value="Build Dynamic SelectBuilder for query execution. Also buildin check for groupby fields" />
     <MESSAGE value="Added option to add groupby clause in query. Find field and table alias based on field string&#10;Group Concat field also added by using find field method., To field a field based on a field string" />
     <MESSAGE value="New Innerjoin builder. Works with multiple tables. Pre work done for work with DTO classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="New Innerjoin builder. Works with multiple tables. Pre work done for work with DTO classes." />
+    <MESSAGE value="Small Code cleanup. makeinnerjoin and formatfield added for formatting fields with aliases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small Code cleanup. makeinnerjoin and formatfield added for formatting fields with aliases" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1175,45 +1117,45 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java</url>
-          <line>72</line>
+          <line>96</line>
           <properties />
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java</url>
-          <line>66</line>
+          <line>87</line>
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java</url>
-          <line>118</line>
-          <properties />
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java</url>
-          <line>92</line>
+          <line>145</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java</url>
-          <line>97</line>
-          <properties />
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilder.java</url>
-          <line>83</line>
+          <line>105</line>
           <properties />
           <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="104" />
+      <option name="time" value="109" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1221,10 +1163,47 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilderNew.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="187">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2346">
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+          <folding>
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#4678#4679#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="884">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="e#1082#1090#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="2244">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2261">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/RecordMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1061" max-vertical-offset="2975">
+          <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1334,13 +1313,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../../School/Hro - Informatica/Jaar 2/Kwartaal 3/Project/Code/BackendJerseyNew/HelloRest/src/main/java/nl/dennisvdwielen/main/HelloResource.java">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sun/jersey/jersey-servlet/1.18/jersey-servlet-1.18.jar!/com/sun/jersey/spi/container/servlet/ServletContainer.class">
@@ -1385,13 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Shippingname.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="561">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Ship.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="561">
@@ -1427,13 +1399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/RecordMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1904" max-vertical-offset="2975">
-          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/ContainerShippingnames.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
@@ -1448,33 +1413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78837556" vertical-offset="1035" max-vertical-offset="51085">
-          <caret line="125" column="13" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/lang/Throwable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.19970194" vertical-offset="6067" max-vertical-offset="17595">
-          <caret line="375" column="18" selection-start-line="375" selection-start-column="18" selection-end-line="375" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerKindsDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <caret line="19" column="46" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/SelectBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1309">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1492,20 +1434,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dto/DtoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68402153" vertical-offset="248" max-vertical-offset="833">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
-          <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/factory/DatabaseFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="544">
@@ -1518,7 +1446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="714">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1545,57 +1472,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/resources/ContainerResources.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Container.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="765">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="1683">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../HRO Dropbox/Jaar 2/Kwartaal 4/INFANL08 Adv Databases/Brian Dennis/Dennis - Brian/Opdracht 2/Java/Java.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="694">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/RecordMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.6550117" vertical-offset="0" max-vertical-offset="2975">
+          <caret line="73" column="7" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/interfaces/ADatabaseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2176">
+          <caret line="65" column="231" selection-start-line="65" selection-start-column="231" selection-end-line="65" selection-end-column="231" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Shippingname.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="561">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dao/ContainerDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="629">
-          <caret line="26" column="51" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="51" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="782">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="e#1082#1090#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/pojo/Container.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilderNew.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="1683">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1593" max-vertical-offset="2839">
+          <caret line="129" column="88" selection-start-line="129" selection-start-column="88" selection-end-line="129" selection-end-column="88" />
+          <folding>
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#4678#4679#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/dto/ContainerDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/SelectBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="833">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="20" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1479">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/database/MysqlDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="298" max-vertical-offset="2329">
-          <caret line="56" column="88" selection-start-line="56" selection-start-column="88" selection-end-line="56" selection-end-column="88" />
+        <state vertical-scroll-proportion="0.2724551" vertical-offset="634" max-vertical-offset="2397">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dennisvdwielen/mapping/JoinBuilderNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35320416" vertical-offset="902" max-vertical-offset="1785">
-          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3498#3499#0" expanded="true" />
-            <element signature="e#3544#3545#0" expanded="true" />
-            <element signature="method#findField#0;class#JoinBuilderNew#0" expanded="false" />
-            <element signature="method#FieldToString#0;class#JoinBuilderNew#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

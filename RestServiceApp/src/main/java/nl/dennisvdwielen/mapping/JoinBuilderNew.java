@@ -2,6 +2,7 @@ package nl.dennisvdwielen.mapping;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Created by Dennis on 1-6-2014 at 12:58)
@@ -86,6 +87,33 @@ public class JoinBuilderNew {
         return alias + "." + fieldName;
     }
 
+    private LinkedList<PojoReflection> combineTableCollections() {
+        LinkedList<PojoReflection> result = new LinkedList<PojoReflection>();
+        ArrayList<String> addedTables = new ArrayList<String>();
+
+        if (headTable != null && !addedTables.contains(headTable.getTableName())) {
+            result.add(headTable);
+            addedTables.add(headTable.getTableName());
+        }
+
+        if (intersectionTables != null)
+            for (PojoReflection pojoReflection : intersectionTables) {
+                if (!addedTables.contains(pojoReflection.getTableName())) {
+                    result.add(pojoReflection);
+                    addedTables.add(pojoReflection.getTableName());
+                }
+            }
+
+        if (extraTables != null)
+            for (PojoReflection pojoReflection : extraTables) {
+                if (!addedTables.contains(pojoReflection.getTableName())) {
+                    result.add(pojoReflection);
+                    addedTables.add(pojoReflection.getTableName());
+                }
+            }
+
+        return result;
+    }
 
     public PojoReflection getHeadTable() {
         return headTable;
@@ -99,14 +127,21 @@ public class JoinBuilderNew {
         return foreignTables;
     }
 
+    public LinkedList<PojoReflection> getAllTables() {
+        return combineTableCollections();
+    }
+
     public Field findField(String name) {
 
-        for (PojoReflection foreignTable : foreignTables) {
-            for (Field field : foreignTable.getFields())
+        LinkedList<PojoReflection> tables = combineTableCollections();
+
+        while (tables.iterator().hasNext()) {
+            PojoReflection current = tables.poll();
+            for (Field field : current.getFields())
                 if (name.equalsIgnoreCase(field.getName()))
                     return field;
 
-            for (PojoReflection innerForeign : foreignTable.getForeignTables())
+            for (PojoReflection innerForeign : current.getForeignTables())
                 for (Field field : innerForeign.getFields())
                     if (name.equalsIgnoreCase(field.getName()))
                         return field;
@@ -116,12 +151,16 @@ public class JoinBuilderNew {
     }
 
     public String FieldToString(Field value) {
-        for (PojoReflection foreignTable : foreignTables) {
-            for (Field field : foreignTable.getFields())
-                if (value.getName().equalsIgnoreCase(field.getName()))
-                    return String.format("%s.%s", foreignTable.getAlias(), field.getName());
 
-            for (PojoReflection innerForeign : foreignTable.getForeignTables())
+        LinkedList<PojoReflection> tables = combineTableCollections();
+
+        while (tables.iterator().hasNext()) {
+            PojoReflection current = tables.poll();
+            for (Field field : current.getFields())
+                if (value.getName().equalsIgnoreCase(field.getName()))
+                    return String.format("%s.%s", current.getAlias(), field.getName());
+
+            for (PojoReflection innerForeign : current.getForeignTables())
                 for (Field field : innerForeign.getFields())
                     if (value.getName().equalsIgnoreCase(field.getName()))
                         return String.format("%s.%s", innerForeign.getAlias(), field.getName());

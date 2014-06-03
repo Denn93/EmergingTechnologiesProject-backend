@@ -2,6 +2,8 @@ package nl.dennisvdwielen.mapping;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Dennis on 30-5-2014 at 00:44)
@@ -13,18 +15,23 @@ public class SelectBuilder {
 
     private final String selectBase = "SELECT ";
 
-    private ArrayList<PojoReflection> tables;
-    private Field groupBy;
+    private LinkedList<PojoReflection> tables;
+    private List<Field> groupBy;
     private String statement;
 
 
-    public SelectBuilder(ArrayList<PojoReflection> tables) {
-        this(tables, null);
+    public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilderNew builder) {
+        this(tables, builder, null);
     }
 
-    public SelectBuilder(ArrayList<PojoReflection> tables, Field groupBy) {
+    public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilderNew builder, List<String> groupBy) {
         this.tables = tables;
-        this.groupBy = groupBy;
+
+        this.groupBy = new ArrayList<Field>();
+
+        if (groupBy != null)
+            for (String value : groupBy)
+                this.groupBy.add(builder.findField(value));
 
         statement = createSelect();
     }
@@ -34,7 +41,8 @@ public class SelectBuilder {
 
         ArrayList<String> addedFields = new ArrayList<String>();
 
-        for (PojoReflection table : tables) {
+        while (tables.iterator().hasNext()) {
+            PojoReflection table = tables.poll();
             if (table.getForeignTables().size() > 0)
                 for (PojoReflection foreignTable : table.getForeignTables())
                     result = loopFields(result, addedFields, foreignTable);
@@ -52,18 +60,20 @@ public class SelectBuilder {
                 String queryField = String.format("%s.%s", table.getAlias(), field.getName());
 
                 if (groupBy != null)
-                    if (field.getName().equalsIgnoreCase(groupBy.getName())) {
-                        result += (result.equals("")) ? String.format("GROUP_CONCAT(%s, '') %s ", queryField, field.getName())
-                                : String.format(", GROUP_CONCAT(%s, '') %s ", queryField, field.getName());
+                    for (Field groupField : groupBy) {
+                        if (field.getName().equalsIgnoreCase(groupField.getName())) {
+                            result += (result.equals("")) ? String.format("GROUP_CONCAT(DISTINCT(%s), '') %s ", queryField, field.getName())
+                                    : String.format(", GROUP_CONCAT(DISTINCT(%s), '') %s ", queryField, field.getName());
 
-                        addedFields.add(field.getName());
-                        continue;
+                            addedFields.add(field.getName());
+                        }
                     }
 
-                result += (result.equals("")) ? String.format("%s ", queryField)
-                        : String.format(",%s ", queryField);
-
-                addedFields.add(field.getName());
+                if (!addedFields.contains(field.getName())) {
+                    result += (result.equals("")) ? String.format("%s ", queryField)
+                            : String.format(",%s ", queryField);
+                    addedFields.add(field.getName());
+                }
             }
         }
 

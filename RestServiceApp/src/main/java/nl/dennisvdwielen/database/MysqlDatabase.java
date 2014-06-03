@@ -6,10 +6,6 @@ import nl.dennisvdwielen.mapping.JoinBuilder;
 import nl.dennisvdwielen.mapping.JoinBuilderNew;
 import nl.dennisvdwielen.mapping.RecordMapper;
 import nl.dennisvdwielen.mapping.SelectBuilder;
-import nl.dennisvdwielen.pojo.Container;
-import nl.dennisvdwielen.pojo.ContainerKinds;
-import nl.dennisvdwielen.pojo.ContainerLocation;
-import nl.dennisvdwielen.pojo.ContainerShippingnames;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -47,14 +43,18 @@ public class MysqlDatabase extends ADatabaseHandler {
         return true;
     }
 
-    public ContainerDTO multipleSelect(LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, String groupConcat, Class... pojos) {
-        ArrayList<Class> intersection = new ArrayList<Class>();
-        ArrayList<Class> extra = new ArrayList<Class>();
-        intersection.add(ContainerKinds.class);
-        intersection.add(ContainerShippingnames.class);
-        extra.add(ContainerLocation.class);
+    public ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
+        JoinBuilderNew builder = new JoinBuilderNew(headTable, intersectionTables, extraTables);
 
-        JoinBuilderNew builder = new JoinBuilderNew(Container.class, intersection, extra);
+        String headTableName = builder.getHeadTable().getTableName();
+        String headTableAlias = builder.getHeadTable().getAlias();
+        String innerJoin = builder.getInnerJoin();
+        groupBy = (groupBy == null) ? "" : String.format("GROUP BY %s", builder.FieldToString(builder.findField(groupBy)));
+        String select = (groupConcat != null) ? new SelectBuilder(builder.getAllTables(), builder, groupConcat).getStatement()
+                : new SelectBuilder(builder.getAllTables(), builder).getStatement();
+
+        String query = String.format("SELECT %s FROM %s %s %s %s %s %s", select, headTableName, headTableAlias, innerJoin, "", groupBy, "");
+        System.out.println(query);
 
         return null;
     }
@@ -64,8 +64,8 @@ public class MysqlDatabase extends ADatabaseHandler {
         ArrayList<T> result = new ArrayList<T>();
 
         JoinBuilder builder = new JoinBuilder(pojo);
-        String select = (groupConcat != null) ? new SelectBuilder(builder.getForeignTables(), builder.findField(groupConcat)).getStatement()
-                : new SelectBuilder(builder.getForeignTables()).getStatement();
+        String select = "";/*(groupConcat != null) ? new SelectBuilder(builder.getForeignTables(), builder.findField(groupConcat)).getStatement()
+                : new SelectBuilder(builder.getForeignTables()).getStatement();*/
 
         String innerJoin = builder.getInnerJoin();
         String tableName = builder.getHeadTable().getTableName();

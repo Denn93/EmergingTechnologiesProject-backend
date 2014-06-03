@@ -52,7 +52,43 @@ public abstract class ADatabaseHandler {
 
     public abstract <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order, String groupBy, String groupConcat);
 
-    public abstract ContainerDTO multipleSelect(LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, String groupConcat, Class... pojos);
+    public final ContainerDTO multipleSelect(Class headTable) {
+        return multipleSelect(headTable, null, null, null, null, null, null);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, LinkedHashMap<String, List<String>> whereData) {
+        return multipleSelect(headTable, null, null, whereData, null, null, null);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
+        return multipleSelect(headTable, null, null, whereData, orderData, null, null);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
+        return multipleSelect(headTable, null, null, whereData, orderData, groupBy, groupConcat);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersection, LinkedHashMap<String, List<String>> whereData) {
+        return multipleSelect(headTable, intersection, null, whereData, null, null, null);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersection, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
+        return multipleSelect(headTable, intersection, null, whereData, orderData, null, null);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersection, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
+        return multipleSelect(headTable, intersection, null, whereData, orderData, groupBy, groupConcat);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData) {
+        return multipleSelect(headTable, intersectionTables, extraTables, whereData, null, null, null);
+    }
+
+    public final ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
+        return multipleSelect(headTable, intersectionTables, extraTables, whereData, orderData, null, null);
+    }
+
+    public abstract ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat);
 
     protected abstract boolean createConnection();
 

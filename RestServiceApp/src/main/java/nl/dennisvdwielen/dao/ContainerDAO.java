@@ -22,9 +22,18 @@ public class ContainerDAO extends ADao<Container> {
 
     @Override
     public ArrayList<Container> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
-        //dbHandler.select(Container.class, where, order);
+        ArrayList<Class> intersection = new ArrayList<Class>();
+        ArrayList<Class> extra = new ArrayList<Class>();
 
-        ContainerDTO dto = dbHandler.multipleSelect(where, order, "groupby", "concat", Container.class, ContainerKinds.class, ContainerShippingnames.class, ContainerLocation.class);
+        intersection.add(ContainerKinds.class);
+        intersection.add(ContainerShippingnames.class);
+        extra.add(ContainerLocation.class);
+
+        ArrayList<String> groupConcat = new ArrayList<String>();
+        groupConcat.add("kindName");
+        groupConcat.add("shippingName");
+
+        ContainerDTO dto = dbHandler.multipleSelect(Container.class, intersection, extra, where, order, "equipmentNumber", groupConcat);
 
         return null;
     }

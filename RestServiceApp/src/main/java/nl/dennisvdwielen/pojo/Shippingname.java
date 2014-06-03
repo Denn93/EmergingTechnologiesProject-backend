@@ -14,16 +14,16 @@ import nl.dennisvdwielen.annotations.Table;
 public class Shippingname {
 
     @PrimaryKey(fieldName = "shippingID")
-    private int shipppingID;
+    private int shippingID;
 
     private String shippingName;
 
-    public int getShipppingID() {
-        return shipppingID;
+    public int getShippingID() {
+        return shippingID;
     }
 
-    public void setShipppingID(int shipppingID) {
-        this.shipppingID = shipppingID;
+    public void setShippingID(int shipppingID) {
+        this.shippingID = shipppingID;
     }
 
     public String getShippingName() {
