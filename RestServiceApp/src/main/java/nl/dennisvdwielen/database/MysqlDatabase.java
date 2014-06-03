@@ -53,7 +53,10 @@ public class MysqlDatabase extends ADatabaseHandler {
         String select = (groupConcat != null) ? new SelectBuilder(builder.getAllTables(), builder, groupConcat).getStatement()
                 : new SelectBuilder(builder.getAllTables(), builder).getStatement();
 
-        String query = String.format("SELECT %s FROM %s %s %s %s %s %s", select, headTableName, headTableAlias, innerJoin, "", groupBy, "");
+        String where = (whereData == null) ? "" : createWhereString(whereData, builder.getAllTables());
+        String order = (orderData == null) ? "" : createOrder(orderData);
+
+        String query = String.format("SELECT %s FROM %s %s %s %s %s %s", select, headTableName, headTableAlias, innerJoin, where, groupBy, order);
         System.out.println(query);
 
         return null;
@@ -73,7 +76,7 @@ public class MysqlDatabase extends ADatabaseHandler {
 
         System.out.println(select);
 
-        String where = (whereData == null) ? "" : createWhereString(whereData, builder.getForeignTables());
+        String where = "";/* (whereData == null) ? "" : createWhereString(whereData, builder.getForeignTables());*/
         String order = (orderData == null) ? "" : createOrder(orderData);
         groupBy = (groupBy == null) ? "" : String.format("GROUP BY %s", builder.FieldToString(builder.findField(groupBy)));
 

@@ -8,10 +8,7 @@ import nl.dennisvdwielen.mapping.PojoReflection;
 
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static nl.dennisvdwielen.factory.Config.getInstance;
 
@@ -96,7 +93,7 @@ public abstract class ADatabaseHandler {
         return createWhereString(where, null);
     }
 
-    protected final String createWhereString(LinkedHashMap<String, List<String>> where, ArrayList<PojoReflection> tables) {
+    protected final String createWhereString(LinkedHashMap<String, List<String>> where, LinkedList<PojoReflection> tables) {
         String result = "Where ";
         int i = 1;
 
@@ -116,10 +113,16 @@ public abstract class ADatabaseHandler {
 
             String key = entry.getKey();
 
-            for (PojoReflection reflection : tables)
+            while (tables.iterator().hasNext() && key.equalsIgnoreCase(entry.getKey())) {
+                PojoReflection reflection = tables.poll();
                 for (Field field : reflection.getFields())
-                    if (entry.getKey().equalsIgnoreCase(field.getName()))
+                    if (entry.getKey().equalsIgnoreCase(field.getName())) {
                         key = String.format("%s.%s", reflection.getAlias(), entry.getKey());
+                        break;
+                    }
+
+            }
+
 
             if (where.size() == i)
                 result += String.format("%s %s '%s'", key, operator, entry.getValue().get(0));
