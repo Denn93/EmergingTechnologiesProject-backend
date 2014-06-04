@@ -1,5 +1,6 @@
 package nl.dennisvdwielen.resources;
 
+import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.factory.DaoFactory;
 import nl.dennisvdwielen.interfaces.ADao;
 import nl.dennisvdwielen.pojo.Container;
@@ -22,7 +23,7 @@ public class ContainerResources {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get")
-    public ArrayList<Container> getContainerByFiler(@Context UriInfo uriInfo) {
+    public ArrayList<ContainerDTO> getContainerByFiler(@Context UriInfo uriInfo) {
         MultivaluedMap<String, String> queryParameters = uriInfo.getQueryParameters();
 
         LinkedHashMap<String, List<String>> where = new LinkedHashMap<String, List<String>>();

@@ -18,10 +18,10 @@ import java.util.List;
  * This class is within package ${PACKAGE_NAME}
  */
 @SuppressWarnings("unused")
-public class ContainerDAO extends ADao<Container> {
+public class ContainerDAO extends ADao<ContainerDTO> {
 
     @Override
-    public ArrayList<Container> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
+    public ArrayList<ContainerDTO> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
         ArrayList<Class> intersection = new ArrayList<Class>();
         ArrayList<Class> extra = new ArrayList<Class>();
 
@@ -33,18 +33,19 @@ public class ContainerDAO extends ADao<Container> {
         groupConcat.add("kindName");
         groupConcat.add("shippingName");
 
-        ContainerDTO dto = dbHandler.multipleSelect(Container.class, intersection, extra, where, order, "equipmentNumber", groupConcat);
+        ArrayList<ContainerDTO> result = new ArrayList<ContainerDTO>();
+        result.add(dbHandler.multipleSelect(Container.class, intersection, extra, where, order, "equipmentNumber", groupConcat));
 
-        return null;
+        return result;
     }
 
     @Override
-    public boolean add(Container student) {
+    public boolean add(ContainerDTO student) {
         return false;
     }
 
     @Override
-    public boolean update(Container student) {
+    public boolean update(ContainerDTO student) {
         return false;
     }
 

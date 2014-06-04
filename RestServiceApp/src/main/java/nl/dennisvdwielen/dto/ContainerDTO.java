@@ -2,8 +2,8 @@ package nl.dennisvdwielen.dto;
 
 import nl.dennisvdwielen.pojo.Container;
 import nl.dennisvdwielen.pojo.ContainerLocation;
-import nl.dennisvdwielen.pojo.ContainerShippingnames;
 import nl.dennisvdwielen.pojo.Packagekind;
+import nl.dennisvdwielen.pojo.Shippingname;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
@@ -12,48 +12,49 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.dto
  */
+@SuppressWarnings("unused")
 public class ContainerDTO {
 
-    Container container;
+    Container equipmentNumber;
 
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-    Packagekind kinds;
+    Packagekind kindID;
 
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-    ContainerLocation location;
+    ContainerLocation locationID;
 
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-    ContainerShippingnames shippingnames;
+    Shippingname shippingID;
 
-    public Container getContainer() {
-        return container;
+    public Container getEquipmentNumber() {
+        return equipmentNumber;
     }
 
-    public void setContainer(Container container) {
-        this.container = container;
+    public void setEquipmentNumber(Container equipmentNumber) {
+        this.equipmentNumber = equipmentNumber;
     }
 
-    public Packagekind getKinds() {
-        return kinds;
+    public Packagekind getKindID() {
+        return kindID;
     }
 
-    public void setKinds(Packagekind kinds) {
-        this.kinds = kinds;
+    public void setKindID(Packagekind kindID) {
+        this.kindID = kindID;
     }
 
-    public ContainerLocation getLocation() {
-        return location;
+    public ContainerLocation getLocationID() {
+        return locationID;
     }
 
-    public void setLocation(ContainerLocation location) {
-        this.location = location;
+    public void setLocationID(ContainerLocation locationID) {
+        this.locationID = locationID;
     }
 
-    public ContainerShippingnames getShippingnames() {
-        return shippingnames;
+    public Shippingname getShippingID() {
+        return shippingID;
     }
 
-    public void setShippingnames(ContainerShippingnames shippingnames) {
-        this.shippingnames = shippingnames;
+    public void setShippingID(Shippingname shippingID) {
+        this.shippingID = shippingID;
     }
 }

@@ -18,4 +18,20 @@ public class ContainerShippingnames {
 
     @ForeignKey(tableName = "Shippingname", fieldName = "shippingID")
     private Shippingname shippingID;
+
+    public Container getEquipmentNumber() {
+        return equipmentNumber;
+    }
+
+    public void setEquipmentNumber(Container equipmentNumber) {
+        this.equipmentNumber = equipmentNumber;
+    }
+
+    public Shippingname getShippingID() {
+        return shippingID;
+    }
+
+    public void setShippingID(Shippingname shippingID) {
+        this.shippingID = shippingID;
+    }
 }

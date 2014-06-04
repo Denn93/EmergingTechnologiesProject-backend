@@ -2,10 +2,7 @@ package nl.dennisvdwielen.database;
 
 import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.interfaces.ADatabaseHandler;
-import nl.dennisvdwielen.mapping.JoinBuilder;
-import nl.dennisvdwielen.mapping.JoinBuilderNew;
-import nl.dennisvdwielen.mapping.RecordMapper;
-import nl.dennisvdwielen.mapping.SelectBuilder;
+import nl.dennisvdwielen.mapping.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -58,6 +55,19 @@ public class MysqlDatabase extends ADatabaseHandler {
 
         String query = String.format("SELECT %s FROM %s %s %s %s %s %s", select, headTableName, headTableAlias, innerJoin, where, groupBy, order);
         System.out.println(query);
+
+        try {
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery(query);
+
+            return new RecordMapperNew(headTable, intersectionTables, extraTables, resultSet).getDto();
+//
+//            while(resultSet.next())
+//                System.out.println(resultSet.getString("equipmentnumber"));
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
 
         return null;
     }
