@@ -33,8 +33,6 @@ public class ContainerDAO extends ADao<ContainerDTO> {
         groupConcat.add("kindName");
         groupConcat.add("shippingName");
 
-        dbHandler.multipleSelect(ContainerDTO.class, Container.class, intersection, extra, where, order, "equipmentNumber", groupConcat);
-
         ArrayList<ContainerDTO> result = dbHandler.multipleSelect(ContainerDTO.class, Container.class, intersection, extra, where, order, "equipmentNumber", groupConcat);
 
         return result;

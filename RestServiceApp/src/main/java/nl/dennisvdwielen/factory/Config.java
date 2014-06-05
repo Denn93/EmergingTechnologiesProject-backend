@@ -30,11 +30,11 @@ public class Config {
         return instance;
     }
 
-    public String getDbDriver(){
+    public String getDbDriver() {
         return dbDriver;
     }
 
     public String getConnectionString() {
-        return String.format("%s?user=%s&root=%s", dbConnection, dbUser, dbPass);
+        return String.format("%s?user=%s&password=%s", dbConnection, dbUser, dbPass);
     }
 }

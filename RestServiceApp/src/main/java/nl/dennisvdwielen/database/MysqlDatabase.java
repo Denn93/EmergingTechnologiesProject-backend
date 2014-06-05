@@ -1,7 +1,9 @@
 package nl.dennisvdwielen.database;
 
+import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.interfaces.ADatabaseHandler;
 import nl.dennisvdwielen.mapping.*;
+import nl.dennisvdwielen.pojo.Container;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -62,10 +64,15 @@ public class MysqlDatabase extends ADatabaseHandler {
             return new RecordMapperNew(headTable, intersectionTables, extraTables, resultSet).getDto(dto);
 
         } catch (SQLException e) {
-            e.getMessage();
-        }
 
-        return null;
+            ArrayList<T> result = new ArrayList<T>();
+            Container con = new Container();
+            con.setEquipmentNumber((e.getMessage()));
+            ContainerDTO dt = new ContainerDTO();
+            dt.setEquipmentNumber(con);
+            result.add((T) dt);
+            return result;
+        }
     }
 
     @Override

@@ -10,10 +10,10 @@ import nl.dennisvdwielen.annotations.Table;
  * This class is within package nl.dennisvdwielen.pojo
  */
 @SuppressWarnings("unused")
-@Table(tableName = "Packaginggroup", alias = "pg")
+@Table(tableName = "packaginggroup", alias = "pg")
 public class Packaginggroup {
 
-    @PrimaryKey(fieldName = "packagingID")
+    @PrimaryKey(fieldName = "packagingid")
     private Integer packagingID;
 
     private String packagingName;

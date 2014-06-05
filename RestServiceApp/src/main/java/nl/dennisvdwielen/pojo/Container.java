@@ -15,19 +15,19 @@ import nl.dennisvdwielen.annotations.Table;
  * Methods are dynamically called. There for they are not used directly. That's why there is a warning suppressor in place.
  */
 @SuppressWarnings("unused")
-@Table(tableName = "Container", alias = "c")
+@Table(tableName = "container", alias = "c")
 public class Container {
 
-    @PrimaryKey(fieldName = "equipmentNumber")
+    @PrimaryKey(fieldName = "equipmentnumber")
     private String equipmentNumber;
 
-    @ForeignKey(tableName = "Ship", fieldName = "shipID")
+    @ForeignKey(tableName = "ship", fieldName = "shipid")
     private Ship shipID;
 
-    @ForeignKey(tableName = "Handling", fieldName = "handlingID")
+    @ForeignKey(tableName = "handling", fieldName = "handlingid")
     private Handling handlingID;
 
-    @ForeignKey(tableName = "Packaginggroup", fieldName = "packagingID")
+    @ForeignKey(tableName = "packaginggroup", fieldName = "packagingid")
     private Packaginggroup packagingID;
 
     private Integer consignmentNumber;

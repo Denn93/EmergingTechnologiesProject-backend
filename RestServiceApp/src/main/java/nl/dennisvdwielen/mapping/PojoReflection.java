@@ -58,6 +58,7 @@ public class PojoReflection {
 
     private void addForeignTable(String tableName) {
         try {
+            tableName = tableName.substring(0, 1).toUpperCase() + tableName.substring(1);
             foreignTables.add(new PojoReflection(Class.forName("nl.dennisvdwielen.pojo." + tableName)));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
