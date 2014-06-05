@@ -40,7 +40,6 @@ public class Container {
     private String portOfDischarge;
     private String terminal;
 
-
     public String getEquipmentNumber() {
         return equipmentNumber;
     }

@@ -1,6 +1,5 @@
 package nl.dennisvdwielen.database;
 
-import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.interfaces.ADatabaseHandler;
 import nl.dennisvdwielen.mapping.*;
 
@@ -40,7 +39,7 @@ public class MysqlDatabase extends ADatabaseHandler {
         return true;
     }
 
-    public ContainerDTO multipleSelect(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
+    public <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
         JoinBuilderNew builder = new JoinBuilderNew(headTable, intersectionTables, extraTables);
 
         String headTableName = builder.getHeadTable().getTableName();
@@ -60,10 +59,7 @@ public class MysqlDatabase extends ADatabaseHandler {
             statement = connect.createStatement();
             resultSet = statement.executeQuery(query);
 
-            return new RecordMapperNew(headTable, intersectionTables, extraTables, resultSet).getDto();
-//
-//            while(resultSet.next())
-//                System.out.println(resultSet.getString("equipmentnumber"));
+            return new RecordMapperNew(headTable, intersectionTables, extraTables, resultSet).getDto(dto);
 
         } catch (SQLException e) {
             e.getMessage();

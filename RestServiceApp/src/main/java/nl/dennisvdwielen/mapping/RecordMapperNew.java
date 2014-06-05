@@ -24,37 +24,29 @@ import java.util.HashMap;
 public class RecordMapperNew {
 
     ArrayList<Object> tables;
+    ArrayList<Object> dtoData;
+    private Class headTable;
+    private ArrayList<Class> intersectionTables;
+    private ArrayList<Class> extraTables;
     private ArrayList<ArrayList<Object>> mappedResults;
     private ArrayList<String> queryFields;
     private ArrayList<HashMap<String, String>> queryResult;
-    private ContainerDTO dto;
     private ArrayList<String> insertedForeignFields;
 
     public RecordMapperNew(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, ResultSet result) {
         mappedResults = new ArrayList<ArrayList<Object>>();
         insertedForeignFields = new ArrayList<String>();
+        this.headTable = headTable;
+        this.intersectionTables = intersectionTables;
+        this.extraTables = extraTables;
 
-        this.tables = new ArrayList<Object>();
-        try {
-            this.tables.add(headTable.newInstance());
-
-            for (Class cl : intersectionTables)
-                this.tables.add(cl.newInstance());
-
-            for (Class cl : extraTables)
-                this.tables.add(cl.newInstance());
-
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        makeNewTables();
 
         this.queryResult = ResultSetToArrayList(result);
         this.queryFields = RetrieveQueryFields(result);
 
         MapToPojo();
-        dto = ContainerDTO.class.cast(new DtoMapper(ContainerDTO.class, mappedResults, this.tables).getDto());
+        dtoData = new DtoMapper(ContainerDTO.class, mappedResults, this.tables).getDto();
     }
 
     private RecordMapperNew(Object pojo, HashMap<String, String> record) {
@@ -71,6 +63,27 @@ public class RecordMapperNew {
             this.queryFields.add(key);
 
         MapToPojo();
+    }
+
+    private void makeNewTables() {
+
+        if (this.headTable != null) {
+            this.tables = new ArrayList<Object>();
+            try {
+                this.tables.add(headTable.newInstance());
+
+                for (Class cl : intersectionTables)
+                    this.tables.add(cl.newInstance());
+
+                for (Class cl : extraTables)
+                    this.tables.add(cl.newInstance());
+
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -106,6 +119,8 @@ public class RecordMapperNew {
         for (HashMap<String, String> record : queryResult) {
             ArrayList<Object> recordResults = new ArrayList<Object>();
             insertedForeignFields = new ArrayList<String>();
+            makeNewTables();
+
             for (Object pojo : tables) {
                 for (String field : queryFields) {
                     if (insertedForeignFields.contains(field))
@@ -220,7 +235,12 @@ public class RecordMapperNew {
         return mappedResults;
     }
 
-    public ContainerDTO getDto() {
-        return dto;
+    public <T> ArrayList<T> getDto(Class<T> dtoClass) {
+        ArrayList<T> result = new ArrayList<T>();
+
+        for (Object data : dtoData)
+            result.add(dtoClass.cast(data));
+
+        return result;
     }
 }
