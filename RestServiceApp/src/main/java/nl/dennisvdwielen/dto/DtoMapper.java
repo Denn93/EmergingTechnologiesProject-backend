@@ -17,6 +17,7 @@ public class DtoMapper {
     private ArrayList<ArrayList<Object>> data;
     private ArrayList<Object> tables;
     private ArrayList<String> mappedFields;
+    private ArrayList<Object> result;
 
     public DtoMapper(Class dto, ArrayList<ArrayList<Object>> data, ArrayList<Object> tables) {
         try {
@@ -25,6 +26,7 @@ public class DtoMapper {
             this.data = data;
             this.tables = tables;
             this.mappedFields = new ArrayList<String>();
+            this.result = new ArrayList<Object>();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -82,10 +84,12 @@ public class DtoMapper {
                     }
                 }
             }
+
+            result.add(dto);
         }
     }
 
-    public Object getDto() {
-        return dto;
+    public ArrayList<Object> getDto() {
+        return result;
     }
 }
