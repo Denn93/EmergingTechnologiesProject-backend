@@ -13,7 +13,7 @@ import nl.dennisvdwielen.annotations.Table;
 @Table(tableName = "shippingname", alias = "shname")
 public class Shippingname {
 
-    @PrimaryKey(fieldName = "shippingid:")
+    @PrimaryKey(fieldName = "shippingid")
     private int shippingID;
 
     private String shippingName;
