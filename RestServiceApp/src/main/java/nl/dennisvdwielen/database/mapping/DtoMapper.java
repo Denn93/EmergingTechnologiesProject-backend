@@ -1,4 +1,4 @@
-package nl.dennisvdwielen.dto;
+package nl.dennisvdwielen.database.mapping;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

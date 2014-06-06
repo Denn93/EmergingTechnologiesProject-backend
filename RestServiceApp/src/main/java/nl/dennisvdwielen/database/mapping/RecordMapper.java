@@ -1,7 +1,6 @@
-package nl.dennisvdwielen.mapping;
+package nl.dennisvdwielen.database.mapping;
 
 import nl.dennisvdwielen.dto.ContainerDTO;
-import nl.dennisvdwielen.dto.DtoMapper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -21,7 +20,7 @@ import java.util.HashMap;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.mapping
  */
-public class RecordMapperNew {
+public class RecordMapper {
 
     ArrayList<Object> tables;
     ArrayList<Object> dtoData;
@@ -33,7 +32,7 @@ public class RecordMapperNew {
     private ArrayList<HashMap<String, String>> queryResult;
     private ArrayList<String> insertedForeignFields;
 
-    public RecordMapperNew(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, ResultSet result) {
+    public RecordMapper(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, ResultSet result) {
         mappedResults = new ArrayList<ArrayList<Object>>();
         insertedForeignFields = new ArrayList<String>();
         this.headTable = headTable;
@@ -49,7 +48,7 @@ public class RecordMapperNew {
         dtoData = new DtoMapper(ContainerDTO.class, mappedResults, this.tables).getDto();
     }
 
-    private RecordMapperNew(Object pojo, HashMap<String, String> record) {
+    private RecordMapper(Object pojo, HashMap<String, String> record) {
         mappedResults = new ArrayList<ArrayList<Object>>();
         this.tables = new ArrayList<Object>();
         this.tables.add(pojo);
@@ -175,7 +174,7 @@ public class RecordMapperNew {
                 insertedForeignFields.add(field);
             } else {
                 Class cls = Class.forName(fieldType.getName());
-                Object temp = new RecordMapperNew(cls.newInstance(), record).getRecord();
+                Object temp = new RecordMapper(cls.newInstance(), record).getRecord();
 
                 method.invoke(pojo, cls.cast(temp));
             }

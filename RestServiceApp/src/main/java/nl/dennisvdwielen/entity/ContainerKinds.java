@@ -1,4 +1,4 @@
-package nl.dennisvdwielen.pojo;
+package nl.dennisvdwielen.entity;
 
 import nl.dennisvdwielen.annotations.ForeignKey;
 import nl.dennisvdwielen.annotations.Table;
@@ -7,7 +7,7 @@ import nl.dennisvdwielen.annotations.Table;
  * Created by Dennis on 26-5-2014 at 20:20)
  * <p/>
  * This code is part of the RestServiceApp project.
- * This class is within package nl.dennisvdwielen.pojo
+ * This class is within package nl.dennisvdwielen.entity
  */
 @SuppressWarnings("unused")
 @Table(tableName = "containerkinds", alias = "contkinds")

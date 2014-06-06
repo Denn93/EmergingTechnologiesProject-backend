@@ -1,7 +1,7 @@
 package nl.dennisvdwielen.factory;
 
+import nl.dennisvdwielen.abstracts.ADatabaseHandler;
 import nl.dennisvdwielen.database.MysqlDatabase;
-import nl.dennisvdwielen.interfaces.ADatabaseHandler;
 
 /**
  * Created by Dennis on 4-5-2014 at 16:43)

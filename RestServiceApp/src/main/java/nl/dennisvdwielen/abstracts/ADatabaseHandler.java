@@ -1,9 +1,9 @@
-package nl.dennisvdwielen.interfaces;
+package nl.dennisvdwielen.abstracts;
 
+import nl.dennisvdwielen.database.mapping.PojoReflection;
 import nl.dennisvdwielen.enums.Operators;
 import nl.dennisvdwielen.enums.Orders;
 import nl.dennisvdwielen.factory.Config;
-import nl.dennisvdwielen.mapping.PojoReflection;
 
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ import static nl.dennisvdwielen.factory.Config.getInstance;
  * Created by Dennis on 4-5-2014 at 16:45)
  * <p/>
  * This code is part of the RestServiceApp project.
- * This class is within package nl.dennisvdwielen.interfaces
+ * This class is within package nl.dennisvdwielen.abstracts
  */
 public abstract class ADatabaseHandler {
 
@@ -29,24 +29,6 @@ public abstract class ADatabaseHandler {
         config = getInstance();
         createConnection();
     }
-
-    public final <T> ArrayList<T> select(Class<T> pojo) {
-        return select(pojo, null);
-    }
-
-    public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where) {
-        return select(pojo, where, null, null);
-    }
-
-    public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order) {
-        return select(pojo, where, order, null, null);
-    }
-
-    public final <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, String groupBy, String groupConcat) {
-        return select(pojo, where, null, groupBy, groupConcat);
-    }
-
-    public abstract <T> ArrayList<T> select(Class<T> pojo, LinkedHashMap<String, List<String>> where, List<String> order, String groupBy, String groupConcat);
 
     public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable) {
         return multipleSelect(dto, headTable, null, null, null, null, null, null);
@@ -88,10 +70,6 @@ public abstract class ADatabaseHandler {
 
     protected abstract boolean createConnection();
 
-    protected final String createWhereString(LinkedHashMap<String, List<String>> where) {
-        return createWhereString(where, null);
-    }
-
     protected final String createWhereString(LinkedHashMap<String, List<String>> where, LinkedList<PojoReflection> tables) {
         String result = "Where ";
         int i = 1;
@@ -121,7 +99,6 @@ public abstract class ADatabaseHandler {
                     }
 
             }
-
 
             if (where.size() == i)
                 result += String.format("%s %s '%s'", key, operator, entry.getValue().get(0));

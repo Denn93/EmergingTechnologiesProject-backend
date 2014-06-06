@@ -1,4 +1,4 @@
-package nl.dennisvdwielen.interfaces;
+package nl.dennisvdwielen.abstracts;
 
 import nl.dennisvdwielen.factory.DatabaseFactory;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Dennis on 26-4-2014.
  * <p/>
  * This code is part of the RestServiceApp project.
- * This class is within package nl.dennisvdwielen.interfaces
+ * This class is within package nl.dennisvdwielen.abstracts
  */
 public abstract class ADao<Pojo> {
 

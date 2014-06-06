@@ -1,9 +1,9 @@
 package nl.dennisvdwielen.resources;
 
+import nl.dennisvdwielen.abstracts.ADao;
 import nl.dennisvdwielen.dto.ContainerDTO;
+import nl.dennisvdwielen.entity.Container;
 import nl.dennisvdwielen.factory.DaoFactory;
-import nl.dennisvdwielen.interfaces.ADao;
-import nl.dennisvdwielen.pojo.Container;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -30,7 +30,6 @@ public class ContainerResources {
         List<String> order = new ArrayList<String>();
 
         for (Map.Entry<String, List<String>> entry : queryParameters.entrySet()) {
-
             if (entry.getKey().equalsIgnoreCase("order"))
                 for (String value : entry.getValue())
                     order.add(value);

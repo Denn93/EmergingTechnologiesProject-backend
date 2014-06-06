@@ -1,4 +1,6 @@
-package nl.dennisvdwielen.mapping;
+package nl.dennisvdwielen.database.builders;
+
+import nl.dennisvdwielen.database.mapping.PojoReflection;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -20,11 +22,11 @@ public class SelectBuilder {
     private String statement;
 
 
-    public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilderNew builder) {
+    public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilder builder) {
         this(tables, builder, null);
     }
 
-    public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilderNew builder, List<String> groupBy) {
+    public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilder builder, List<String> groupBy) {
         this.tables = tables;
 
         this.groupBy = new ArrayList<Field>();

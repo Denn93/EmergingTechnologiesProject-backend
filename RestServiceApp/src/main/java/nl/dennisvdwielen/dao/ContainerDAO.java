@@ -1,11 +1,11 @@
 package nl.dennisvdwielen.dao;
 
+import nl.dennisvdwielen.abstracts.ADao;
 import nl.dennisvdwielen.dto.ContainerDTO;
-import nl.dennisvdwielen.interfaces.ADao;
-import nl.dennisvdwielen.pojo.Container;
-import nl.dennisvdwielen.pojo.ContainerKinds;
-import nl.dennisvdwielen.pojo.ContainerLocation;
-import nl.dennisvdwielen.pojo.ContainerShippingnames;
+import nl.dennisvdwielen.entity.Container;
+import nl.dennisvdwielen.entity.ContainerKinds;
+import nl.dennisvdwielen.entity.ContainerLocation;
+import nl.dennisvdwielen.entity.ContainerShippingnames;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

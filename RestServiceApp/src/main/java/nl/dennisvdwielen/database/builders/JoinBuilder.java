@@ -1,4 +1,6 @@
-package nl.dennisvdwielen.mapping;
+package nl.dennisvdwielen.database.builders;
+
+import nl.dennisvdwielen.database.mapping.PojoReflection;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.LinkedList;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.mapping
  */
-public class JoinBuilderNew {
+public class JoinBuilder {
 
     private final String BaseInnerJoinStructure = " INNER JOIN %s %s ON %s=%s ";
 
@@ -22,7 +24,7 @@ public class JoinBuilderNew {
 
     private String innerJoin;
 
-    public JoinBuilderNew(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables) {
+    public JoinBuilder(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables) {
         this.headTable = new PojoReflection(headTable);
         this.intersectionTables = new ArrayList<PojoReflection>();
         this.extraTables = new ArrayList<PojoReflection>();

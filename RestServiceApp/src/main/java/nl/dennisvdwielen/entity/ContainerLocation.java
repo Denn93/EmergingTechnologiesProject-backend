@@ -1,4 +1,4 @@
-package nl.dennisvdwielen.pojo;
+package nl.dennisvdwielen.entity;
 
 import nl.dennisvdwielen.annotations.ForeignKey;
 import nl.dennisvdwielen.annotations.PrimaryKey;
@@ -10,7 +10,7 @@ import java.sql.Timestamp;
  * Created by Dennis on 26-5-2014 at 20:46)
  * <p/>
  * This code is part of the RestServiceApp project.
- * This class is within package nl.dennisvdwielen.pojo
+ * This class is within package nl.dennisvdwielen.entity
  */
 @SuppressWarnings("unused")
 @Table(tableName = "containerlocation", alias = "location")

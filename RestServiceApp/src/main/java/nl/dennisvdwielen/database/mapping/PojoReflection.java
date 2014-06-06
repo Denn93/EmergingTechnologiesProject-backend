@@ -1,4 +1,4 @@
-package nl.dennisvdwielen.mapping;
+package nl.dennisvdwielen.database.mapping;
 
 import nl.dennisvdwielen.annotations.ForeignKey;
 import nl.dennisvdwielen.annotations.PrimaryKey;
@@ -59,7 +59,7 @@ public class PojoReflection {
     private void addForeignTable(String tableName) {
         try {
             tableName = tableName.substring(0, 1).toUpperCase() + tableName.substring(1);
-            foreignTables.add(new PojoReflection(Class.forName("nl.dennisvdwielen.pojo." + tableName)));
+            foreignTables.add(new PojoReflection(Class.forName("nl.dennisvdwielen.entity." + tableName)));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

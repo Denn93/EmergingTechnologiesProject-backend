@@ -1,9 +1,9 @@
 package nl.dennisvdwielen.dto;
 
-import nl.dennisvdwielen.pojo.Container;
-import nl.dennisvdwielen.pojo.ContainerLocation;
-import nl.dennisvdwielen.pojo.Packagekind;
-import nl.dennisvdwielen.pojo.Shippingname;
+import nl.dennisvdwielen.entity.Container;
+import nl.dennisvdwielen.entity.ContainerLocation;
+import nl.dennisvdwielen.entity.Packagekind;
+import nl.dennisvdwielen.entity.Shippingname;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
