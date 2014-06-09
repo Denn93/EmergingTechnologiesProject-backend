@@ -1,7 +1,5 @@
 package nl.dennisvdwielen.database.mapping;
 
-import nl.dennisvdwielen.dto.ContainerDTO;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
@@ -45,7 +43,6 @@ public class RecordMapper {
         this.queryFields = RetrieveQueryFields(result);
 
         MapToPojo();
-        dtoData = new DtoMapper(ContainerDTO.class, mappedResults, this.tables).getDto();
     }
 
     private RecordMapper(Object pojo, HashMap<String, String> record) {
@@ -71,11 +68,13 @@ public class RecordMapper {
             try {
                 this.tables.add(headTable.newInstance());
 
-                for (Class cl : intersectionTables)
-                    this.tables.add(cl.newInstance());
+                if (intersectionTables != null)
+                    for (Class cl : intersectionTables)
+                        this.tables.add(cl.newInstance());
 
-                for (Class cl : extraTables)
-                    this.tables.add(cl.newInstance());
+                if (extraTables != null)
+                    for (Class cl : extraTables)
+                        this.tables.add(cl.newInstance());
 
             } catch (InstantiationException e) {
                 e.printStackTrace();
@@ -166,6 +165,9 @@ public class RecordMapper {
             } else if (fieldType.equals(Double.class) || fieldType.equals(double.class)) {
                 method.invoke(pojo, Double.parseDouble(value));
                 insertedForeignFields.add(field);
+            } else if (fieldType.equals(Long.class) || fieldType.equals(long.class)) {
+                method.invoke(pojo, Long.parseLong(value));
+                insertedForeignFields.add(field);
             } else if (fieldType.equals(Timestamp.class)) {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
                 Date parsedDate = dateFormat.parse(value);
@@ -237,6 +239,7 @@ public class RecordMapper {
     public <T> ArrayList<T> getDto(Class<T> dtoClass) {
         ArrayList<T> result = new ArrayList<T>();
 
+        dtoData = new DtoMapper(dtoClass, mappedResults, this.tables).getDto();
         for (Object data : dtoData)
             result.add(dtoClass.cast(data));
 

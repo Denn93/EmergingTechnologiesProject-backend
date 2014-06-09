@@ -30,13 +30,13 @@ public class Container {
     @ForeignKey(tableName = "packaginggroup", fieldName = "packagingid")
     private Packaginggroup packagingID;
 
-    private Integer consignmentNumber;
+    private Long consignmentNumber;
     private Integer uno;
     private Double imo;
     private Double flashpoint;
     private Integer stowagePosition;
     private Integer quantityInContainer;
-    private Integer weight;
+    private Long weight;
     private String portOfDischarge;
     private String terminal;
 
@@ -72,11 +72,11 @@ public class Container {
         this.packagingID = packagingID;
     }
 
-    public Integer getConsignmentNumber() {
+    public Long getConsignmentNumber() {
         return consignmentNumber;
     }
 
-    public void setConsignmentNumber(Integer consignmentNumber) {
+    public void setConsignmentNumber(Long consignmentNumber) {
         this.consignmentNumber = consignmentNumber;
     }
 
@@ -120,11 +120,11 @@ public class Container {
         this.quantityInContainer = quantityInContainer;
     }
 
-    public Integer getWeight() {
+    public Long getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(Long weight) {
         this.weight = weight;
     }
 

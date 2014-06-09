@@ -52,6 +52,13 @@ public class JoinBuilder {
         for (PojoReflection foreignTable : table.getForeignTables()) {
             innerJoin += makeInnerJoin(foreignTable, formatField(foreignTable.getAlias(), foreignTable.getPrimaryKey()),
                     formatField(headTable.getAlias(), foreignTable.getPrimaryKey()));
+
+            for (PojoReflection innnerForeignTable : foreignTable.getForeignTables()) {
+                innerJoin += makeInnerJoin(innnerForeignTable, formatField(innnerForeignTable.getAlias(), innnerForeignTable.getPrimaryKey()),
+                        formatField(foreignTable.getAlias(), innnerForeignTable.getPrimaryKey()));
+            }
+
+
             foreignTables.add(foreignTable);
         }
 

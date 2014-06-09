@@ -65,6 +65,8 @@ public class PojoReflection {
         }
     }
 
+    ;
+
     public Class getPojo() {
         return pojo;
     }

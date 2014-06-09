@@ -45,9 +45,16 @@ public class SelectBuilder {
 
         while (tables.iterator().hasNext()) {
             PojoReflection table = tables.poll();
-            if (table.getForeignTables().size() > 0)
-                for (PojoReflection foreignTable : table.getForeignTables())
+            if (table.getForeignTables().size() > 0) {
+                for (PojoReflection foreignTable : table.getForeignTables()) {
+                    for (PojoReflection innerForeign : foreignTable.getForeignTables()) {
+                        result = loopFields(result, addedFields, innerForeign);
+                    }
+
                     result = loopFields(result, addedFields, foreignTable);
+                }
+
+            }
 
             result = loopFields(result, addedFields, table);
         }
