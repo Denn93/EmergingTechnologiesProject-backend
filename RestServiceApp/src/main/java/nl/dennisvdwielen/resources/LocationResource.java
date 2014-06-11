@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -50,10 +51,23 @@ public class LocationResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get/{id}")
-    public LocationDTO getLocationByEquipmentID(@PathParam("id") String equipmentNumber) {
+    public LocationDTO getLocationByEquipmentID(@PathParam("id") String equipmentNumber, @Context UriInfo uriInfo) {
+        MultivaluedMap<String, String> queryParameters = uriInfo.getQueryParameters();
 
+        LinkedHashMap<String, List<String>> where = new LinkedHashMap<String, List<String>>();
+        List<String> whereValues = new ArrayList<String>();
+        whereValues.add(equipmentNumber);
+        where.put("equipmentNumber", whereValues);
 
-        return null;
+        List<String> order = new ArrayList<String>();
+        for (Map.Entry<String, List<String>> entry : queryParameters.entrySet())
+            if (entry.getKey().equalsIgnoreCase("order"))
+                for (String value : entry.getValue())
+                    order.add(value);
+
+        if (!order.isEmpty())
+            return (LocationDTO) dao.get(-1, where, order).get(0);
+
+        return (!dao.get(-1, where).isEmpty()) ? (LocationDTO) (dao.get(-1, where).get(0)) : null;
     }
-
 }

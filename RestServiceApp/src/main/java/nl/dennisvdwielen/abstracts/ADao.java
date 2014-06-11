@@ -21,23 +21,17 @@ public abstract class ADao<Pojo> {
     }
 
     public final ArrayList<Pojo> get() {
-        return get(-1, null, null);
+        return get(-1);
     }
-
-
     public final ArrayList<Pojo> get(int id) {
         return get(id, null, null);
     }
-
     public final ArrayList<Pojo> get(int id, List<String> order) {
         return get(id, null, order);
     }
-
-
     public final ArrayList<Pojo> get(int id, LinkedHashMap<String, List<String>> where) {
         return get(id, where, null);
     }
-
     public abstract ArrayList<Pojo> get(int id, LinkedHashMap<String, List<String>> where, List<String> order);
 
     public abstract boolean add(Pojo dto);
