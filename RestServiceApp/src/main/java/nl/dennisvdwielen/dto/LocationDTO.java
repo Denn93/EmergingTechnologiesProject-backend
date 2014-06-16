@@ -8,6 +8,7 @@ import nl.dennisvdwielen.entity.ContainerLocation;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.dto
  */
+@SuppressWarnings("unused")
 public class LocationDTO {
 
     ContainerLocation locationID;

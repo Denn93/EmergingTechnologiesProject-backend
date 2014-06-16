@@ -3,14 +3,13 @@ package nl.dennisvdwielen.database;
 import nl.dennisvdwielen.abstracts.ADatabaseHandler;
 import nl.dennisvdwielen.database.builders.JoinBuilder;
 import nl.dennisvdwielen.database.builders.SelectBuilder;
+import nl.dennisvdwielen.database.builders.UpdateBuilder;
 import nl.dennisvdwielen.database.mapping.RecordMapper;
 import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.entity.Container;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Dennis on 1-5-2014 at 22:11)
@@ -74,6 +73,8 @@ public class MysqlDatabase extends ADatabaseHandler {
             dt.setEquipmentNumber(con);
             result.add((T) dt);
             return result;
+        } finally {
+            close();
         }
     }
 
@@ -83,8 +84,25 @@ public class MysqlDatabase extends ADatabaseHandler {
     }
 
     @Override
-    public Integer update() {
-        return -1;
+    public <T> Boolean update(T obj, Class<T> className, HashMap<String, String> where) {
+        UpdateBuilder builder = new UpdateBuilder(obj, className);
+
+        String query = builder.getUpdateString();
+        Map.Entry<String, String> wherepair = where.entrySet().iterator().next();
+
+        query = String.format(query + " %s='%s'", wherepair.getKey(), wherepair.getValue());
+
+        try {
+            statement = connect.createStatement();
+
+            if (statement.executeUpdate(query) == 1)
+                return true;
+        } catch (SQLException e) {
+            e.printStackTrace(); // TODO Create a Beautiful Message
+        } finally {
+            close();
+        }
+        return false;
     }
 
     @Override

@@ -5,6 +5,7 @@ import nl.dennisvdwielen.dto.LocationDTO;
 import nl.dennisvdwielen.entity.ContainerLocation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -29,7 +30,10 @@ public class ContainerLocationDAO extends ADao<LocationDTO> {
 
     @Override
     public boolean update(LocationDTO dto) {
-        return false;
+        HashMap<String, String> where = new HashMap<String, String>();
+        where.put("equipmentNumber", dto.getLocationID().getEquipmentNumber().getEquipmentNumber());
+
+        return dbHandler.update(dto.getLocationID(), ContainerLocation.class, where);
     }
 
     @Override

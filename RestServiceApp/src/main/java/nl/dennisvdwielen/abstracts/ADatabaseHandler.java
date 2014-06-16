@@ -131,7 +131,11 @@ public abstract class ADatabaseHandler {
         return result;
     }
 
-    public abstract Integer update();
+    public final <T> Boolean update(T obj, Class<T> className) {
+        return update(obj, className, null);
+    }
+
+    public abstract <T> Boolean update(T obj, Class<T> className, HashMap<String, String> where);
 
     public abstract Integer delete();
 
