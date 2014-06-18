@@ -2,14 +2,10 @@ package nl.dennisvdwielen.resources;
 
 import nl.dennisvdwielen.abstracts.ADao;
 import nl.dennisvdwielen.dto.LocationDTO;
-import nl.dennisvdwielen.entity.Container;
 import nl.dennisvdwielen.entity.ContainerLocation;
 import nl.dennisvdwielen.factory.DaoFactory;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.sql.Timestamp;
 import java.util.*;
@@ -74,19 +70,12 @@ public class LocationResource {
         //return (!dao.get(-1, where).isEmpty()) ? (LocationDTO) (dao.get(-1, where).get(0)) : null;
     }
 
-    @GET
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Path("/update/{id}")
-    public Response updateLocation(@PathParam("id") String equipmentNumber) {
-        LocationDTO dto = new LocationDTO();
-        ContainerLocation loc = new ContainerLocation();
-        loc.setDate(new Timestamp(new Date().getTime()));
-        loc.setLatitude(45.3);
-        loc.setLongitude(51.9);
-
-        Container con = new Container();
-        con.setEquipmentNumber(equipmentNumber);
-        loc.setEquipmentNumber(con);
-        dto.setLocationID(loc);
+    public Response updateLocation(LocationDTO dto, @PathParam("id") String equipmentNumber) {
+        dto.getLocationID().setDate(new Timestamp(new Date().getTime()));
+        dto.getLocationID().getEquipmentNumber().setEquipmentNumber(equipmentNumber);
 
         if (dao.update(dto))
             return Response.status(Response.Status.OK).build();

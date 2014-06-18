@@ -29,7 +29,9 @@ public class MysqlDatabase extends ADatabaseHandler {
     protected boolean createConnection() {
         try {
             Class.forName(config.getDbDriver());
-            connect = DriverManager.getConnection(config.getConnectionString());
+
+            if (connect == null || connect.isClosed())
+                connect = DriverManager.getConnection(config.getConnectionString());
 
         } catch (ClassNotFoundException e) {
             System.out.println(DATABASEHANDLER_NODRIVER_ERROR);
@@ -43,6 +45,8 @@ public class MysqlDatabase extends ADatabaseHandler {
     }
 
     public <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
+        createConnection();
+
         JoinBuilder builder = new JoinBuilder(headTable, intersectionTables, extraTables);
 
         String headTableName = builder.getHeadTable().getTableName();
@@ -85,6 +89,8 @@ public class MysqlDatabase extends ADatabaseHandler {
 
     @Override
     public <T> Boolean update(T obj, Class<T> className, HashMap<String, String> where) {
+        createConnection();
+
         UpdateBuilder builder = new UpdateBuilder(obj, className);
 
         String query = builder.getUpdateString();

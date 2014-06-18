@@ -1,6 +1,7 @@
 package nl.dennisvdwielen.dao;
 
 import nl.dennisvdwielen.abstracts.ADao;
+import nl.dennisvdwielen.dto.ContainerDTO;
 import nl.dennisvdwielen.dto.LocationDTO;
 import nl.dennisvdwielen.entity.ContainerLocation;
 
@@ -30,10 +31,27 @@ public class ContainerLocationDAO extends ADao<LocationDTO> {
 
     @Override
     public boolean update(LocationDTO dto) {
-        HashMap<String, String> where = new HashMap<String, String>();
-        where.put("equipmentNumber", dto.getLocationID().getEquipmentNumber().getEquipmentNumber());
+        LinkedHashMap<String, List<String>> selectWhere = new LinkedHashMap<String, List<String>>();
 
-        return dbHandler.update(dto.getLocationID(), ContainerLocation.class, where);
+        List<String> whereValues = new ArrayList<String>();
+        whereValues.add(dto.getLocationID().getEquipmentNumber().getEquipmentNumber());
+        selectWhere.put("equipmentNumber", whereValues);
+
+
+        if (!dbHandler.multipleSelect(LocationDTO.class, ContainerLocation.class, selectWhere).isEmpty()) {
+            HashMap<String, String> where = new HashMap<String, String>();
+            where.put("equipmentNumber", dto.getLocationID().getEquipmentNumber().getEquipmentNumber());
+
+            Boolean locationResult = dbHandler.update(dto.getLocationID(), ContainerLocation.class, where);
+
+            ContainerDTO containerDTO = new ContainerDTO();
+            containerDTO.setEquipmentNumber(dto.getLocationID().getEquipmentNumber());
+
+            Boolean containerResult = new ContainerDAO().update(containerDTO);
+        }
+
+
+        return false;
     }
 
     @Override

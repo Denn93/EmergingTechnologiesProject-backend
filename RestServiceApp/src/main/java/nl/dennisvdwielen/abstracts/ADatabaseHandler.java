@@ -27,6 +27,7 @@ public abstract class ADatabaseHandler {
 
     protected ADatabaseHandler() {
         config = getInstance();
+
         createConnection();
     }
 
@@ -97,7 +98,6 @@ public abstract class ADatabaseHandler {
                         key = String.format("%s.%s", reflection.getAlias(), entry.getKey());
                         break;
                     }
-
             }
 
             if (where.size() == i)
