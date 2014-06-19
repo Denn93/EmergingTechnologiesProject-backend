@@ -8,6 +8,7 @@ import nl.dennisvdwielen.entity.ContainerLocation;
 import nl.dennisvdwielen.entity.ContainerShippingnames;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -39,13 +40,15 @@ public class ContainerDAO extends ADao<ContainerDTO> {
     }
 
     @Override
-    public boolean add(ContainerDTO student) {
+    public boolean add(ContainerDTO dto) {
         return false;
     }
 
     @Override
-    public boolean update(ContainerDTO student) {
-        return false;
+    public boolean update(ContainerDTO dto) {
+        HashMap<String, String> where = new HashMap<String, String>();
+        where.put("equipmentNumber", dto.getEquipmentNumber().getEquipmentNumber());
+        return dbHandler.update(dto.getEquipmentNumber(), Container.class, where);
     }
 
     @Override

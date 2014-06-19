@@ -48,6 +48,9 @@ public class ContainerLocationDAO extends ADao<LocationDTO> {
             containerDTO.setEquipmentNumber(dto.getLocationID().getEquipmentNumber());
 
             Boolean containerResult = new ContainerDAO().update(containerDTO);
+
+            if (containerResult && locationResult)
+                return true;
         }
 
 

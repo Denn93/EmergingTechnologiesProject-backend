@@ -68,18 +68,31 @@ public class UpdateBuilder {
                 continue;
 
             if (defaultTypes.contains(method.getReturnType())) {
-                Object returnData = invokeMethod(method);
+                Object returnData = invokeMethod(method, obj);
                 setValue(method, returnData);
-            }/*else
+            } else
             {
-                for (Method foreignMethod : method.getReturnType().getMethods()) {
-                    if (!foreignMethod.getName().startsWith("get"))
-                        continue;
+                try {
+                    Object returnData = invokeMethod(method, obj);
+                    if (returnData != null) {
+                        for (Field headTableField : obj.getClass().getDeclaredFields()) {
+                            for (Field innerTableField : returnData.getClass().getDeclaredFields()) {
+                                if (headTableField.getName().equalsIgnoreCase(innerTableField.getName())) {
+                                    String tempFieldName = innerTableField.getName().substring(0, 1).toUpperCase() + innerTableField.getName().substring(1, innerTableField.getName().length());
 
-                    Object returnData = invokeMethod(foreignMethod);
-                    setValue(foreignMethod, returnData);
+                                    Method innerMethod = returnData.getClass().getMethod("get" + tempFieldName);
+                                    Object extraReturnData = invokeMethod(innerMethod, returnData);
+
+                                    setValue(innerMethod, extraReturnData);
+                                }
+                            }
+                        }
+                    }
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
                 }
-            }*/
+
+            }
         }
 
         return String.format(UpdateTemplate, headTable.getTableName(), setString, whereString);
@@ -106,7 +119,7 @@ public class UpdateBuilder {
         return String.format(", %s='%s' ", field, value);
     }
 
-    private Object invokeMethod(Method method) {
+    private Object invokeMethod(Method method, Object obj) {
         Object result = null;
 
         try {
