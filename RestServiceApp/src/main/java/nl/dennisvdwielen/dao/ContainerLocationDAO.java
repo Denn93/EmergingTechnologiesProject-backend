@@ -16,17 +16,13 @@ import java.util.List;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.dao
  */
+@SuppressWarnings("unused")
 public class ContainerLocationDAO extends ADao<LocationDTO> {
 
     @Override
     public ArrayList<LocationDTO> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
         ArrayList<LocationDTO> result = dbHandler.multipleSelect(LocationDTO.class, ContainerLocation.class, where, order);
         return result;
-    }
-
-    @Override
-    public boolean add(LocationDTO dto) {
-        return false;
     }
 
     @Override
@@ -53,12 +49,6 @@ public class ContainerLocationDAO extends ADao<LocationDTO> {
                 return true;
         }
 
-
-        return false;
-    }
-
-    @Override
-    public boolean delete() {
         return false;
     }
 }

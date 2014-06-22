@@ -6,6 +6,10 @@ package nl.dennisvdwielen.enums;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.enums
  */
+
+/**
+ * This enum class is used for organizing the default operators within the backend. The create clear constant and value pairs
+ */
 public enum Operators {
     GreaterThan("gt", ">"), LessThan("lt", "<"), Equals("equals", "=");
 

@@ -1,7 +1,6 @@
 package nl.dennisvdwielen.resources;
 
 import nl.dennisvdwielen.abstracts.ADao;
-import nl.dennisvdwielen.dto.HandlingDTO;
 import nl.dennisvdwielen.entity.Handling;
 import nl.dennisvdwielen.factory.DaoFactory;
 
@@ -17,15 +16,25 @@ import java.util.ArrayList;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.resources
  */
+
+/**
+ * This resource is the endpoint for location data
+ * Set location endpoint to '/handling'
+ */
 @Path("/handling")
 public class HandlingResource {
 
     ADao dao = new DaoFactory().getDAO(Handling.class);
 
+    /**
+     * GET Method. This method retrieves all handlings within the database. No optional parameters are permitted
+     *
+     * @return ArrayList of HandlingdTO classes
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get")
-    public ArrayList<HandlingDTO> getHandlings() {
+    public ArrayList getHandlings() {
         return dao.get();
     }
 }

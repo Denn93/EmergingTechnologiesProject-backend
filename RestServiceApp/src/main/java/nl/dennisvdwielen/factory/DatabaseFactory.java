@@ -9,6 +9,10 @@ import nl.dennisvdwielen.database.MysqlDatabase;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.factory
  */
+
+/**
+ * This class creates the database class depending which type of database is given. Returns a Abstract Databasehandler
+ */
 public class DatabaseFactory {
 
     public ADatabaseHandler getDatabaseHandler(DatabaseType type) {
@@ -22,6 +26,9 @@ public class DatabaseFactory {
 
     }
 
+    /**
+     * A Global Database type enum. Used to select a database type
+     */
     public enum DatabaseType {Mysql}
 
 }

@@ -6,6 +6,10 @@ package nl.dennisvdwielen.enums;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.enums
  */
+
+/**
+ * This enum class is used for organizing the order  options within the backend. The create clear constant and value pairs
+ */
 public enum Orders {
     ASCENDING("ASC"), DESCENDING("DESC");
 

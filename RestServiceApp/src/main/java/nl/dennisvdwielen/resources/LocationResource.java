@@ -16,15 +16,26 @@ import java.util.*;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.resources
  */
+
+/**
+ * This resource is the endpoint for location data
+ * Set location endpoint to '/location'
+ */
 @Path("/location")
 public class LocationResource {
 
     ADao dao = new DaoFactory().getDAO(ContainerLocation.class);
 
+    /**
+     * GET Method. Used for retrieving location data. Optional parameter with this endpoint is the order options.
+     *
+     * @param uriInfo Order options can be put into this info. These options are taking into account with the end result
+     * @return ArrayList of LocationDTO classes in json format
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get")
-    public ArrayList<LocationDTO> getLocations(@Context UriInfo uriInfo) {
+    public ArrayList getLocations(@Context UriInfo uriInfo) {
         MultivaluedMap<String, String> queryParameters = uriInfo.getQueryParameters();
 
         List<String> order = new ArrayList<String>();
@@ -40,6 +51,13 @@ public class LocationResource {
         return dao.get();
     }
 
+    /**
+     * GET Method. Used for retrieving location data by equipmentnumber
+     * Optional parameter with this endpoint is the order options.
+     * @param equipmentNumber Retrieve by this number
+     * @param uriInfo Optional Order options. These options are taking into account with the end result
+     * @return A LocationDTO in json format
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get/{id}")
@@ -60,16 +78,20 @@ public class LocationResource {
         if (!order.isEmpty())
             return (LocationDTO) dao.get(-1, where, order).get(0);
 
-        ArrayList<Object> result = dao.get(-1, where);
+        ArrayList result = dao.get(-1, where);
 
         if (result.isEmpty())
             return null;
 
         return (LocationDTO) result.get(0);
-
-        //return (!dao.get(-1, where).isEmpty()) ? (LocationDTO) (dao.get(-1, where).get(0)) : null;
     }
 
+    /**
+     * POST Method. This method is used for updating the locationData in the database.
+     * @param dto Input data to update to. Method only consumes json
+     * @param equipmentNumber Used for the where clause in the update action
+     * @return A Web Response to simulate True or False. Response.OK (200) is true. Response.Conflict (409)
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/update/{id}")

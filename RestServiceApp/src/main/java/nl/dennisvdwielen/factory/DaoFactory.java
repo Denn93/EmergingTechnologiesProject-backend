@@ -8,6 +8,10 @@ import nl.dennisvdwielen.abstracts.ADao;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.factory
  */
+
+/**
+ * This factory class creates a DAO object bases on the className given Thus, builds DAO classes
+ */
 public class DaoFactory {
 
     public ADao getDAO(Class className) {
@@ -20,11 +24,11 @@ public class DaoFactory {
             result = (ADao) dao;
 
         } catch (ClassNotFoundException e) {
-            //TODO Add Usefull Error Message
+            //TODO Add Useful Error Message
         } catch (IllegalAccessException e) {
-            //TODO Add Usefull Error Message
+            //TODO Add Useful Error Message
         } catch (InstantiationException e) {
-            //TODO Add Usefull Error Message
+            //TODO Add Useful Error Message
         }
 
         return result;

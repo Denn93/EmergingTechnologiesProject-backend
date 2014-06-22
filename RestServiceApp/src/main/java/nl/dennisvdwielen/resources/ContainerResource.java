@@ -24,9 +24,21 @@ import java.util.Map;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.factory
  */
+
+/**
+ * This resource is the endpoint for location data
+ * Set location endpoint to '/container'
+ */
 @Path("/container")
 public class ContainerResource {
 
+    /**
+     * GET Method. Used for retrieving container data based on filter options.
+     * This methods which options are given and filters the correct data to the different dao get methods
+     *
+     * @param uriInfo These are the filter inputs from a client
+     * @return A ArrayLst of ContainerDTO classes in json format
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get")
