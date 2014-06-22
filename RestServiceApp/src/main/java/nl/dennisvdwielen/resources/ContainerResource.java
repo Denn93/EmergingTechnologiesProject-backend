@@ -17,6 +17,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * Created by Dennis on 14-5-2014 at 15:22
+ * <p/>
+ * This code is part of the RestServiceApp project.
+ * This class is within package nl.dennisvdwielen.factory
+ */
 @Path("/container")
 public class ContainerResource {
 

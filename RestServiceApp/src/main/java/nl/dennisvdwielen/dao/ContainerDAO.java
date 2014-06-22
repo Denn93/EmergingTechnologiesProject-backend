@@ -15,8 +15,8 @@ import java.util.List;
 /**
  * Created by Dennis on 25-4-2014 at 16:37)
  * <p/>
- * This code is part of the ${PROJECT_NAME} project.
- * This class is within package ${PACKAGE_NAME}
+ * This code is part of the RestServiceApp project.
+ * This class is within package nl.dennisvdwielen.dao
  */
 @SuppressWarnings("unused")
 public class ContainerDAO extends ADao<ContainerDTO> {

@@ -4,6 +4,9 @@ import nl.dennisvdwielen.abstracts.ADao;
 
 /**
  * Created by Dennis on 26-4-2014 at 16:33
+ * <p/>
+ * This code is part of the RestServiceApp project.
+ * This class is within package nl.dennisvdwielen.factory
  */
 public class DaoFactory {
 

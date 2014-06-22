@@ -17,7 +17,6 @@ import java.util.*;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.database
  */
-
 public class MysqlDatabase extends ADatabaseHandler {
 
     private static Connection connect = null;
