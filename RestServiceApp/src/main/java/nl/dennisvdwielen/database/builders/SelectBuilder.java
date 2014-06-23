@@ -13,6 +13,11 @@ import java.util.List;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.mapping
  */
+
+/**
+ * This class makes the complete select part of a query. All fields with aliases will be printed. The fields will be
+ * collected from the PojoReflections and parameters such as the group_concat field
+ */
 public class SelectBuilder {
 
     private final String selectBase = "SELECT ";
@@ -21,11 +26,23 @@ public class SelectBuilder {
     private List<Field> groupBy;
     private String statement;
 
-
+    /**
+     * This constructor is part of a overloading.
+     *
+     * @param tables  LinkedList of PojoReflections of used tables
+     * @param builder The builder from the innerjoin builder
+     */
     public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilder builder) {
         this(tables, builder, null);
     }
 
+    /**
+     * This constructor is part of a overloading. This ocntructor also includes a groupby parameter
+     *
+     * @param tables  LinkedList of PojoReflections of used tables
+     * @param builder The builder from the innerjoin builder
+     * @param groupBy List of Strings with the fields that have to be concatenated in the query
+     */
     public SelectBuilder(LinkedList<PojoReflection> tables, JoinBuilder builder, List<String> groupBy) {
         this.tables = tables;
 
@@ -38,6 +55,12 @@ public class SelectBuilder {
         statement = createSelect();
     }
 
+    /**
+     * This method creates the select query. It uses al the pojoreflections and thus fields. And further checks for
+     * double fields. This method only provides the looping sequence.
+     *
+     * @return A Select query with all the fields
+     */
     private String createSelect() {
         String result = "";
 
@@ -62,6 +85,15 @@ public class SelectBuilder {
         return result;
     }
 
+    /**
+     * This method is also part of the previous method. Is loops multiple times though all the fields and takes the
+     * group_concat into account. the building the query
+     *
+     * @param result      The result that has already been done by previous loops
+     * @param addedFields An ArrayList of String fields that are already done.
+     * @param table       The table in which the loop has to be performed
+     * @return A string with te results
+     */
     private String loopFields(String result, ArrayList<String> addedFields, PojoReflection table) {
         for (Field field : table.getFields()) {
             if (!addedFields.contains(field.getName())) {
@@ -89,6 +121,11 @@ public class SelectBuilder {
         return result;
     }
 
+    /**
+     * Getter: Gets the created statement
+     *
+     * @return
+     */
     public String getStatement() {
         return statement;
     }

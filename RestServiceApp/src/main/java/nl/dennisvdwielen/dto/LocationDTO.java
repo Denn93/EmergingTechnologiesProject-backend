@@ -8,6 +8,10 @@ import nl.dennisvdwielen.entity.ContainerLocation;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.dto
  */
+
+/**
+ * This DTO class is used to transfer entities between client and server. This is done because entity objects are only locally used
+ */
 @SuppressWarnings("unused")
 public class LocationDTO {
 

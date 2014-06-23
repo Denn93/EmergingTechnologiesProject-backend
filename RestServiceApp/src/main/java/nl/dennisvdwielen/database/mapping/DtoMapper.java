@@ -11,6 +11,11 @@ import java.util.ArrayList;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.dto
  */
+
+/**
+ * This class maps the results from the recordMapper to a DTO. A Dto is a transferable object to the client. Thus is
+ * has ben encapsulated to this format
+ */
 public class DtoMapper {
 
     private Object dto;
@@ -19,6 +24,13 @@ public class DtoMapper {
     private ArrayList<String> mappedFields;
     private ArrayList<Object> result;
 
+    /**
+     * Constructor loads a new instance of the dto object ands sets all fields. Starts the building process
+     *
+     * @param dto    The result to where mapping should point
+     * @param data   The Record mapping results
+     * @param tables The tables that are used within the mapping sequence
+     */
     public DtoMapper(Class dto, ArrayList<ArrayList<Object>> data, ArrayList<Object> tables) {
         try {
             this.dto = dto.newInstance();
@@ -35,6 +47,11 @@ public class DtoMapper {
         mapToDTo();
     }
 
+    /**
+     * An enormous method to map the results from the recordMapper to a dto. It takes into account if the field correspond.
+     * If the field already has been mapped. To save data consumption. If value is a other entity it loops again to also
+     * map these results.
+     */
     private void mapToDTo() {
         for (ArrayList record : data) {
             mappedFields = new ArrayList<String>();
@@ -89,6 +106,10 @@ public class DtoMapper {
         }
     }
 
+    /**
+     * Getter Dto
+     * @return Mapped Dto results
+     */
     public ArrayList<Object> getDto() {
         return result;
     }

@@ -18,6 +18,10 @@ import java.util.HashMap;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.mapping
  */
+
+/**
+ * This class maps the database results to the according object with the use of advanced annotations and reflections
+ */
 public class RecordMapper {
 
     ArrayList<Object> tables;
@@ -30,6 +34,14 @@ public class RecordMapper {
     private ArrayList<HashMap<String, String>> queryResult;
     private ArrayList<String> insertedForeignFields;
 
+    /**
+     * This constructor sets all the fields. and makes of all tables a new instance to use with each new record
+     *
+     * @param headTable          The head table to which has to mapped
+     * @param intersectionTables The used intersection tables for the query. Also used here to map the results
+     * @param extraTables        The used extra tables for the query. Also used here to map the results
+     * @param result             The resultset from the database
+     */
     public RecordMapper(Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, ResultSet result) {
         mappedResults = new ArrayList<ArrayList<Object>>();
         insertedForeignFields = new ArrayList<String>();
@@ -45,6 +57,12 @@ public class RecordMapper {
         MapToPojo();
     }
 
+    /**
+     * Private Constructor only used within this class to create a infinite loop op this class the create a mapping that
+     * can  different dimensions of objects. Some object have Foreign key. These objects also heve to be mapped
+     * @param pojo The pojo of the the object that has to uses from here on out.
+     * @param record The record with te values
+     */
     private RecordMapper(Object pojo, HashMap<String, String> record) {
         mappedResults = new ArrayList<ArrayList<Object>>();
         this.tables = new ArrayList<Object>();
@@ -61,6 +79,10 @@ public class RecordMapper {
         MapToPojo();
     }
 
+    /**
+     * This method makes new instances of the tables that are used within the mapping of the resultset. Every new record
+     * needs one or multiple new instances of objects to map to.
+     */
     private void makeNewTables() {
 
         if (this.headTable != null) {
@@ -85,7 +107,6 @@ public class RecordMapper {
     }
 
     /**
-     * /**
      * This method returns all field that are in the executed query
      *
      * @param resultSet The result of performed query
@@ -226,16 +247,20 @@ public class RecordMapper {
         return result;
     }
 
-
+    /**
+     * This method returns the first result of the mapped results. Only used when certain only one value exists
+     * @return
+     */
     public Object getRecord() {
         return mappedResults.get(0).get(0);
-
     }
 
-    public ArrayList<ArrayList<Object>> getMappedResults() {
-        return mappedResults;
-    }
-
+    /**
+     * This method returns the created dto. The DTO mapper is also called from this class. Thus, this getter
+     * @param dtoClass The dto class in to where the cast should point
+     * @param <T> The type of dto class. This will also be the return type
+     * @return ArrayList of type dto class
+     */
     public <T> ArrayList<T> getDto(Class<T> dtoClass) {
         ArrayList<T> result = new ArrayList<T>();
 

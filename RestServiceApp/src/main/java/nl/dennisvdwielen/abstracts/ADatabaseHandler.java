@@ -6,7 +6,6 @@ import nl.dennisvdwielen.enums.Orders;
 import nl.dennisvdwielen.factory.Config;
 
 import java.lang.reflect.Field;
-import java.sql.ResultSet;
 import java.util.*;
 
 import static nl.dennisvdwielen.factory.Config.getInstance;
@@ -31,46 +30,169 @@ public abstract class ADatabaseHandler {
         createConnection();
     }
 
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto       The DTO class which the result must be mapped be mapped to
+     * @param headTable The headtable in which the query must be performed
+     * @param <T>       Type of the DTO class.
+     * @return An ArrayList of Type class dto
+     */
     public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable) {
         return multipleSelect(dto, headTable, null, null, null, null, null, null);
     }
 
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto       The DTO class which the result must be mapped be mapped to
+     * @param headTable The headtable in which the query must be performed
+     * @param whereData A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param <T>       The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
     public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, LinkedHashMap<String, List<String>> whereData) {
         return multipleSelect(dto, headTable, null, null, whereData, null, null, null);
     }
 
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto       The DTO class which the result must be mapped be mapped to
+     * @param headTable The headtable in which the query must be performed
+     * @param whereData A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param orderData A String List of values in de columns are specified for ordering the query. Also added the order options
+     * @param <T>       The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
     public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
         return multipleSelect(dto, headTable, null, null, whereData, orderData, null, null);
     }
 
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto         The DTO class which the result must be mapped be mapped to
+     * @param headTable   The headtable in which the query must be performed
+     * @param whereData   A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param orderData   A String List of values in de columns are specified for ordering the query. Also added the order options
+     * @param groupBy     A Field for adding a groupby parameter to the query
+     * @param groupConcat String list of field to add in a group_concat function within the query
+     * @param <T>         The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
     public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
         return multipleSelect(dto, headTable, null, null, whereData, orderData, groupBy, groupConcat);
     }
 
-    public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersection, LinkedHashMap<String, List<String>> whereData) {
-        return multipleSelect(dto, headTable, intersection, null, whereData, null, null, null);
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto                The DTO class which the result must be mapped be mapped to
+     * @param headTable          The headtable in which the query must be performed
+     * @param intersectionTables A ArrayList of classes in which the intersection tables a defined
+     * @param whereData          A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param <T>                The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
+    public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, LinkedHashMap<String, List<String>> whereData) {
+        return multipleSelect(dto, headTable, intersectionTables, null, whereData, null, null, null);
     }
 
-    public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersection, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
-        return multipleSelect(dto, headTable, intersection, null, whereData, orderData, null, null);
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto                The DTO class which the result must be mapped be mapped to
+     * @param headTable          The headtable in which the query must be performed
+     * @param intersectionTables A ArrayList of classes in which the intersection tables a defined
+     * @param whereData          A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param orderData          A String List of values in de columns are specified for ordering the query. Also added the order options
+     * @param <T>                The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
+    public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
+        return multipleSelect(dto, headTable, intersectionTables, null, whereData, orderData, null, null);
     }
 
-    public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersection, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
-        return multipleSelect(dto, headTable, intersection, null, whereData, orderData, groupBy, groupConcat);
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto                The DTO class which the result must be mapped be mapped to
+     * @param headTable          The headtable in which the query must be performed
+     * @param intersectionTables A ArrayList of classes in which the intersection tables a defined
+     * @param whereData          A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param orderData          A String List of values in de columns are specified for ordering the query. Also added the order options
+     * @param groupBy            A Field for adding a groupby parameter to the query
+     * @param groupConcat        String list of field to add in a group_concat function within the query
+     * @param <T>                The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
+    public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat) {
+        return multipleSelect(dto, headTable, intersectionTables, null, whereData, orderData, groupBy, groupConcat);
     }
 
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto                The DTO class which the result must be mapped be mapped to
+     * @param headTable          The headtable in which the query must be performed
+     * @param intersectionTables A ArrayList of classes in which the intersection tables a defined
+     * @param extraTables        A ArrayList of classes in which the extra tables tables a defined
+     * @param whereData          A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param <T>                The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
     public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData) {
         return multipleSelect(dto, headTable, intersectionTables, extraTables, whereData, null, null, null);
     }
 
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto                The DTO class which the result must be mapped be mapped to
+     * @param headTable          The headtable in which the query must be performed
+     * @param intersectionTables A ArrayList of classes in which the intersection tables a defined
+     * @param extraTables        A ArrayList of classes in which the extra tables tables a defined
+     * @param whereData          A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param orderData          A String List of values in de columns are specified for ordering the query. Also added the order options
+     * @param <T>                The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
     public final <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData) {
         return multipleSelect(dto, headTable, intersectionTables, extraTables, whereData, orderData, null, null);
     }
 
+    /**
+     * Method for making a select query against the database. This method is further used in the overloading cycle
+     *
+     * @param dto                The DTO class which the result must be mapped be mapped to
+     * @param headTable          The headtable in which the query must be performed
+     * @param intersectionTables A ArrayList of classes in which the intersection tables a defined
+     * @param extraTables        A ArrayList of classes in which the extra tables tables a defined
+     * @param whereData          A LinkedHashMap in which the field for thee  where clause are defined. And optional also the operators
+     * @param orderData          A String List of values in de columns are specified for ordering the query. Also added the order options
+     * @param groupBy            A Field for adding a groupby parameter to the query
+     * @param groupConcat        String list of field to add in a group_concat function within the query
+     * @param <T>                The type of the dto class. This type is also used as return type
+     * @return A ArrayList of type Dto Class
+     */
     public abstract <T> ArrayList<T> multipleSelect(Class<T> dto, Class headTable, ArrayList<Class> intersectionTables, ArrayList<Class> extraTables, LinkedHashMap<String, List<String>> whereData, List<String> orderData, String groupBy, List<String> groupConcat);
 
+    /**
+     * This method creates the connection. If it already e
+     *
+     * @return
+     */
     protected abstract boolean createConnection();
 
+    /**
+     * This method creates a Where string clause. With parameters its creates a where clause with greater and less than signs.
+     * It also keeps into account if it is the first value and adds the appropriate aliases.
+     *
+     * @param where  LinkedHashmap with all the fields and values that have to be included in the where clause. If List<String> is > 1 it also contains a operator
+     * @param tables The Reflection of the tables in which the field will correspond. This is to check the correct aliases.
+     * @return A where clause string
+     */
     protected final String createWhereString(LinkedHashMap<String, List<String>> where, LinkedList<PojoReflection> tables) {
         String result = "Where ";
         int i = 1;
@@ -111,6 +233,12 @@ public abstract class ADatabaseHandler {
         return result;
     }
 
+    /**
+     * This method is used for creating a order clause. It makes this clause based on the given data
+     *
+     * @param data List String of fields and order options
+     * @return Combined order string clause
+     */
     protected final String createOrder(List<String> data) {
 
         String order = "";
@@ -131,15 +259,33 @@ public abstract class ADatabaseHandler {
         return result;
     }
 
+    /**
+     * This method is used for performing a update query to the database. This method has to be implemented
+     * This query will be build depending on the given parameters
+     *
+     * @param obj       A object with the values that the update query needs
+     * @param className The className in which in update query has to perform. E.g. Container.class
+     * @param <T>       The type of object and dto has to be the same.
+     * @return Return True of False. Depending on the result of query.
+     */
     public final <T> Boolean update(T obj, Class<T> className) {
         return update(obj, className, null);
     }
 
+    /**
+     * This method is used for performing a update query to the database. This method has to be implemented
+     * This query will be build depending on the given parameters
+     *
+     * @param obj       A object with the values that the update query needs
+     * @param className The className in which in update query has to perform. E.g. Container.class
+     * @param where     These is where a Hashmap of key value pairs are given to create a where clause
+     * @param <T>       The type of object and dto has to be the same.
+     * @return Return True of False. Depending on the result of query.
+     */
     public abstract <T> Boolean update(T obj, Class<T> className, HashMap<String, String> where);
 
-    public abstract Integer delete();
-
-    public abstract ResultSet rawSelect(String query);
-
+    /**
+     * This method is used for closing all statements, connections and resultsets
+     */
     protected abstract void close();
 }

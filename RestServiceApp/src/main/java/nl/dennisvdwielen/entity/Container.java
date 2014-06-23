@@ -12,7 +12,7 @@ import nl.dennisvdwielen.annotations.PrimaryKey;
 import nl.dennisvdwielen.annotations.Table;
 
 /**
- * Methods are dynamically called. There for they are not used directly. That's why there is a warning suppressor in place.
+ * This class is a custom entity which is used for reflection purposes and overall use with the database
  */
 @SuppressWarnings("unused")
 @Table(tableName = "container", alias = "c")

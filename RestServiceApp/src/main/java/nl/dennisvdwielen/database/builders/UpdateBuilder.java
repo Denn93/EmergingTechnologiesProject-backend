@@ -14,6 +14,11 @@ import java.util.ArrayList;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.database.builders
  */
+
+/**
+ * This class created the update query that can be performed on the database. It makes its query with a couple of
+ * important fields.
+ */
 public class UpdateBuilder {
 
     private final String UpdateTemplate = "UPDATE %s SET %s WHERE %s";
@@ -26,6 +31,13 @@ public class UpdateBuilder {
     private int addedFields;
     private ArrayList<Class> defaultTypes = new ArrayList<Class>();
 
+    /**
+     * Constructor that sets all fields and defaultTypes of non Entity objects. And starts the build sequence
+     *
+     * @param obj       The object that has to be updated.
+     * @param className The className that has be the same type as the object
+     * @param <T>       Checks that obj en className are from the same class
+     */
     public <T> UpdateBuilder(T obj, Class<T> className) {
         this.headTable = new PojoReflection(className);
         this.obj = obj;
@@ -50,18 +62,11 @@ public class UpdateBuilder {
         updateString = createUpdate();
     }
 
-    private String update() {
-        for (Field field : obj.getClass().getFields()) {
-            try {
-                Method method = obj.getClass().getMethod("get" + field);
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return "";
-    }
-
+    /**
+     * This method creates the update query. It loops multiple times if type of the value is a object. If it is a
+     * default type it directly sets the value
+     * @return The final update query.
+     */
     private String createUpdate() {
         for (Method method : obj.getClass().getMethods()) {
             if (!method.getName().startsWith("get"))
@@ -98,6 +103,11 @@ public class UpdateBuilder {
         return String.format(UpdateTemplate, headTable.getTableName(), setString, whereString);
     }
 
+    /**
+     * This method sets the value to the update string
+     * @param method The method where the value can be found
+     * @param value The value that has to be set
+     */
     private void setValue(Method method, Object value) {
         for (Field field : obj.getClass().getDeclaredFields()) {
             if (field.getName().equalsIgnoreCase(method.getName().substring(3)))
@@ -106,12 +116,17 @@ public class UpdateBuilder {
                         setString += combineFieldValue(addedFields, field.getName().toLowerCase(), value.toString());
                         addedFields++;
                     }
-//                    else
-//                        whereString = combineFieldValue(addedFields, field.getName().toLowerCase(), value.toString());
                 }
         }
     }
 
+    /**
+     * This method formats the value and field to the appropriate format
+     * @param added Check if the value is the first or not
+     * @param field The field that has to be used
+     * @param value The value for the given field
+     * @return A formatted String of field and value
+     */
     private String combineFieldValue(int added, String field, String value) {
         if (added == 0)
             return String.format(" %s='%s' ", field, value);
@@ -119,6 +134,12 @@ public class UpdateBuilder {
         return String.format(", %s='%s' ", field, value);
     }
 
+    /**
+     * This method invokes the method and returns the given object
+     * @param method The method that has to be invoked
+     * @param obj The object where on which the method has to be invoked
+     * @return The result of the invocation
+     */
     private Object invokeMethod(Method method, Object obj) {
         Object result = null;
 
@@ -133,6 +154,10 @@ public class UpdateBuilder {
         return result;
     }
 
+    /**
+     * Getter: Update string
+     * @return The created update string
+     */
     public String getUpdateString() {
         return updateString;
     }

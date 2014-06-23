@@ -21,6 +21,14 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class ContainerDAO extends ADao<ContainerDTO> {
 
+    /**
+     * Abstract Get method for retrieving data. Is part of a series of overloading methods. This method has to be overridden
+     *
+     * @param id    et with ID
+     * @param where Get data based on the where clause
+     * @param order Get data based on order
+     * @return ArrayList of Type generic Pojo
+     */
     @Override
     public ArrayList<ContainerDTO> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
         ArrayList<Class> intersection = new ArrayList<Class>();
@@ -39,6 +47,12 @@ public class ContainerDAO extends ADao<ContainerDTO> {
         return result;
     }
 
+    /**
+     * This method is used for updating the data in the database
+     *
+     * @param dto The dto with the new values
+     * @return True or False. Based on if update was successful
+     */
     @Override
     public boolean update(ContainerDTO dto) {
         HashMap<String, String> where = new HashMap<String, String>();

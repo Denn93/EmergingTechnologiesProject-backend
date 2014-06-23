@@ -82,11 +82,6 @@ public class MysqlDatabase extends ADatabaseHandler {
     }
 
     @Override
-    public ResultSet rawSelect(String query) {
-        return null;
-    }
-
-    @Override
     public <T> Boolean update(T obj, Class<T> className, HashMap<String, String> where) {
         createConnection();
 
@@ -108,11 +103,6 @@ public class MysqlDatabase extends ADatabaseHandler {
             close();
         }
         return false;
-    }
-
-    @Override
-    public Integer delete() {
-        return -1;
     }
 
     @Override

@@ -19,12 +19,26 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class ContainerLocationDAO extends ADao<LocationDTO> {
 
+    /**
+     * Abstract Get method for retrieving data. Is part of a series of overloading methods. This method has to be overridden
+     *
+     * @param id    et with ID
+     * @param where Get data based on the where clause
+     * @param order Get data based on order
+     * @return ArrayList of Type generic Pojo
+     */
     @Override
     public ArrayList<LocationDTO> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
         ArrayList<LocationDTO> result = dbHandler.multipleSelect(LocationDTO.class, ContainerLocation.class, where, order);
         return result;
     }
 
+    /**
+     * This method is used for updating the data in the database
+     *
+     * @param dto The dto with the new values
+     * @return True or False. Based on if update was successful
+     */
     @Override
     public boolean update(LocationDTO dto) {
         LinkedHashMap<String, List<String>> selectWhere = new LinkedHashMap<String, List<String>>();

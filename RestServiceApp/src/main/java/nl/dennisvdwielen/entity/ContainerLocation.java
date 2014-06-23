@@ -12,6 +12,10 @@ import java.sql.Timestamp;
  * This code is part of the RestServiceApp project.
  * This class is within package nl.dennisvdwielen.entity
  */
+
+/**
+ * This class is a custom entity which is used for reflection purposes and overall use with the database
+ */
 @SuppressWarnings("unused")
 @Table(tableName = "containerlocation", alias = "location")
 public class ContainerLocation {

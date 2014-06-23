@@ -34,7 +34,7 @@ public class ContainerResource {
 
     /**
      * GET Method. Used for retrieving container data based on filter options.
-     * This methods which options are given and filters the correct data to the different dao get methods
+     * This methods uses the options that are given and filters the correct data to the different dao get methods
      *
      * @param uriInfo These are the filter inputs from a client
      * @return A ArrayLst of ContainerDTO classes in json format

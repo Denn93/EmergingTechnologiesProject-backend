@@ -17,11 +17,25 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class HandlingDAO extends ADao<HandlingDTO> {
 
+    /**
+     * Abstract Get method for retrieving data. Is part of a series of overloading methods. This method has to be overridden
+     *
+     * @param id    et with ID
+     * @param where Get data based on the where clause
+     * @param order Get data based on order
+     * @return ArrayList of Type generic Pojo
+     */
     @Override
     public ArrayList<HandlingDTO> get(int id, LinkedHashMap<String, List<String>> where, List<String> order) {
         return dbHandler.multipleSelect(HandlingDTO.class, Handling.class);
     }
 
+    /**
+     * This method is used for updating the data in the database
+     *
+     * @param dto The dto with the new values
+     * @return True or False. Based on if update was successful
+     */
     @Override
     public boolean update(HandlingDTO dto) {
         return false;
